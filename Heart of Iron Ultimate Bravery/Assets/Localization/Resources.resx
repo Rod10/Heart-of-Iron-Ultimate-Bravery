@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GenerateText" xml:space="preserve">
+        <value>Generate</value>
+    </data>
+    <data name="ExportText" xml:space="preserve">
+        <value>Export</value>
+    </data>
+    <data name="MultiplayerText" xml:space="preserve">
+        <value>Multiplayer</value>
+    </data>
+    <data name="SettingsText" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="QuitText" xml:space="preserve">
+        <value>Quit</value>
+    </data>
+    <data name="ModActivatedText" xml:space="preserve">
+        <value>Mod activated</value>
+    </data>
+    <data name="RoadMapText" xml:space="preserve">
+        <value>Road Map</value>
+    </data>
+    <data name="MadeByText" xml:space="preserve">
+        <value>Made By</value>
+    </data>
+    <data name="ShipText" xml:space="preserve">
+        <value>Ship</value>
+    </data>
+    <data name="TankText" xml:space="preserve">
+        <value>Tank</value>
+    </data>
+    <data name="PlaneText" xml:space="preserve">
+        <value>Plane</value>
+    </data>
+    <data name="DivisionText" xml:space="preserve">
+        <value>Division</value>
+    </data>
+    <data name="DoctrineText" xml:space="preserve">
+        <value>Doctrine</value>
+    </data>
+    <data name="BackText" xml:space="preserve">
+        <value>Back</value>
+    </data>
+    <data name="CountryText" xml:space="preserve">
+        <value>Country</value>
+    </data>
+    <data name="AllCountriesText" xml:space="preserve">
+        <value>All countries</value>
+    </data>
+    <data name="NotCreatedText" xml:space="preserve">
+        <value>Not Created</value>
+    </data>
+    <data name="OptionsText" xml:space="preserve">
+        <value>Options</value>
+    </data>
+    <data name="SimultaneousBranchesText" xml:space="preserve">
+        <value>Simultaneous branches</value>
+    </data>
+    <data name="MaximumBranchesText" xml:space="preserve">
+        <value>Maximum Branches</value>
+    </data>
+    <data name="MaxNbrDoctrinesText" xml:space="preserve">
+        <value>Max number of doctrines</value>
+    </data>
+    <data name="LinearText" xml:space="preserve">
+        <value>Linear</value>
+    </data>
+    <data name="RegenerateText" xml:space="preserve">
+        <value>Regenerate</value>
+    </data>
+    <data name="WidthText" xml:space="preserve">
+        <value>Width</value>
+    </data>
+    <data name="ResetText" xml:space="preserve">
+        <value>Reset</value>
+    </data>
+    <data name="JoinText" xml:space="preserve">
+        <value>Join</value>
+    </data>
+    <data name="CreateText" xml:space="preserve">
+        <value>Create</value>
+    </data>
+    <data name="ServerNameText" xml:space="preserve">
+        <value>Server Name</value>
+    </data>
+    <data name="HostText" xml:space="preserve">
+        <value>Host</value>
+    </data>
+    <data name="ModText" xml:space="preserve">
+        <value>Mod</value>
+    </data>
+    <data name="PlayersText" xml:space="preserve">
+        <value>Players</value>
+    </data>
+    <data name="NbreDoctrinesText" xml:space="preserve">
+        <value>Number of doctrines</value>
+    </data>
+    <data name="MaxPlayerText" xml:space="preserve">
+        <value>Max players</value>
+    </data>
+    <data name="PasswordText" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="DoctrinesOptionsText" xml:space="preserve">
+        <value>Doctrines Options</value>
+    </data>
+    <data name="LanguageText" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="GamePathText" xml:space="preserve">
+        <value>Game Path</value>
+    </data>
+    <data name="ModPathText" xml:space="preserve">
+        <value>Mod path</value>
+    </data>
+    <data name="CheckText" xml:space="preserve">
+        <value>Check</value>
+    </data>
+    <data name="TestText" xml:space="preserve">
+        <value>test</value>
+    </data>
+</root>
