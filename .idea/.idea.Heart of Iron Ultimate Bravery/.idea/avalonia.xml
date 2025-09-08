@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Heart of Iron Ultimate Bravery/App.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenu.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenuView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/MainWindow.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,46 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Button.MainMenuView"
+             xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Button"
+             x:DataType="vm:MainMenuViewModel">
+	<Design.DataContext>
+		<vm:MainMenuViewModel />
+	</Design.DataContext>
+	<Panel>
+		<StackPanel HorizontalAlignment="Center" 
+		            VerticalAlignment="Center"
+		            Spacing="25">
+			<Button Width="158" 
+			        Height="51" 
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.GenerateText}" />
+			<Button Width="158" 
+			        Height="51" 
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.ExportText}" />
+			<Button Width="158" 
+			        Height="51" 
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.MultiplayerText}" />
+			<Button Command="{Binding OpenSettingsWindow}" 
+			        Width="158" 
+			        Height="51"
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.SettingsText}" />
+			<Button Command="{Binding OpenQuitWindow}"
+			        Width="158" 
+			        Height="51" 
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.QuitText}" />
+		</StackPanel>
+	</Panel>
+</UserControl>

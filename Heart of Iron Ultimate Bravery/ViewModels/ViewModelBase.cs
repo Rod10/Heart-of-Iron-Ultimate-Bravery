@@ -1,7 +1,8 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿//using CommunityToolkit.Mvvm.ComponentModel;
+using ReactiveUI;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels;
 
-public class ViewModelBase : ObservableObject
+public class ViewModelBase : ReactiveObject
 {
 }

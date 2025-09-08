@@ -57,7 +57,7 @@
         <value>Linéaire</value>
     </data>
     <data name="MadeByText" xml:space="preserve">
-        <value>Créer par</value>
+        <value>Créer par Ayaya Dev Team</value>
     </data>
     <data name="MaximumBranchesText" xml:space="preserve">
         <value>Nombre de branches maximum</value>
@@ -127,8 +127,5 @@
     </data>
     <data name="WidthText" xml:space="preserve">
         <value>Taille</value>
-    </data>
-    <data name="TestText" xml:space="preserve">
-        <value>test</value>
     </data>
 </root>

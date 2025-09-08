@@ -1,0 +1,14 @@
+﻿{
+  "vanilla": {
+    "name": "Vanilla",
+    "steamId": 0
+  },
+  "kaiserreich": {
+    "name": "Kaiserreich",
+    "steamId": 1521695605
+  },
+  "road56": {
+    "name": "The Road to 56",
+    "steamId": 820260968
+  }
+}

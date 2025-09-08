@@ -40,7 +40,7 @@
         <value>Road Map</value>
     </data>
     <data name="MadeByText" xml:space="preserve">
-        <value>Made By</value>
+        <value>Made By Ayaya Dev Team</value>
     </data>
     <data name="ShipText" xml:space="preserve">
         <value>Ship</value>
@@ -134,8 +134,5 @@
     </data>
     <data name="CheckText" xml:space="preserve">
         <value>Check</value>
-    </data>
-    <data name="TestText" xml:space="preserve">
-        <value>test</value>
     </data>
 </root>
