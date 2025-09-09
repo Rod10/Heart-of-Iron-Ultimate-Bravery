@@ -11,6 +11,7 @@
     
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
+        <AvaloniaResource Remove="Data\**" />
         <AvaloniaResource Include="Data\**" />
         <AvaloniaResource Remove="Assets\Localization\Resources.resx" />
         <AvaloniaResource Include="Assets\Localization\Resources.resx">
@@ -40,6 +41,10 @@
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Button\GenerateExportView.axaml.cs">
+          <DependentUpon>GenerateExportView.axaml</DependentUpon>
+          <SubType>Code</SubType>
         </Compile>
     </ItemGroup>
 

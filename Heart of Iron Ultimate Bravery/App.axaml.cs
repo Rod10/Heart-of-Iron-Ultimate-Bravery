@@ -8,8 +8,10 @@ using Avalonia.Markup.Xaml;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Heart_of_Iron_Ultimate_Bravery.Models;
+using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels;
 using Heart_of_Iron_Ultimate_Bravery.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Heart_of_Iron_Ultimate_Bravery;
 
@@ -22,17 +24,12 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        /*using (StreamReader file = File.OpenText("./Data/settings.json"))
-        using (JsonTextReader reader = new JsonTextReader(file))
-        {
-            JObject rawData = (JObject)JToken.ReadFrom(reader);
-            string lang = rawData.GetValue("lang")?.ToString() ?? string.Empty;
-            string gamePath = rawData.GetValue("gamePath")?.ToString() ?? string.Empty;
-            Mod mod = new Mod(rawData.GetValue("mod")?.ToString());
-            Settings settings = new Settings(lang, gamePath, mod);
-            Assets.Localization.Resources.Culture = new CultureInfo(lang);
-        }*/
-        
+        var collection = new ServiceCollection();
+        collection.AddCommonServices();
+        // Creates a ServiceProvider containing services from the provided IServiceCollection
+        var services = collection.BuildServiceProvider();
+        var settings = services.GetRequiredService<ISettings>(); //var settings = Settings
+        Assets.Localization.Resources.Culture = new CultureInfo(settings.Language);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 

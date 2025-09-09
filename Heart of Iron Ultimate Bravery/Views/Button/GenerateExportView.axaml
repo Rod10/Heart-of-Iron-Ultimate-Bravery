@@ -4,46 +4,52 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
-             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Button.MainMenuView"
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Button.GenerateExportView"
              xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Button"
-             x:DataType="vm:MainMenuViewModel">
+             x:DataType="vm:GenerateExportViewModel">
 	<Design.DataContext>
-		<vm:MainMenuViewModel />
+		<vm:GenerateExportViewModel />
 	</Design.DataContext>
 	<Panel>
 		<StackPanel HorizontalAlignment="Center" 
 		            VerticalAlignment="Center"
 		            Spacing="25">
-			<Button Command="{Binding OpenGenerateWindow}"
+			<Button Command="{Binding OpenShipWindow}"
 					Width="158" 
 			        Height="51" 
 			        HorizontalContentAlignment="Center"
 			        VerticalContentAlignment="Center"
-			        Content="{x:Static assets:Resources.GenerateText}" />
-			<Button Command="{Binding OpenExportWindow}"
+			        Content="{x:Static assets:Resources.ShipText}" />
+			<Button Command="{Binding OpenTankWindow}"
 			        Width="158" 
 			        Height="51" 
 			        HorizontalContentAlignment="Center"
 			        VerticalContentAlignment="Center"
-			        Content="{x:Static assets:Resources.ExportText}" />
-			<Button Command="{Binding OpenMultiplayerWindow}"
+			        Content="{x:Static assets:Resources.TankText}" />
+			<Button Command="{Binding OpenPlaneWindow}"
 			        Width="158" 
 			        Height="51" 
 			        HorizontalContentAlignment="Center"
 			        VerticalContentAlignment="Center"
-			        Content="{x:Static assets:Resources.MultiplayerText}" />
-			<Button Command="{Binding OpenSettingsWindow}" 
+			        Content="{x:Static assets:Resources.PlaneText}" />
+			<Button Command="{Binding OpenDivisionWindow}" 
 			        Width="158" 
 			        Height="51"
 			        HorizontalContentAlignment="Center"
 			        VerticalContentAlignment="Center"
-			        Content="{x:Static assets:Resources.SettingsText}" />
-			<Button Command="{Binding OpenQuitWindow}"
+			        Content="{x:Static assets:Resources.DivisionText}" />
+			<Button Command="{Binding OpenDoctrinesWindow}" 
+			        Width="158" 
+			        Height="51"
+			        HorizontalContentAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="{x:Static assets:Resources.DoctrineText}" />
+			<Button Command="{Binding OpenMainMenuWindow}"
 			        Width="158" 
 			        Height="51" 
 			        HorizontalContentAlignment="Center"
 			        VerticalContentAlignment="Center"
-			        Content="{x:Static assets:Resources.QuitText}" />
+			        Content="{x:Static assets:Resources.BackText}" />
 		</StackPanel>
 	</Panel>
 </UserControl>

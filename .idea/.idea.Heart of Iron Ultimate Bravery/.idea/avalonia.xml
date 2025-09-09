@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="Heart of Iron Ultimate Bravery/App.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/GenerateExportView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenu.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenuView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/MainWindow.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
