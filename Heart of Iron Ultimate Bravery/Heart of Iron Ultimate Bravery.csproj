@@ -46,6 +46,22 @@
           <DependentUpon>GenerateExportView.axaml</DependentUpon>
           <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Views\Button\SettingsView.axaml.cs">
+          <DependentUpon>SettingsView.axaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Panel\GenerateView.axaml.cs">
+          <DependentUpon>GenerateView.axaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Panel\ExportView.axaml.cs">
+          <DependentUpon>ExportView.axaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Panel\MultiplayerView.axaml.cs">
+          <DependentUpon>MultiplayerView.axaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
 </Project>

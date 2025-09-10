@@ -12,7 +12,14 @@ public class WindowsManagement : IWindowsManagement
         Buttons.Add(WindowType.GenerateExport, false);
         Buttons.Add(WindowType.Multiplayer, false);
         Buttons.Add(WindowType.Settings, false);
+        
+        Panels.Add(WindowType.MainMenu, true);
+        Panels.Add(WindowType.Generate, false);
+        Panels.Add(WindowType.Export, false);
+        Panels.Add(WindowType.Multiplayer, false);
+        Panels.Add(WindowType.Settings, false);
     }
 
     public Dictionary<WindowType, bool> Buttons { get; set; } =  new();
+    public Dictionary<WindowType, bool> Panels { get; set; } =  new();
 }

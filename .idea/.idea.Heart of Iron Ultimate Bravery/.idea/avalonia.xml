@@ -7,7 +7,16 @@
         <entry key="Heart of Iron Ultimate Bravery/Views/Button/GenerateExportView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenu.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/Button/MainMenuView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/Multiplayer.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/MultiplayerView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Button/SettingsView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
         <entry key="Heart of Iron Ultimate Bravery/Views/MainWindow.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/ExportView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/GenerateView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/MainMenuView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/MultiplayerView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/Settings.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
+        <entry key="Heart of Iron Ultimate Bravery/Views/Panel/SettingsView.axaml" value="Heart of Iron Ultimate Bravery/Heart of Iron Ultimate Bravery.csproj" />
       </map>
     </option>
   </component>

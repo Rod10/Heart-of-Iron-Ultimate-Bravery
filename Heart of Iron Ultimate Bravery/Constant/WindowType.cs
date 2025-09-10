@@ -4,6 +4,8 @@ public enum WindowType
 {
     MainMenu,
     GenerateExport,
+    Generate,
+    Export,
     Multiplayer,
     Settings,
 }

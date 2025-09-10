@@ -16,9 +16,10 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
         IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.GenerateExport] = true;
+        windowsManagement.Panels[WindowType.MainMenu] = false;
+        windowsManagement.Panels[WindowType.Generate] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
-        Console.WriteLine($@"OpenGenerateWindow: {mainWindowViewModel.Id}");
-        mainWindowViewModel.SetNewButtonBlock();
+        mainWindowViewModel.UpdateView();
     }
     
     [RelayCommand]
@@ -27,8 +28,10 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
         IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.GenerateExport] = true;
+        windowsManagement.Panels[WindowType.MainMenu] = false;
+        windowsManagement.Panels[WindowType.Export] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
-        mainWindowViewModel.SetNewButtonBlock();
+        mainWindowViewModel.UpdateView();
     }
     
     [RelayCommand]
@@ -37,8 +40,10 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
         IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.Multiplayer] = true;
+        windowsManagement.Panels[WindowType.MainMenu] = false;
+        windowsManagement.Panels[WindowType.Multiplayer] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
-        mainWindowViewModel.SetNewButtonBlock();
+        mainWindowViewModel.UpdateView();
     }
 
     [RelayCommand]
@@ -47,8 +52,10 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
         IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.Settings] = true;
+        windowsManagement.Panels[WindowType.MainMenu] = false;
+        windowsManagement.Panels[WindowType.Settings] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
-        mainWindowViewModel.SetNewButtonBlock();
+        mainWindowViewModel.UpdateView();
     }
     
     [RelayCommand]

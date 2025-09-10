@@ -6,8 +6,11 @@ using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels.Button;
+using Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
+using MultiplayerViewModel = Heart_of_Iron_Ultimate_Bravery.ViewModels.Button.MultiplayerViewModel;
+using SettingsViewModel = Heart_of_Iron_Ultimate_Bravery.ViewModels.Button.SettingsViewModel;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels;
 
@@ -16,10 +19,12 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         SetNewButtonBlock();
+        SetNewPanel();
     }
 
     public Guid Id { get; } = Guid.NewGuid();
     private ButtonBlockViewModelBase? _currentButtonBlock;
+    private PanelViewModelBase? _currentPanel;
     
     /// <summary>
     /// Gets the current page. The property is read-only
@@ -29,29 +34,67 @@ public partial class MainWindowViewModel : ViewModelBase
         get { return _currentButtonBlock; }
         private set { this.RaiseAndSetIfChanged(ref _currentButtonBlock, value); }
     }
-
-    public void SetNewButtonBlock()
+    
+    /// <summary>
+    /// Gets the current page. The property is read-only
+    /// </summary>
+    public PanelViewModelBase? CurrentPanel
     {
-        Console.WriteLine($@"SetNewButtonBlock: {Id}");
+        get { return _currentPanel; }
+        private set { this.RaiseAndSetIfChanged(ref _currentPanel, value); }
+    }
+
+    public void UpdateView()
+    {
+        SetNewButtonBlock();
+        SetNewPanel();
+    }
+    
+    private void SetNewButtonBlock()
+    {
         IWindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
         if (windowsManagement.Buttons[WindowType.MainMenu])
         {
-            //_currentButtonBlock = new MainMenuViewModel();
-            CurrentButtonBlock = new MainMenuViewModel();
+            CurrentButtonBlock = new Button.MainMenuViewModel();
         } 
         else if (windowsManagement.Buttons[WindowType.GenerateExport])
         {
-            //_currentButtonBlock = new GenerateExportViewModel();
             CurrentButtonBlock = new GenerateExportViewModel();
         } 
         else if (windowsManagement.Buttons[WindowType.Multiplayer])
         {
-            Console.WriteLine("Multiplayer button");
+            CurrentButtonBlock = new MultiplayerViewModel();
         } 
         else if (windowsManagement.Buttons[WindowType.Settings])
         {
-            Console.WriteLine("Settings button");
+            CurrentButtonBlock = new SettingsViewModel();
+        }
+    }
+
+    private void SetNewPanel()
+    {
+        IWindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>();
+        if (windowsManagement == null) throw new SystemException("windowsManagement is null");
+        if (windowsManagement.Panels[WindowType.MainMenu])
+        {
+            CurrentPanel = new Panel.MainMenuViewModel();
+        } 
+        else if (windowsManagement.Panels[WindowType.Generate])
+        {
+            CurrentPanel = new Panel.GenerateViewModel();
+        }
+        else if (windowsManagement.Panels[WindowType.Export])
+        {
+            CurrentPanel = new Panel.ExportViewModel();
+        }
+        else if (windowsManagement.Panels[WindowType.Multiplayer])
+        {
+            CurrentPanel = new Panel.MultiplayerViewModel();
+        }
+        else if (windowsManagement.Panels[WindowType.Settings])
+        {
+            CurrentPanel = new Panel.SettingsViewModel();
         }
     }
 }

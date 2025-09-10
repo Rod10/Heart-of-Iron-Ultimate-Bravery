@@ -7,37 +7,21 @@ using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Button;
 
-public partial class GenerateExportViewModel : ButtonBlockViewModelBase
+public partial class MultiplayerViewModel : ButtonBlockViewModelBase
 {
+    [RelayCommand]
+    public void OpenJoinWindow() {}
     
     [RelayCommand]
-    public void OpenShipWindow()
-    {}
+    public void OpenCreateWindow() {}
     
-    [RelayCommand]
-    public void OpenTankWindow()
-    {}
-    
-    [RelayCommand]
-    public void OpenPlaneWindow()
-    {}
-    
-    [RelayCommand]
-    public void OpenDivisionWindow()
-    {}
-    
-    [RelayCommand]
-    public void OpenDoctrinesWindow()
-    {}
-
     [RelayCommand]
     public void OpenMainMenuWindow()
     {
         IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
-        windowsManagement.Buttons[WindowType.GenerateExport] = false;
+        windowsManagement.Buttons[WindowType.Multiplayer] = false;
         windowsManagement.Buttons[WindowType.MainMenu] = true;
-        windowsManagement.Panels[WindowType.Generate] = false;
-        windowsManagement.Panels[WindowType.Export] = false;
+        windowsManagement.Panels[WindowType.Multiplayer] = false;
         windowsManagement.Panels[WindowType.MainMenu] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
         mainWindowViewModel.UpdateView();
