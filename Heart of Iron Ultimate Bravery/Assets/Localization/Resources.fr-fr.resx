@@ -128,4 +128,10 @@
     <data name="WidthText" xml:space="preserve">
         <value>Taille</value>
     </data>
+    <data name="EnglishText" xml:space="preserve">
+        <value>Anglais</value>
+    </data>
+    <data name="FrenchText" xml:space="preserve">
+        <value>Français</value>
+    </data>
 </root>

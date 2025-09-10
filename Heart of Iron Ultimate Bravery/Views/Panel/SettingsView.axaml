@@ -2,7 +2,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.SettingsView">
-    SettingsPanel
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:SettingsViewModel/>
+    </Design.DataContext>
+    <Panel>
+        <Grid Background="LightSlateGray"
+              ColumnDefinitions="*,*,*"
+              RowDefinitions="*,*,*">
+            <StackPanel Background="Gainsboro"
+                        Spacing="10"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="10,0,0,10">
+                <TextBlock Text="{x:Static assets:Resources.LanguageText}">:</TextBlock>
+                <ComboBox Name="ComboBoxLangs" 
+                          ItemsSource="{Binding CbLangsString}" 
+                          SelectedIndex="{Binding CbLangsIndex}"/>
+            </StackPanel>
+            <StackPanel Background="Gainsboro"
+                        Spacing="10"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="10,0,0,10">
+                <TextBlock Text="{x:Static assets:Resources.ModText}">:</TextBlock>
+                <ComboBox Name="ComboBoxMods" 
+                          ItemsSource="{Binding CbModsString}" 
+                          SelectedIndex="{Binding CbModsIndex}" />
+            </StackPanel>
+        </Grid>
+    </Panel>
 </UserControl>

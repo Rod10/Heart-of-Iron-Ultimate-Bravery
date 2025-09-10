@@ -132,11 +132,29 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Doctrine.
+        /// </summary>
+        public static string EnglishText {
+            get {
+                return ResourceManager.GetString("EnglishText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string ExportText {
             get {
                 return ResourceManager.GetString("ExportText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string FrenchText {
+            get {
+                return ResourceManager.GetString("FrenchText", resourceCulture);
             }
         }
         

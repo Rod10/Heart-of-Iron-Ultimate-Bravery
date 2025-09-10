@@ -135,4 +135,10 @@
     <data name="CheckText" xml:space="preserve">
         <value>Check</value>
     </data>
+    <data name="EnglishText" xml:space="preserve">
+        <value>English</value>
+    </data>
+    <data name="FrenchText" xml:space="preserve">
+        <value>French</value>
+    </data>
 </root>

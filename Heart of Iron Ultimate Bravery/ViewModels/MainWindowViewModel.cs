@@ -21,8 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
         SetNewButtonBlock();
         SetNewPanel();
     }
-
-    public Guid Id { get; } = Guid.NewGuid();
+    
     private ButtonBlockViewModelBase? _currentButtonBlock;
     private PanelViewModelBase? _currentPanel;
     

@@ -1,0 +1,10 @@
+﻿{
+  "english": {
+    "Name": "English",
+    "Local": "en-en"
+  },
+  "french": {
+    "Name": "French",
+    "Local": "fr-fr"
+  }
+}

@@ -32,7 +32,7 @@ public class Settings : ISettings
         throw new System.NotImplementedException();
     }
 
-    public bool SetMod(Mod mod)
+    public bool SetMod(string mod)
     {
         throw new System.NotImplementedException();
     }

@@ -8,5 +8,5 @@ public interface ISettings
     
     public bool SetLanguage(string language);
     public bool SetGamePath(string path);
-    public bool SetMod(Mod mod);
+    public bool SetMod(string mod);
 }
