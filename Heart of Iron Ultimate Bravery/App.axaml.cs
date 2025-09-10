@@ -24,11 +24,8 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        var collection = new ServiceCollection();
-        collection.AddCommonServices();
-        // Creates a ServiceProvider containing services from the provided IServiceCollection
-        var services = collection.BuildServiceProvider();
-        var settings = services.GetRequiredService<ISettings>(); //var settings = Settings
+        ServiceCollectionExtensions.AddCommonServices();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         Assets.Localization.Resources.Culture = new CultureInfo(settings.Language);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
@@ -37,7 +34,7 @@ public partial class App : Application
             // DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = ServiceCollectionExtensions.GetService<MainWindowViewModel>(),
             };
         }
 

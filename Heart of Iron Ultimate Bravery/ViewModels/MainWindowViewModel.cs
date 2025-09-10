@@ -15,15 +15,16 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel()
     {
-        _currentButtonBlock = new MainMenuViewModel();
+        SetNewButtonBlock();
     }
 
-    private ViewModelBase _currentButtonBlock;
+    public Guid Id { get; } = Guid.NewGuid();
+    private ButtonBlockViewModelBase? _currentButtonBlock;
     
     /// <summary>
     /// Gets the current page. The property is read-only
     /// </summary>
-    public ViewModelBase CurrentButtonBlock
+    public ButtonBlockViewModelBase? CurrentButtonBlock
     {
         get { return _currentButtonBlock; }
         private set { this.RaiseAndSetIfChanged(ref _currentButtonBlock, value); }
@@ -31,17 +32,18 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public void SetNewButtonBlock()
     {
+        Console.WriteLine($@"SetNewButtonBlock: {Id}");
         IWindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
         if (windowsManagement.Buttons[WindowType.MainMenu])
         {
-            _currentButtonBlock = new MainMenuViewModel();
-            CurrentButtonBlock = _currentButtonBlock;
+            //_currentButtonBlock = new MainMenuViewModel();
+            CurrentButtonBlock = new MainMenuViewModel();
         } 
         else if (windowsManagement.Buttons[WindowType.GenerateExport])
         {
-            _currentButtonBlock = new GenerateExportViewModel();
-            CurrentButtonBlock = _currentButtonBlock;
+            //_currentButtonBlock = new GenerateExportViewModel();
+            CurrentButtonBlock = new GenerateExportViewModel();
         } 
         else if (windowsManagement.Buttons[WindowType.Multiplayer])
         {

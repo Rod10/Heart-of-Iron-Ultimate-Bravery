@@ -7,7 +7,7 @@ using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Button;
 
-public partial class GenerateExportViewModel : ViewModelBase
+public partial class GenerateExportViewModel : ButtonBlockViewModelBase
 {
     
     [RelayCommand]
@@ -37,6 +37,7 @@ public partial class GenerateExportViewModel : ViewModelBase
         windowsManagement.Buttons[WindowType.GenerateExport] = false;
         windowsManagement.Buttons[WindowType.MainMenu] = true;
         MainWindowViewModel mainWindowViewModel = ServiceCollectionExtensions.GetService<MainWindowViewModel>()!;
+        Console.WriteLine(mainWindowViewModel.Id);
         mainWindowViewModel.SetNewButtonBlock();
     }
 }

@@ -8,14 +8,13 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models;
 
 public static class ServiceCollectionExtensions
 {
-    private static IServiceCollection _collection;
-    private static IServiceProvider _serviceProvider;
-    public static void AddCommonServices(this IServiceCollection collection)
+    private static IServiceCollection _collection = new ServiceCollection();
+    private static IServiceProvider _serviceProvider = null!;
+    public static void AddCommonServices()
     {
-        collection.AddSingleton<ISettings, Settings>();
-        collection.AddSingleton<IWindowsManagement, WindowsManagement>();
-        collection.AddSingleton<MainWindowViewModel, MainWindowViewModel>();
-        _collection = collection;
+        _collection.AddSingleton<ISettings, Settings>();
+        _collection.AddSingleton<IWindowsManagement, WindowsManagement>();
+        _collection.AddSingleton<MainWindowViewModel, MainWindowViewModel>();
         _serviceProvider = _collection.BuildServiceProvider();
     }
     
