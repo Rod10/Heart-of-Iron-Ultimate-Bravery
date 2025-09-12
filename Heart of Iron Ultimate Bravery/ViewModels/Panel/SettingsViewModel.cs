@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Avalonia.Controls;
+using CommunityToolkit.Mvvm.Input;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 using Newtonsoft.Json;
@@ -11,10 +12,11 @@ using ReactiveUI;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel;
 
-public class SettingsViewModel : PanelViewModelBase
+public partial class SettingsViewModel : PanelViewModelBase
 {
     public SettingsViewModel()
     {
+        Console.WriteLine(_guid);
         ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
         Lang = settings.Language;
         GamePath = settings.GamePath;
@@ -52,11 +54,14 @@ public class SettingsViewModel : PanelViewModelBase
                 {
                     CbModsIndex = modIndex;
                 }
+                modIndex++;
             }
         }
+        Console.WriteLine(CbModsIndex.GetTypeCode() + " " + _modsIndex.GetTypeCode());
         // Console.WriteLine(Assets.Localization.Resources.ResourceManager.GetString("SettingsText"));
     }
 
+    Guid _guid = Guid.NewGuid();
     private string? _lang;
     private string? _gamePath;
     private Mod? _mod;
@@ -105,5 +110,13 @@ public class SettingsViewModel : PanelViewModelBase
     {
         get { return _modsIndex; }
         private set { this.RaiseAndSetIfChanged(ref _modsIndex, value); }
+    }
+
+    [RelayCommand]
+    public void SaveSettings()
+    {
+        Console.WriteLine(_guid);
+        //Console.WriteLine(CbLangsIndex.GetTypeCode() + " " + _langsIndex.GetTypeCode());
+        Console.WriteLine(CbModsIndex.GetTypeCode() + " " + _modsIndex.GetTypeCode());
     }
 }

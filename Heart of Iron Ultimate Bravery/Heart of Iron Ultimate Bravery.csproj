@@ -35,6 +35,8 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4-beta1" />
+        <PackageReference Include="Xaml.Behaviors.Avalonia" Version="11.3.2" />
+        <PackageReference Include="Xaml.Behaviors.Interactions.Custom" Version="11.3.2" />
     </ItemGroup>
 
     <ItemGroup>

@@ -427,5 +427,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Localization {
                 return ResourceManager.GetString("WidthText", resourceCulture);
             }
         }
+
+        public static string SaveText {
+            get {
+                return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
     }
 }

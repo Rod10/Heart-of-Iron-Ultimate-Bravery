@@ -2,9 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="using:Avalonia.Xaml.Interactivity"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
+             xmlns:iac="using:Avalonia.Xaml.Interactions.Custom"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
              xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:CompileBindings="True"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.SettingsView"
              x:DataType="vm:SettingsViewModel">
     <Design.DataContext>
@@ -15,27 +19,50 @@
     <Panel>
         <Grid Background="LightSlateGray"
               ColumnDefinitions="*,*,*"
-              RowDefinitions="*,*,*">
+              RowDefinitions="Auto,*,*">
+            <TextBlock Background="Gainsboro"
+                       Grid.Row="0" 
+                       Grid.Column="1" 
+                       TextAlignment="Center" 
+                       Margin="10,10,10,10" 
+                       Text="{x:Static assets:Resources.SettingsText}" />
             <StackPanel Background="Gainsboro"
                         Spacing="10"
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="0"
-                        Margin="10,0,0,10">
-                <TextBlock Text="{x:Static assets:Resources.LanguageText}">:</TextBlock>
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="{x:Static assets:Resources.LanguageText}">:</TextBlock>
                 <ComboBox Name="ComboBoxLangs" 
                           ItemsSource="{Binding CbLangsString}" 
                           SelectedIndex="{Binding CbLangsIndex}"/>
             </StackPanel>
             <StackPanel Background="Gainsboro"
                         Spacing="10"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="0"
-                        Margin="10,0,0,10">
-                <TextBlock Text="{x:Static assets:Resources.ModText}">:</TextBlock>
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="{x:Static assets:Resources.ModText}">:</TextBlock>
                 <ComboBox Name="ComboBoxMods" 
-                          ItemsSource="{Binding CbModsString}" 
-                          SelectedIndex="{Binding CbModsIndex}" />
+                          ItemsSource="{Binding CbModsString}"
+                          SelectedIndex="{Binding CbModsIndex}">
+                    <!--SelectedIndex="{Binding CbModsIndex}"-->
+                    <!--<i:Interaction.Behaviors>
+                        <iac:ValueChangedTriggerBehavior Binding="{Binding CbModsIndex}">
+                            <ia:ChangePropertyAction TargetObject="ComboBoxMods" 
+                                                     PropertyName="SelectedIndex"
+                                                     Value="{Binding CbModsIndex}" />
+                        </iac:ValueChangedTriggerBehavior>
+                    </i:Interaction.Behaviors>-->
+                </ComboBox>
             </StackPanel>
+            <Button Command="{Binding SaveSettings}"
+                    Grid.Row="2" 
+                    Grid.Column="2" 
+                    Content="{x:Static assets:Resources.SaveText}"/>
         </Grid>
     </Panel>
 </UserControl>

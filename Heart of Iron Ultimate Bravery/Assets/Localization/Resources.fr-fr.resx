@@ -134,4 +134,7 @@
     <data name="FrenchText" xml:space="preserve">
         <value>Français</value>
     </data>
+    <data name="SaveText" xml:space="preserve">
+        <value>Sauvegarder</value>
+    </data>
 </root>
