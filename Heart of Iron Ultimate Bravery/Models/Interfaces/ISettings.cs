@@ -6,7 +6,7 @@ public interface ISettings
     public string GamePath { get; }
     public Mod CurrentMod { get; }
     
-    public bool SetLanguage(string language);
-    public bool SetGamePath(string path);
-    public bool SetMod(string mod);
+    public void SetLanguage(string language);
+    public void SetGamePath(string path);
+    public void SetMod(string mod);
 }

@@ -12,7 +12,9 @@
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
         <AvaloniaResource Remove="Data\**" />
-        <AvaloniaResource Include="bin\Debug\net9.0\Data\langs.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\langs.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AvaloniaResource>
         <AvaloniaResource Include="Data\**" />
         <AvaloniaResource Remove="Assets\Localization\Resources.resx" />
         <AvaloniaResource Include="Assets\Localization\Resources.resx">

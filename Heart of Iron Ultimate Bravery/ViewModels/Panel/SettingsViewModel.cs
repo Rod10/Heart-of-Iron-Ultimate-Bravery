@@ -16,7 +16,6 @@ public partial class SettingsViewModel : PanelViewModelBase
 {
     public SettingsViewModel()
     {
-        Console.WriteLine(_guid);
         ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
         Lang = settings.Language;
         GamePath = settings.GamePath;
@@ -31,6 +30,7 @@ public partial class SettingsViewModel : PanelViewModelBase
             foreach (var jToken in langs)
             {
                 Language lang= jToken.First.ToObject<Language>();
+                _langsList.Add(lang);
                 CbLangsString.Add(Assets.Localization.Resources.ResourceManager.GetString($"{lang.Name}Text"));
                 if (Lang == lang.Local)
                 {
@@ -50,6 +50,7 @@ public partial class SettingsViewModel : PanelViewModelBase
             {
                 Mod mod = jToken.First.ToObject<Mod>();
                 CbModsString.Add(mod.Name);
+                _modsList.Add(jToken.Path);
                 if (Mod.Name == mod.Name)
                 {
                     CbModsIndex = modIndex;
@@ -57,8 +58,6 @@ public partial class SettingsViewModel : PanelViewModelBase
                 modIndex++;
             }
         }
-        Console.WriteLine(CbModsIndex.GetTypeCode() + " " + _modsIndex.GetTypeCode());
-        // Console.WriteLine(Assets.Localization.Resources.ResourceManager.GetString("SettingsText"));
     }
 
     Guid _guid = Guid.NewGuid();
@@ -66,8 +65,10 @@ public partial class SettingsViewModel : PanelViewModelBase
     private string? _gamePath;
     private Mod? _mod;
     private List<string>? _langsString = new();
+    private List<Language>? _langsList = new();
     private int _langsIndex;
     private List<string>? _modsString = new();
+    private List<string>? _modsList = new();
     private int _modsIndex;
     
     public string? Lang
@@ -97,7 +98,7 @@ public partial class SettingsViewModel : PanelViewModelBase
     public int CbLangsIndex
     {
         get { return _langsIndex; }
-        private set { this.RaiseAndSetIfChanged(ref _langsIndex, value); }
+        set { this.RaiseAndSetIfChanged(ref _langsIndex, value); }
     }
 
     public List<string>? CbModsString
@@ -109,14 +110,15 @@ public partial class SettingsViewModel : PanelViewModelBase
     public int CbModsIndex
     {
         get { return _modsIndex; }
-        private set { this.RaiseAndSetIfChanged(ref _modsIndex, value); }
+        set { this.RaiseAndSetIfChanged(ref _modsIndex, value); }
     }
 
     [RelayCommand]
     public void SaveSettings()
     {
-        Console.WriteLine(_guid);
-        //Console.WriteLine(CbLangsIndex.GetTypeCode() + " " + _langsIndex.GetTypeCode());
-        Console.WriteLine(CbModsIndex.GetTypeCode() + " " + _modsIndex.GetTypeCode());
+        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        settings.SetLanguage(_langsList[CbLangsIndex].Local);
+        settings.SetGamePath("test");
+        settings.SetMod(_modsList[CbModsIndex]);
     }
 }

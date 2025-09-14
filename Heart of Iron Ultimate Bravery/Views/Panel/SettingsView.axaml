@@ -49,14 +49,6 @@
                 <ComboBox Name="ComboBoxMods" 
                           ItemsSource="{Binding CbModsString}"
                           SelectedIndex="{Binding CbModsIndex}">
-                    <!--SelectedIndex="{Binding CbModsIndex}"-->
-                    <!--<i:Interaction.Behaviors>
-                        <iac:ValueChangedTriggerBehavior Binding="{Binding CbModsIndex}">
-                            <ia:ChangePropertyAction TargetObject="ComboBoxMods" 
-                                                     PropertyName="SelectedIndex"
-                                                     Value="{Binding CbModsIndex}" />
-                        </iac:ValueChangedTriggerBehavior>
-                    </i:Interaction.Behaviors>-->
                 </ComboBox>
             </StackPanel>
             <Button Command="{Binding SaveSettings}"

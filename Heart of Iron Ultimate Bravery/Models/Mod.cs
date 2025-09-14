@@ -10,6 +10,7 @@ public class Mod
 {
     public string Name {  get; set; }
     public int SteamId { get; set; }
+    public string Short { get; set; }
     // public List<Country> countries { get; set; } 
 
     public Mod() {}
@@ -23,6 +24,7 @@ public class Mod
             JObject? modData = rawData.GetValue(name)!.Value<JObject>();
             Name = modData?["name"]?.ToString() ?? string.Empty;
             SteamId = int.Parse(modData?["steamId"]?.ToString()!);
+            Short = name ?? "vanilla";
         }
     }
 }

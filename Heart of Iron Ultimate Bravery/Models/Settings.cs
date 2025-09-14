@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.Globalization;
+using System.IO;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.ViewModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -23,17 +26,69 @@ public class Settings : ISettings
         }
     }
     
-    public bool SetLanguage(string language)
+    public void SetLanguage(string language)
     {
-        throw new System.NotImplementedException();
+        try
+        {
+            Language = language;
+            UpdateData();
+
+        }
+        catch (Exception e)
+        {
+            throw new (e.Message);
+        }
     }
-    public bool SetGamePath(string path)
+    public void SetGamePath(string path = "test")
     {
-        throw new System.NotImplementedException();
+        try
+        {
+            GamePath = path;
+            UpdateData();
+
+        }
+        catch (Exception e)
+        {
+            throw new (e.Message);
+        }
     }
 
-    public bool SetMod(string mod)
+    public void SetMod(string mod)
     {
-        throw new System.NotImplementedException();
+        try
+        {
+            CurrentMod = new Mod(mod);
+            UpdateData();
+
+        }
+        catch (Exception e)
+        {
+            throw new (e.Message);
+        }
+    }
+
+    private void UpdateData()
+    {
+        try
+        {
+            object test = new
+            {
+                lang = Language,
+                gamePath = GamePath,
+                mod = CurrentMod.Short
+            };
+            using (StreamWriter file = File.CreateText(@"./Data/settings.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, test);
+            }
+            Assets.Localization.Resources.Culture = new CultureInfo(Language);
+            MainWindowViewModel? currentWindow = ServiceCollectionExtensions.GetService<MainWindowViewModel>();
+            currentWindow.UpdateView();
+        }
+        catch (Exception e)
+        {
+            throw new (e.Message);
+        }
     }
 }
