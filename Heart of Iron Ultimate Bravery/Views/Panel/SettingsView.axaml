@@ -7,6 +7,7 @@
              xmlns:iac="using:Avalonia.Xaml.Interactions.Custom"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
              xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
+             xmlns:views="clr-namespace:AvaloniaDialogs.Views;assembly=AvaloniaDialogs"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:CompileBindings="True"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.SettingsView"
@@ -33,7 +34,8 @@
                         Margin="10,0,0,10"
                         HorizontalAlignment="Center">
                 <TextBlock TextAlignment="Center"
-                           Text="{x:Static assets:Resources.LanguageText}">:</TextBlock>
+                           Text="{x:Static assets:Resources.LanguageText}">:
+                </TextBlock>
                 <ComboBox Name="ComboBoxLangs" 
                           ItemsSource="{Binding CbLangsString}" 
                           SelectedIndex="{Binding CbLangsIndex}"/>
@@ -45,16 +47,49 @@
                         Margin="10,0,0,10"
                         HorizontalAlignment="Center">
                 <TextBlock TextAlignment="Center"
-                           Text="{x:Static assets:Resources.ModText}">:</TextBlock>
+                           Text="{x:Static assets:Resources.ModText}">:
+                </TextBlock>
                 <ComboBox Name="ComboBoxMods" 
                           ItemsSource="{Binding CbModsString}"
                           SelectedIndex="{Binding CbModsIndex}">
                 </ComboBox>
             </StackPanel>
+            <StackPanel Background="Gainsboro"
+                        Spacing="10"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="{x:Static assets:Resources.GamePathText}">:
+                </TextBlock>
+                <TextBox Text="{Binding GamePath}"/>
+            </StackPanel>
+            <StackPanel Background="Gainsboro"
+                        Spacing="10"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="{x:Static assets:Resources.ModPathText}">:
+                </TextBlock>
+                <TextBox Text="{Binding ModPath}"/>
+            </StackPanel>
+            <StackPanel Background="Gainsboro"
+                        Spacing="135"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <views:ReactiveDialogHost CloseOnClickAway="True">
+                    <Button Command="{Binding CheckModPath}"
+                            Content="{x:Static assets:Resources.CheckText}"/>
+                </views:ReactiveDialogHost>
             <Button Command="{Binding SaveSettings}"
-                    Grid.Row="2" 
-                    Grid.Column="2" 
                     Content="{x:Static assets:Resources.SaveText}"/>
+            </StackPanel>
         </Grid>
     </Panel>
 </UserControl>

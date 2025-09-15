@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Controls;
+using AvaloniaDialogs.Views;
 using CommunityToolkit.Mvvm.Input;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
@@ -20,6 +22,7 @@ public partial class SettingsViewModel : PanelViewModelBase
         Lang = settings.Language;
         GamePath = settings.GamePath;
         Mod = settings.CurrentMod;
+        // ModPath = settings.ModPath;
 
         int langIndex = 0;
         using (StreamReader file = File.OpenText("./Data/langs.json"))
@@ -63,6 +66,7 @@ public partial class SettingsViewModel : PanelViewModelBase
     Guid _guid = Guid.NewGuid();
     private string? _lang;
     private string? _gamePath;
+    private string? _modPath;
     private Mod? _mod;
     private List<string>? _langsString = new();
     private List<Language>? _langsList = new();
@@ -80,7 +84,13 @@ public partial class SettingsViewModel : PanelViewModelBase
     public string? GamePath
     {
         get { return _gamePath; }
-        private set { this.RaiseAndSetIfChanged(ref _gamePath, value); }
+        set { this.RaiseAndSetIfChanged(ref _gamePath, value); }
+    }
+    
+    public string? ModPath
+    {
+        get { return _modPath; }
+        set { this.RaiseAndSetIfChanged(ref _modPath, value); }
     }
     
     public Mod? Mod
@@ -110,15 +120,44 @@ public partial class SettingsViewModel : PanelViewModelBase
     public int CbModsIndex
     {
         get { return _modsIndex; }
-        set { this.RaiseAndSetIfChanged(ref _modsIndex, value); }
+        set
+        {
+            
+            ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+            ModPath = settings.ModPath.ElementAt(value).Value;
+            this.RaiseAndSetIfChanged(ref _modsIndex, value);
+        }
     }
 
+    [RelayCommand]
+    public async Task CheckModPath()
+    {
+        string message;
+        if (Directory.Exists(ModPath))
+        {
+            message = "Mod found";
+        }
+        else
+        {
+            message = "Mod not found";
+        }
+        SingleActionDialog dialog = new() {
+            Message = message,
+            ButtonText = "Okay"
+        };
+        if ((await dialog.ShowAsync()).HasValue)
+        {
+            Console.WriteLine("test");
+        }
+    }
+    
     [RelayCommand]
     public void SaveSettings()
     {
         ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
         settings.SetLanguage(_langsList[CbLangsIndex].Local);
-        settings.SetGamePath("test");
+        settings.SetGamePath(GamePath);
         settings.SetMod(_modsList[CbModsIndex]);
+        settings.SetModPath(ModPath);
     }
 }

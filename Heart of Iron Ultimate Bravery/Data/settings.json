@@ -1,5 +1,10 @@
 ﻿{
   "lang": "fr-fr",
   "mod": "vanilla",
-  "gamePath": ""
+  "gamePath": "",
+  "modPath": {
+    "vanilla": "",
+    "kaiserreich": "",
+    "road56": ""
+  }
 }

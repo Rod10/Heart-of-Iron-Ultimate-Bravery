@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
@@ -14,6 +15,8 @@ public class Settings : ISettings
     public string GamePath { get; set; }
     public Mod CurrentMod { get; set; }
 
+    public Dictionary<string ,string> ModPath { get; set; }
+
     public Settings()
     {
         using (StreamReader file = File.OpenText("./Data/settings.json"))
@@ -23,6 +26,7 @@ public class Settings : ISettings
             Language = rawData.GetValue("lang")?.ToString() ?? string.Empty;
             GamePath = rawData.GetValue("gamePath")?.ToString() ?? string.Empty;
             CurrentMod = new Mod(rawData.GetValue("mod")?.ToString());
+            ModPath = JsonConvert.DeserializeObject<Dictionary<string, string>>(rawData.GetValue("modPath").ToString());
         }
     }
     
@@ -67,6 +71,20 @@ public class Settings : ISettings
         }
     }
 
+    public void SetModPath(string path)
+    {
+        try
+        {
+            ModPath[CurrentMod.Short] = path;
+            UpdateData();
+
+        }
+        catch (Exception e)
+        {
+            throw new (e.Message);
+        }
+    }
+
     private void UpdateData()
     {
         try
@@ -75,7 +93,8 @@ public class Settings : ISettings
             {
                 lang = Language,
                 gamePath = GamePath,
-                mod = CurrentMod.Short
+                mod = CurrentMod.Short,
+                modPath = ModPath
             };
             using (StreamWriter file = File.CreateText(@"./Data/settings.json"))
             {
