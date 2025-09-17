@@ -8,7 +8,8 @@
         x:Class="Heart_of_Iron_Ultimate_Bravery.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Heart of Iron Ultimate Bravery">
+        Title="Heart of Iron Ultimate Bravery"
+        xmlns:views="clr-namespace:AvaloniaDialogs.Views;assembly=AvaloniaDialogs">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -16,6 +17,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
+    <views:ReactiveDialogHost CloseOnClickAway="True">
     <Grid>
         <Panel Background="Gainsboro"
               HorizontalAlignment="Left"
@@ -52,5 +54,5 @@
             <TransitioningContentControl Content="{Binding CurrentPanel}" />
         </Panel>
     </Grid>
-
+    </views:ReactiveDialogHost>
 </Window>

@@ -26,6 +26,7 @@ public partial class App : Application
     {
         ServiceCollectionExtensions.AddCommonServices();
         Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        settings.CurrentMod.AddCountries();
         Assets.Localization.Resources.Culture = new CultureInfo(settings.Language);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

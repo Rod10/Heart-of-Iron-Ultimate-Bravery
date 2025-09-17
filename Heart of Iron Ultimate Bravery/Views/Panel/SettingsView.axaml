@@ -7,7 +7,6 @@
              xmlns:iac="using:Avalonia.Xaml.Interactions.Custom"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
              xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
-             xmlns:views="clr-namespace:AvaloniaDialogs.Views;assembly=AvaloniaDialogs"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:CompileBindings="True"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.SettingsView"
@@ -83,12 +82,10 @@
                         Margin="10,0,0,10"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <views:ReactiveDialogHost CloseOnClickAway="True">
-                    <Button Command="{Binding CheckModPath}"
-                            Content="{x:Static assets:Resources.CheckText}"/>
-                </views:ReactiveDialogHost>
-            <Button Command="{Binding SaveSettings}"
-                    Content="{x:Static assets:Resources.SaveText}"/>
+                <Button Command="{Binding CheckModPath}"
+                        Content="{x:Static assets:Resources.CheckText}"/>
+                <Button Command="{Binding SaveSettings}"
+                        Content="{x:Static assets:Resources.SaveText}"/>
             </StackPanel>
         </Grid>
     </Panel>

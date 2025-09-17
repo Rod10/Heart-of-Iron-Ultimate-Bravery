@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
+using AvaloniaDialogs.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
@@ -94,6 +96,26 @@ public partial class MainWindowViewModel : ViewModelBase
         else if (windowsManagement.Panels[WindowType.Settings])
         {
             CurrentPanel = new Panel.SettingsViewModel();
+        }
+    }
+
+    public async void openDialogBox(string modPath)
+    {
+        string message;
+        if (Directory.Exists(modPath))
+        {
+            message = "Mod found";
+        }
+        else
+        {
+            message = "Mod not found";
+        }
+        SingleActionDialog dialog = new() {
+            Message = message,
+            ButtonText = "Okay"
+        };
+        if ((await dialog.ShowAsync()).HasValue)
+        {
         }
     }
 }

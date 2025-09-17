@@ -132,23 +132,8 @@ public partial class SettingsViewModel : PanelViewModelBase
     [RelayCommand]
     public async Task CheckModPath()
     {
-        string message;
-        if (Directory.Exists(ModPath))
-        {
-            message = "Mod found";
-        }
-        else
-        {
-            message = "Mod not found";
-        }
-        SingleActionDialog dialog = new() {
-            Message = message,
-            ButtonText = "Okay"
-        };
-        if ((await dialog.ShowAsync()).HasValue)
-        {
-            Console.WriteLine("test");
-        }
+        MainWindowViewModel? currentWindow = ServiceCollectionExtensions.GetService<MainWindowViewModel>();
+        currentWindow.openDialogBox(ModPath);
     }
     
     [RelayCommand]

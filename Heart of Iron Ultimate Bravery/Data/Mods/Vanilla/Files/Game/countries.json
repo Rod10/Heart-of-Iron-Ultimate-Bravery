@@ -1,0 +1,23 @@
+﻿[
+  {
+    "name": "Germany",
+    "tag": "GER",
+    "isMajor": true,
+    "countries": "GER - Germany",
+    "ideas": "GER"
+  },
+  {
+    "name": "France",
+    "tag": "FRA",
+    "isMajor": true,
+    "countries": "FRA - France",
+    "ideas": "france"
+  },
+  {
+    "name": "",
+    "tag": "",
+    "isMajor": false,
+    "countries": "",
+    "ideas": ""
+  }
+]
