@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
-using Heart_of_Iron_Ultimate_Bravery.Models.Tank;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Heart_of_Iron_Ultimate_Bravery.Models;
 
-public class Mod<>
+public class Mod
 {
-    public string Name {  get; set; }
-    public int SteamId { get; set; }
+    public string Name { get; set; }
+    public BigInteger SteamId { get; set; }
     public string Short { get; set; }
-    public List<Country<TankType>> countries { get; set; } 
+    public List<Country> countries { get; set; }
 
     public Mod() {}
-    
+
     public Mod(string? name)
     {
         using (StreamReader file = File.OpenText("./Data/mods.json"))
@@ -42,7 +42,7 @@ public class Mod<>
                 if (jCountry["name"]?.ToString() != "")
                 {
                     Country country = new Country(jCountry);
-                    countries.Add(country);
+                    // countries.Add(country);
                 }
             }
         }
