@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.IO;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -17,7 +18,10 @@ public class Country
     
     public JObject Ideas { get; set; }
 
-    public Dictionary<TankType, dynamic> Tanks { get; set; }
+    public Dictionary<ShipType, dynamic> Ships { get; set; }
+    public Dictionary<TankType, Tank?> Tanks { get; set; }
+    public Dictionary<PlaneType, dynamic> Planes { get; set; }
+    public Dictionary<DivisionType, dynamic> Divisions { get; set; }
     
     public Country(JToken jCountry)
     {
@@ -50,20 +54,71 @@ public class Country
 
         InitializeTankDictionary(settings.CurrentMod.Short);
         
+        Random rnd = new Random();
+        TankType[] validTankTypes = EnumHelper.GetEnumArrayForMod<TankType>(settings.CurrentMod.Short);
+        TankType tankType = validTankTypes[rnd.Next(0, validTankTypes.Length)];
+        Console.WriteLine(tankType.ToString());
     }    
     
-    private void InitializeTankDictionary(string mod)
+    private void InitializeShipDictionary(string mod)
     {
-        Tanks = new Dictionary<TankType, dynamic>();
+        Ships = new Dictionary<ShipType, dynamic>();
         
-        Type enumType = GetEnumTypeForMod<TankType>(mod);
+        Type enumType = GetEnumTypeForMod<ShipType>(mod);
         if (enumType != null)
         {
             foreach (var enumValue in Enum.GetValues(enumType))
             {
-                if (Enum.TryParse<TankType>(enumValue.ToString(), out var tankType))
+                // Parse the enum value to your ShipType enum
+                if (Enum.TryParse<ShipType>(enumValue.ToString(), out var shipType))
                 {
-                    Tanks[tankType] = new object();
+                    Ships[shipType] = new object(); // Initialize with default or specific values
+                }
+            }
+        }
+    }
+
+    
+    private void InitializeTankDictionary(string mod)
+    {
+        Tanks = new Dictionary<TankType, Tank?>();
+        TankType[] validTankTypes = EnumHelper.GetEnumArrayForMod<TankType>(mod);
+            
+        foreach (var tankType in validTankTypes)
+        {
+            Tanks[tankType] = null;
+        }
+    }
+    
+    private void InitializePlaneDictionary(string mod)
+    {
+        Planes = new Dictionary<PlaneType, dynamic>();
+        
+        Type enumType = GetEnumTypeForMod<PlaneType>(mod);
+        if (enumType != null)
+        {
+            foreach (var enumValue in Enum.GetValues(enumType))
+            {
+                if (Enum.TryParse<PlaneType>(enumValue.ToString(), out var planeType))
+                {
+                    Planes[planeType] = new object();
+                }
+            }
+        }
+    }
+
+    private void InitializeDivisionDictionary(string mod)
+    {
+        Divisions = new Dictionary<DivisionType, dynamic>();
+        
+        Type enumType = GetEnumTypeForMod<DivisionType>(mod);
+        if (enumType != null)
+        {
+            foreach (var enumValue in Enum.GetValues(enumType))
+            {
+                if (Enum.TryParse<DivisionType>(enumValue.ToString(), out var divisionType))
+                {
+                    Divisions[divisionType] = new object();
                 }
             }
         }
@@ -77,6 +132,7 @@ public class Country
             "vanilla" => $"Vanilla{baseTypeName}",
             "kaiserreich" => $"Kaiserreich{baseTypeName}",
             "road56" => $"Road56{baseTypeName}",
+            "millenniumDawn" => $"MillenniumDawn{baseTypeName}",
             _ => $"Vanilla{baseTypeName}" // Default fallback
         };
 

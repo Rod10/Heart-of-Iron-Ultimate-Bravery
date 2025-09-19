@@ -17,7 +17,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 ShipType.Submarine
             };
 
-            public static readonly ShipType[] Kaiserreich = 
+            /*public static readonly ShipType[] Kaiserreich = 
             {
                 ShipType.Destroyer,
                 ShipType.Cruiser,
@@ -37,7 +37,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 ShipType.SuperCarrier,
                 ShipType.Submarine,
                 ShipType.BattleCruiser
-            };
+            };*/
         }
 
         // Tank types by mod
@@ -48,10 +48,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 TankType.LightTank,
                 TankType.MediumTank,
                 TankType.HeavyTank,
-                TankType.TankDestroyer
+                TankType.ModernTank
             };
 
-            public static readonly TankType[] Kaiserreich = 
+            /*public static readonly TankType[] Kaiserreich = 
             {
                 TankType.LightTank,
                 TankType.MediumTank,
@@ -67,6 +67,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 TankType.HeavyTank,
                 TankType.ModernTank,
                 TankType.TankDestroyer
+            };*/
+
+            public static readonly TankType[] MillenniumDawn =
+            {
+                TankType.MainBattleTank
             };
         }
 
@@ -76,12 +81,13 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
             public static readonly PlaneType[] Vanilla = 
             {
                 PlaneType.Fighter,
-                PlaneType.Bomber,
-                PlaneType.CAS,
-                PlaneType.NavalBomber
+                PlaneType.CloseAirSupport,
+                PlaneType.NavalBomber,
+                PlaneType.TacticalBomber,
+                PlaneType.StrategicBomber
             };
 
-            public static readonly PlaneType[] Kaiserreich = 
+            /*public static readonly PlaneType[] Kaiserreich = 
             {
                 PlaneType.Fighter,
                 PlaneType.Bomber,
@@ -97,7 +103,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 PlaneType.NavalBomber,
                 PlaneType.StrategicBomber,
                 PlaneType.JetFighter
-            };
+            };*/
         }
 
         // Division types by mod
@@ -106,12 +112,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
             public static readonly DivisionType[] Vanilla = 
             {
                 DivisionType.Infantry,
-                DivisionType.Motorized,
-                DivisionType.Mechanized,
                 DivisionType.Armor
             };
 
-            public static readonly DivisionType[] Kaiserreich = 
+            /*public static readonly DivisionType[] Kaiserreich = 
             {
                 DivisionType.Infantry,
                 DivisionType.Motorized,
@@ -129,7 +133,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
                 DivisionType.Marines,
                 DivisionType.Paratroopers,
                 DivisionType.MountainTroops
-            };
+            };*/
         }
     }
 }

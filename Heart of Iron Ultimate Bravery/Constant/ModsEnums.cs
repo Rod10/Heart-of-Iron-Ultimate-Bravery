@@ -9,11 +9,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
         Cruiser,
         Battleship,
         Carrier,
-        // Mod-specific additions
-        Dreadnought,      // Kaiserreich
-        SuperCarrier,     // Road to 56
-        Submarine,
-        BattleCruiser
+        Submarine
     }
 
     public enum TankType
@@ -21,32 +17,24 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
         LightTank,
         MediumTank,
         HeavyTank,
-        // Mod-specific additions
-        SuperHeavyTank,   // Kaiserreich
-        ModernTank,       // Road to 56
-        TankDestroyer
+        SuperHeavyTank,
+        ModernTank,
+        // Millennium Dawn
+        MainBattleTank
     }
 
     public enum PlaneType
     {
         Fighter,
-        Bomber,
-        CAS,
+        CloseAirSupport,
         NavalBomber,
-        // Mod-specific additions
-        StrategicBomber,  // Road to 56
-        JetFighter        // Road to 56
+        TacticalBomber,
+        StrategicBomber
     }
 
     public enum DivisionType
     {
         Infantry,
-        Motorized,
-        Mechanized,
-        Armor,
-        // Mod-specific additions
-        Marines,
-        Paratroopers,
-        MountainTroops
+        Armor
     }
 }

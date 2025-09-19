@@ -25,14 +25,15 @@ public class Mod
             JObject rawData = (JObject)JToken.ReadFrom(reader);
             JObject? modData = rawData.GetValue(name)!.Value<JObject>();
             Name = modData?["name"]?.ToString() ?? "Vanilla";
-            SteamId = int.Parse(modData?["steamId"]?.ToString()!);
+            SteamId = BigInteger.Parse(modData?["steamId"]?.ToString()!);
             Short = name ?? "vanilla";
         }
     }
 
     public void AddCountries()
     {
-        string countriesPath = $"./Data/Mods/{Name}/Files/Game/countries.json";
+        // string countriesPath = $"./Data/Mods/{Name}/Files/Game/countries.json";
+        string countriesPath = $"./Data/Mods/Vanilla/Files/Game/countries.json";
         using (StreamReader file = File.OpenText(countriesPath))
         using (JsonTextReader reader = new JsonTextReader(file))
         {

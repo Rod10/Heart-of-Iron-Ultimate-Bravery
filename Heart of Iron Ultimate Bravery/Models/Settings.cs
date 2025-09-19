@@ -62,6 +62,7 @@ public class Settings : ISettings
         try
         {
             CurrentMod = new Mod(mod);
+            CurrentMod.AddCountries();
             UpdateData();
 
         }
