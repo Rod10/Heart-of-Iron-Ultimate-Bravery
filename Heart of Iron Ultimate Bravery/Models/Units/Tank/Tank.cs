@@ -15,8 +15,8 @@ public class Tank
     // Expose all common properties through delegation
     public TankType type
     {
-        get => _implementation.type;
-        set => _implementation.type = value;
+        get => _implementation.Type;
+        set => _implementation.Type = value;
     }
 
     /*public ITankVersion version

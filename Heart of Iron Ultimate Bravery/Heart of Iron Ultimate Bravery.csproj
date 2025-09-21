@@ -545,7 +545,6 @@
       <Folder Include="Data\Mods\Vanilla\Converter\" />
       <Folder Include="Data\Mods\Vanilla\Data\" />
       <Folder Include="Data\Mods\Vanilla\Files\Generated\" />
-      <Folder Include="Models\Tank\" />
     </ItemGroup>
 
     <ItemGroup>

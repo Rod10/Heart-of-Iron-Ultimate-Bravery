@@ -55,12 +55,12 @@ public class Country
         InitializeTankDictionary(settings.CurrentMod.Short);
         
         Random rnd = new Random();
-        TankType[] validTankTypes = EnumHelper.GetEnumArrayForMod<TankType>(settings.CurrentMod.Short);
+        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
         TankType tankType = validTankTypes[rnd.Next(0, validTankTypes.Length)];
-        Console.WriteLine(tankType.ToString());
+        Tank tank = new Tank(tankType);
     }    
     
-    private void InitializeShipDictionary(string mod)
+    /*private void InitializeShipDictionary(string mod)
     {
         Ships = new Dictionary<ShipType, dynamic>();
         
@@ -76,13 +76,13 @@ public class Country
                 }
             }
         }
-    }
+    }*/
 
     
     private void InitializeTankDictionary(string mod)
     {
         Tanks = new Dictionary<TankType, Tank?>();
-        TankType[] validTankTypes = EnumHelper.GetEnumArrayForMod<TankType>(mod);
+        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(mod);
             
         foreach (var tankType in validTankTypes)
         {
@@ -90,7 +90,7 @@ public class Country
         }
     }
     
-    private void InitializePlaneDictionary(string mod)
+    /*private void InitializePlaneDictionary(string mod)
     {
         Planes = new Dictionary<PlaneType, dynamic>();
         
@@ -105,9 +105,9 @@ public class Country
                 }
             }
         }
-    }
+    }*/
 
-    private void InitializeDivisionDictionary(string mod)
+    /*private void InitializeDivisionDictionary(string mod)
     {
         Divisions = new Dictionary<DivisionType, dynamic>();
         
@@ -122,21 +122,5 @@ public class Country
                 }
             }
         }
-    }
-
-    private Type GetEnumTypeForMod<T>(string mod) where T : Enum
-    {
-        string baseTypeName = typeof(T).Name;
-        string modEnumTypeName = mod switch
-        {
-            "vanilla" => $"Vanilla{baseTypeName}",
-            "kaiserreich" => $"Kaiserreich{baseTypeName}",
-            "road56" => $"Road56{baseTypeName}",
-            "millenniumDawn" => $"MillenniumDawn{baseTypeName}",
-            _ => $"Vanilla{baseTypeName}" // Default fallback
-        };
-
-        // Get the enum type by name from current assembly
-        return Type.GetType(modEnumTypeName) ?? typeof(T);
-    }
+    }*/
 }

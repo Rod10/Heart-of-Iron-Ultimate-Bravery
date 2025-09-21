@@ -5,9 +5,9 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 public abstract class BaseTank
 {
     // Common properties for all mods (from your diagram)
-    public TankType type { get; set; }
-    // public ITankVersion version { get; set; }
-    // public Turret turret { get; set; }
+    public TankType Type { get; set; }
+    public TankVersion Version { get; set; }
+    // public Turret Turret { get; set; }
     // public string gun { get; set; }
     // public string suspension { get; set; }
     // public string armor { get; set; }

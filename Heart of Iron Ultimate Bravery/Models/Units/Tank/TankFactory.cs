@@ -12,12 +12,12 @@ public static class TankFactory
             
         BaseTank tank = mod switch
         {
-            "vanilla" => new VanillaTank(),
+            "vanilla" => new VanillaTank(tankType),
             // "millenniumdawn" => new MillenniumDawnTank(),
             // "blackice" => new BlackIceTank(),
             // "worldablaze" => new WorldAblazeTank(),
             // "greatwarredux" => new GreatWarReduxTank(),
-            _ => new VanillaTank() // Default fallback
+            _ => new VanillaTank(tankType) // Default fallback
         };
 
         tank.InitializeModSpecificProperties();

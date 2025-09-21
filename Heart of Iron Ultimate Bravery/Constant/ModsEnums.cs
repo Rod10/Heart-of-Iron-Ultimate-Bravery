@@ -14,11 +14,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
 
     public enum TankType
     {
-        LightTank,
-        MediumTank,
-        HeavyTank,
-        SuperHeavyTank,
-        ModernTank,
+        Light,
+        Medium,
+        Heavy,
+        SuperHeavy,
+        Modern,
         // Millennium Dawn
         MainBattleTank
     }
@@ -36,5 +36,24 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
     {
         Infantry,
         Armor
+    }
+
+    public enum TankVersion
+    {
+        /* Base Game */
+        InterWar,
+        Basic,
+        Improved,
+        Advanced
+        /* Base Game */
+    }
+
+    public enum TurretType
+    {
+        Light,
+        Medium,
+        Large,
+        SuperHeavy,
+        Modern
     }
 }
