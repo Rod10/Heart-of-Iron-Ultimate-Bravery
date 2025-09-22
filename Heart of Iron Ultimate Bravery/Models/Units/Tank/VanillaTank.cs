@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Cannon;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Turret;
 
 namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
@@ -26,6 +27,9 @@ public class VanillaTank : BaseTank
         Console.WriteLine("Version: " + Version);
         List<TurretType> allowedTurrets = VanillaTurret.GetAllowedTurret(Type);
         Turret.Turret turret = new Turret.Turret(allowedTurrets[rnd.Next(0, allowedTurrets.Count)]);
+        Cannon.Cannon cannon = new Cannon.Cannon();
+        List<VanillaCannon.CannonSize> allowedCannon = turret.GetImplementation<VanillaTurret>().AllowedCannon;
+        cannon.GetImplementation<BaseCannon>().InitializeModSpecificProperties(allowedCannon);
     }
     
     public override void InitializeModSpecificProperties()

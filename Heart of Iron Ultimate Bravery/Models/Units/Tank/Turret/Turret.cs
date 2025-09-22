@@ -12,7 +12,7 @@ public class Turret
     }
 
     // Expose all common properties through delegation
-    public TurretType type
+    public TurretType Type
     {
         get => _implementation.Type;
         set => _implementation.Type = value;

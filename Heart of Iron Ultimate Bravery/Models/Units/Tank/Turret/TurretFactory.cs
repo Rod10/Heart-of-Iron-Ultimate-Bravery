@@ -20,7 +20,6 @@ public static class TurretFactory
             _ => new VanillaTurret(tankType) // Default fallback
         };
         
-        turret.InitializeModSpecificProperties();
         return turret;
     }
 }

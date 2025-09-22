@@ -5,37 +5,45 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
     // Base enums that all mods share
     public enum ShipType
     {
+        /* Base Game */
         Destroyer,
         Cruiser,
         Battleship,
         Carrier,
         Submarine
+        /* Base Game */
     }
 
     public enum TankType
     {
+        /* Base Game */
         Light,
         Medium,
         Heavy,
         SuperHeavy,
         Modern,
+        /* Base Game */
         // Millennium Dawn
         MainBattleTank
     }
 
     public enum PlaneType
     {
+        /* Base Game */
         Fighter,
         CloseAirSupport,
         NavalBomber,
         TacticalBomber,
         StrategicBomber
+        /* Base Game */
     }
 
     public enum DivisionType
     {
+        /* Base Game */
         Infantry,
         Armor
+        /* Base Game */
     }
 
     public enum TankVersion
@@ -50,10 +58,12 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
 
     public enum TurretType
     {
+        /* Base Game */
         Light,
         Medium,
         Large,
         SuperHeavy,
         Modern
+        /* Base Game */
     }
 }

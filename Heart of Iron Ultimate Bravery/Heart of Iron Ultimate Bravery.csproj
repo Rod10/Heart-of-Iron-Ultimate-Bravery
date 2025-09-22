@@ -17,6 +17,13 @@
         </AvaloniaResource>
         <AvaloniaResource Include="bin\Debug\net9.0\Data\mods.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\mods.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Armor.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Cannon.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Engine.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Specials.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Suspensions.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Tank.json" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Turret.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\settings.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Game\countries.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Game\countries\ABK - Abkhazia.txt" />
@@ -540,10 +547,8 @@
       <Folder Include="Assets\Mods\Vanilla\Images\" />
       <Folder Include="Assets\Mods\Vanilla\Localization\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Converter\" />
-      <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Generated\" />
       <Folder Include="Data\Mods\Vanilla\Converter\" />
-      <Folder Include="Data\Mods\Vanilla\Data\" />
       <Folder Include="Data\Mods\Vanilla\Files\Generated\" />
     </ItemGroup>
 

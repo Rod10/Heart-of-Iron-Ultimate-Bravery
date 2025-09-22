@@ -13,31 +13,31 @@ public class Tank
     }
 
     // Expose all common properties through delegation
-    public TankType type
+    public TankType Type
     {
         get => _implementation.Type;
         set => _implementation.Type = value;
     }
 
-    /*public ITankVersion version
+    public TankVersion Version
     {
-        get => _implementation.version;
-        set => _implementation.version = value;
+        get => _implementation.Version;
+        set => _implementation.Version = value;
     }
 
-    public Turret turret
+    public Turret.Turret Turret
     {
-        get => _implementation.turret;
-        set => _implementation.turret = value;
+        get => _implementation.Turret;
+        set => _implementation.Turret = value;
     }
 
-    public string gun
+    public Cannon.Cannon Cannon
     {
-        get => _implementation.gun;
-        set => _implementation.gun = value;
+        get => _implementation.Cannon;
+        set => _implementation.Cannon = value;
     }
 
-    public string suspension
+    /*public string suspension
     {
         get => _implementation.suspension;
         set => _implementation.suspension = value;

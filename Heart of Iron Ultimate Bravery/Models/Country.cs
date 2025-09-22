@@ -53,11 +53,6 @@ public class Country
         Console.WriteLine(hoi4Result); */
 
         InitializeTankDictionary(settings.CurrentMod.Short);
-        
-        Random rnd = new Random();
-        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
-        TankType tankType = validTankTypes[rnd.Next(0, validTankTypes.Length)];
-        Tank tank = new Tank(tankType);
     }    
     
     /*private void InitializeShipDictionary(string mod)
