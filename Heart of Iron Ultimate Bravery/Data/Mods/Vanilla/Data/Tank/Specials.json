@@ -42,7 +42,7 @@
         }
     },
     "machineGuns": {
-        "onlyOne": true,
+        "onlyOne": false,
         "stats": {
             "year": 0,
             "softAttack": 1.0,
@@ -192,7 +192,7 @@
         }
     },
     "smokeLauncher": {
-        "onlyOne": true,
+        "onlyOne": false,
         "stats": {
             "year": 0,
             "reliability": 0.0,
