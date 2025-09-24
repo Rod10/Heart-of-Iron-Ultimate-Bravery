@@ -8,13 +8,12 @@ public abstract class BaseTank
     public TankVersion Version { get; set; }
     public Turret.Turret Turret { get; set; }
     public Cannon.Cannon Cannon { get; set; }
-    // public string suspension { get; set; }
-    // public string armor { get; set; }
-    // public string engine { get; set; }
+    public Suspension.Suspension Suspension { get; set; }
+    public Engine.Engine Engine { get; set; }
+    public Armor.Armor Armor { get; set; }
     // public Stats stats { get; set; }
-    // public string role { get; set; }
-    // public string iconName { get; set; }
-    // public string name { get; set; }
+    public string IconName { get; set; }
+    public string Name { get; set; }
 
     // Abstract methods that each mod implementation must provide
     public abstract void InitializeModSpecificProperties();

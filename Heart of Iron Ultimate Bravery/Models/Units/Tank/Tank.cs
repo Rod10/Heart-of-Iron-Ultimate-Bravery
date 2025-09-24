@@ -37,47 +37,41 @@ public class Tank
         set => _implementation.Cannon = value;
     }
 
-    /*public string suspension
+    public Suspension.Suspension Suspension
     {
-        get => _implementation.suspension;
-        set => _implementation.suspension = value;
+        get => _implementation.Suspension;
+        set => _implementation.Suspension = value;
     }
 
-    public string armor
+    public Engine.Engine Engine
     {
-        get => _implementation.armor;
-        set => _implementation.armor = value;
+        get => _implementation.Engine;
+        set => _implementation.Engine = value;
     }
 
-    public string engine
+    public Armor.Armor Armor
     {
-        get => _implementation.engine;
-        set => _implementation.engine = value;
+        get => _implementation.Armor;
+        set => _implementation.Armor = value;
     }
 
-    public Stats stats
+    /*public Stats stats
     {
         get => _implementation.stats;
         set => _implementation.stats = value;
-    }
-
-    public string role
-    {
-        get => _implementation.role;
-        set => _implementation.role = value;
-    }
-
-    public string iconName
-    {
-        get => _implementation.iconName;
-        set => _implementation.iconName = value;
-    }
-
-    public string name
-    {
-        get => _implementation.name;
-        set => _implementation.name = value;
     }*/
+
+    public string IconName
+    {
+        get => _implementation.IconName;
+        set => _implementation.IconName = value;
+    }
+
+    public string Name
+    {
+        get => _implementation.Name;
+        set => _implementation.Name = value;
+    }
 
     // Method to get the actual implementation (for mod-specific operations)
     public T GetImplementation<T>() where T : BaseTank

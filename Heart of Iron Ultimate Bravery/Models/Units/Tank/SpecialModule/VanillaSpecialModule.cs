@@ -69,16 +69,7 @@ public class VanillaSpecialModule : BaseSpecialModule
 
     public void CreateSpecialModule(SpecialModuleType type)
     {
-        
-    }
-
-    public override void InitializeModSpecificProperties(SpecialModuleType type)
-    {
-        Random rnd = new Random();
-        // Initialize vanilla-specific defaults
-        // specialModule = new List<SpecialModule>();
-        // engineLevel = 1;
-        // armorLevel = 1;
+        Type = type;
     }
 
     public override string GetModIdentifier() => "vanilla";

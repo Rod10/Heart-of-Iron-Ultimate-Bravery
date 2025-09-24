@@ -4,8 +4,11 @@ using System.Linq;
 using DynamicData;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Armor;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Cannon;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Engine;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.SpecialModule;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Suspension;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Turret;
 
 namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
@@ -26,27 +29,28 @@ public class VanillaTank : BaseTank
     public List<SpecialModule.SpecialModule> SpecialModules { get; set; } = new(4);
     // public int engineLevel { get; set; }
     // public int armorLevel { get; set; }
-
-
+    
     public VanillaTank(TankType tankType)
     {
         Random rnd = new Random();
         ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
         Type = tankType;
+        Name = GetNameByType();
         TankVersion[] validTankVersion = EnumHelper.GetEnumVersionArrayForMod<TankVersion>(settings.CurrentMod.Short);
         TankVersion tankVersion = validTankVersion[rnd.Next(0, validTankVersion.Length)];
         Version = tankVersion;
         Console.WriteLine("Type: " + Type);
         Console.WriteLine("Version: " + Version);
         List<TurretType> allowedTurrets = VanillaTurret.GetAllowedTurret(Type);
-        Turret.Turret turret = new Turret.Turret(allowedTurrets[rnd.Next(0, allowedTurrets.Count)]);
-        Cannon.Cannon cannon = new Cannon.Cannon();
-        List<VanillaCannon.CannonSize> allowedCannon = turret.GetImplementation<VanillaTurret>().AllowedCannon;
-        cannon.GetImplementation<VanillaCannon>().InitializeModSpecificProperties(allowedCannon);
-        List<TankRole> allowedRoles = cannon.GetImplementation<VanillaCannon>().allowedRoles;
+        Turret = new Turret.Turret(allowedTurrets[rnd.Next(0, allowedTurrets.Count)]);
+        Cannon = new Cannon.Cannon();
+        List<VanillaCannon.CannonSize> allowedCannon = Turret.GetImplementation<VanillaTurret>().AllowedCannon;
+        Cannon.GetImplementation<VanillaCannon>().InitializeModSpecificProperties(allowedCannon);
+        List<TankRole> allowedRoles = Cannon.GetImplementation<VanillaCannon>().allowedRoles;
         Role = allowedRoles[rnd.Next(0, allowedRoles.Count)];
         Console.WriteLine("Role: " + Role);
-        List<VanillaSpecialModule.SpecialModuleType> types = VanillaSpecialModule.Types;
+        List<VanillaSpecialModule.SpecialModuleType> types = new List<VanillaSpecialModule.SpecialModuleType>(VanillaSpecialModule.Types);
+        Console.WriteLine("/** Special Modules **/");
         for (int i = 0; i < SpecialModules.Capacity; i++)
         {
             var type = types[rnd.Next(0, types.Count)];
@@ -65,10 +69,34 @@ public class VanillaTank : BaseTank
                     types.Remove(type);
                 }
             }
-            Console.WriteLine("Special Module Type: " + type);
-            //types[types.IndexOf(type)] = null;
+            SpecialModule.SpecialModule specialModule = new SpecialModule.SpecialModule();
+            specialModule.GetImplementation<VanillaSpecialModule>().CreateSpecialModule(type);
+            SpecialModules.Add(specialModule);
+            Console.WriteLine("Type: " + specialModule.GetImplementation<VanillaSpecialModule>().Type);
         }
+        Console.WriteLine("/** Special Modules **/");
+        Suspension = new Suspension.Suspension();
+        Console.WriteLine("Suspension Type: " + Suspension.GetImplementation<VanillaSuspension>().Type);
+        Engine = new Engine.Engine();
+        Console.WriteLine("EngineType: " + Engine.GetImplementation<VanillaEngine>().Type);
+        Armor = new Armor.Armor();
+        Console.WriteLine("ArmorType: " + Armor.GetImplementation<VanillaArmor>().Type);
+        
     }
+
+    private string GetNameByType()
+    {
+        return Type switch
+        {
+            TankType.Light => "Light Tank",
+            TankType.Medium => "Medium Tank",
+            TankType.Heavy => "Heavy Tank",
+            TankType.Modern => "Modern Tank",
+            TankType.SuperHeavy => "Super Heavy Tank",
+            _ => "Weird Tank"
+        };
+    }
+    
     
     public override void InitializeModSpecificProperties()
     {
