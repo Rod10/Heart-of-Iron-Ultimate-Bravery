@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
-        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
         x:Class="Heart_of_Iron_Ultimate_Bravery.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Heart of Iron Ultimate Bravery"
-        xmlns:views="clr-namespace:AvaloniaDialogs.Views;assembly=AvaloniaDialogs">
+        xmlns:views="clr-namespace:AvaloniaDialogs.Views;assembly=AvaloniaDialogs"
+        CanResize="False"
+        Background="#A3B59B">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -18,41 +20,70 @@
     </Design.DataContext>
     
     <views:ReactiveDialogHost CloseOnClickAway="True">
-    <Grid>
-        <Panel Background="Gainsboro"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Center"
-              Width="287"
-              Height="878">
-            <Panel Background="Gray"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Width="287"
-                   Height="150">
-                <TextBlock 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="Heart of Iron Ultimate Bravery" />
-            </Panel>
-            <TransitioningContentControl Content="{Binding CurrentButtonBlock}" />
-            <Panel Background="Gray"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"
-                   Width="287"
-                   Height="150">
-                    <TextBlock 
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="{x:Static assets:Resources.MadeByText}" />
-            </Panel>
-        </Panel>
-        <Panel Background="Gainsboro"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Width="1354"
-                Height="878">
-            <TransitioningContentControl Content="{Binding CurrentPanel}" />
-        </Panel>
-    </Grid>
+        <Canvas Width="1216"
+                Height="684">
+            <Canvas Height="684"
+                    Width="217">
+                <Border CornerRadius="10"
+                        ClipToBounds="False"
+                        BoxShadow="5 5 10 0 #3F473B">
+                <Border Background="Transparent"
+                        CornerRadius="10"
+                        ClipToBounds="True">
+                    <Panel Background="#6D7A67"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="684"
+                           Width="217">
+                        <Panel Background="#3F473B"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               Width="217"
+                               Height="80">
+                            <TextBlock 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Text="Heart of Iron Ultimate Bravery" />
+                        </Panel>
+                        <TransitioningContentControl Content="{Binding CurrentButtonBlock}" />
+                        <Panel HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Width="217"
+                               Height="80">
+                                <TextBlock 
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="{x:Static assets:Resources.MadeByText}" />
+                                <TextBlock 
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        Padding="10"
+                                        Foreground="White"
+                                        Text="@ 2025" />
+                        </Panel>
+                    </Panel>
+                </Border>
+                </Border>
+            </Canvas>
+            <Canvas Width="938"
+                    Height="684"
+                    Left="275">
+                <Border CornerRadius="10"
+                        ClipToBounds="False"
+                        BoxShadow="5 5 10 0 #3F473B">
+                    <Border Background="Transparent"
+                            CornerRadius="10"
+                            ClipToBounds="True">
+                        <Panel Background="#6D7A67"
+                               Width="938"
+                               Height="684">
+                            <TransitioningContentControl Content="{Binding CurrentPanel}" />
+                        </Panel>
+                    </Border>
+                </Border>
+            </Canvas>
+        </Canvas>
     </views:ReactiveDialogHost>
 </Window>

@@ -20,8 +20,7 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel()
     {
-        SetNewButtonBlock();
-        SetNewPanel();
+        UpdateView();
     }
     
     private ButtonBlockViewModelBase? _currentButtonBlock;

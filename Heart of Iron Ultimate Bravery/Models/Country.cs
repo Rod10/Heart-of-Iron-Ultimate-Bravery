@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
+using System.Linq;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
@@ -25,7 +26,7 @@ public class Country
     
     public Country(JToken jCountry)
     {
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         Name = jCountry["name"]?.ToString();
         Tag = jCountry["tag"]?.ToString();
         IsMajor = jCountry["isMajor"]?.ToObject<bool>() ?? false;
@@ -82,6 +83,17 @@ public class Country
         foreach (var tankType in validTankTypes)
         {
             Tanks[tankType] = null;
+        }
+    }
+
+    public void AddTank(Tank tank)
+    {
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
+
+        if (validTankTypes.Contains(tank.Type))
+        {
+            Tanks[tank.Type] = tank;
         }
     }
     

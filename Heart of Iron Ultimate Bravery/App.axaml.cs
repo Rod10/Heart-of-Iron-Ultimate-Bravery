@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.IO;
 using Avalonia;
@@ -37,8 +38,9 @@ public partial class App : Application
             {
                 DataContext = ServiceCollectionExtensions.GetService<MainWindowViewModel>(),
             };
+            desktop.MainWindow.Width = 1280;
+            desktop.MainWindow.Height = 720;
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 

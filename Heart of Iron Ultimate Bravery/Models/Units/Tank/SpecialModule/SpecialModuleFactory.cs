@@ -6,7 +6,7 @@ public class SpecialModuleFactory
 {
     public static BaseSpecialModule CreateSpecialModule()
     {
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         string mod = settings.CurrentMod.Short;
 
         return mod switch

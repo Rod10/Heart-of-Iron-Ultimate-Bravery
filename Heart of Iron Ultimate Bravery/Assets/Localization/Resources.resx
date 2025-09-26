@@ -34,7 +34,7 @@
         <value>Quit</value>
     </data>
     <data name="ModActivatedText" xml:space="preserve">
-        <value>Mod activated</value>
+        <value>Mod activated: </value>
     </data>
     <data name="RoadMapText" xml:space="preserve">
         <value>Road Map</value>

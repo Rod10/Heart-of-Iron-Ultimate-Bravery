@@ -18,13 +18,14 @@ public partial class GenerateExportViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenTankWindow()
     {
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         Random rnd = new Random();
         TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
         TankType tankType = validTankTypes[rnd.Next(0, validTankTypes.Length)];
         Console.WriteLine("/** Tank **/");
         Tank tank = new Tank(tankType);
         Console.WriteLine("/** Tank **/");
+        settings.CurrentMod.Countries[0].AddTank(tank);
     }
     
     [RelayCommand]

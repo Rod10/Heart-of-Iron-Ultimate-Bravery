@@ -13,7 +13,8 @@ public class Mod
     public string Name { get; set; }
     public BigInteger SteamId { get; set; }
     public string Short { get; set; }
-    public List<Country> countries { get; set; }
+    public string Version { get; set; }
+    public List<Country> Countries { get; set; } = new();
 
     public Mod() {}
 
@@ -25,6 +26,7 @@ public class Mod
             JObject rawData = (JObject)JToken.ReadFrom(reader);
             JObject? modData = rawData.GetValue(name)!.Value<JObject>();
             Name = modData?["name"]?.ToString() ?? "Vanilla";
+            Version = modData?["version"]?.ToString() ?? "0.0.0";
             SteamId = BigInteger.Parse(modData?["steamId"]?.ToString()!);
             Short = name ?? "vanilla";
         }
@@ -43,7 +45,7 @@ public class Mod
                 if (jCountry["name"]?.ToString() != "")
                 {
                     Country country = new Country(jCountry);
-                    // countries.Add(country);
+                    Countries.Add(country);
                 }
             }
         }

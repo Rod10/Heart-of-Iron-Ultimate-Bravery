@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
     private static IServiceProvider _serviceProvider = null!;
     public static void AddCommonServices()
     {
-        _collection.AddSingleton<ISettings, Settings>();
+        _collection.AddSingleton<Settings, Settings>();
         _collection.AddSingleton<IWindowsManagement, WindowsManagement>();
         _collection.AddSingleton<MainWindowViewModel, MainWindowViewModel>();
         _serviceProvider = _collection.BuildServiceProvider();

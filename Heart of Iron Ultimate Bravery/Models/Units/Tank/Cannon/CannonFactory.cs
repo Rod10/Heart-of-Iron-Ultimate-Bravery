@@ -6,7 +6,7 @@ public static class CannonFactory
 {
     public static BaseCannon CreateCannon()
     {
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         string mod = settings.CurrentMod.Short;
 
         BaseCannon cannon = mod switch

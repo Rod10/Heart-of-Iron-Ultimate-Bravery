@@ -7,7 +7,7 @@ public static class TurretFactory
 {
     public static BaseTurret CreateTurret(TurretType tankType)
     {
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         string mod = settings.CurrentMod.Short;
 
         BaseTurret turret = mod switch

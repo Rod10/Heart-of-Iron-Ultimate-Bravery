@@ -69,7 +69,7 @@
         <value>Joueurs max</value>
     </data>
     <data name="ModActivatedText" xml:space="preserve">
-        <value>Mod activé</value>
+        <value>Mod activé: </value>
     </data>
     <data name="ModPathText" xml:space="preserve">
         <value>Chemin du mod</value>

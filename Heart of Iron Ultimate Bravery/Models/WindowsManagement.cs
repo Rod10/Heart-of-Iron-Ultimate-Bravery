@@ -8,13 +8,13 @@ public class WindowsManagement : IWindowsManagement
 {
     public WindowsManagement()
     {
-        Buttons.Add(WindowType.MainMenu, false);
-        Buttons.Add(WindowType.GenerateExport, true);
+        Buttons.Add(WindowType.MainMenu, true);
+        Buttons.Add(WindowType.GenerateExport, false);
         Buttons.Add(WindowType.Multiplayer, false);
         Buttons.Add(WindowType.Settings, false);
         
-        Panels.Add(WindowType.MainMenu, false);
-        Panels.Add(WindowType.Generate, true);
+        Panels.Add(WindowType.MainMenu, true);
+        Panels.Add(WindowType.Generate, false);
         Panels.Add(WindowType.Export, false);
         Panels.Add(WindowType.Multiplayer, false);
         Panels.Add(WindowType.Settings, false);

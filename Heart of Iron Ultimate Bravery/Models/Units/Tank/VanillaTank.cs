@@ -27,13 +27,13 @@ public class VanillaTank : BaseTank
     public TankRole Role;
     // Vanilla-specific properties
     public List<SpecialModule.SpecialModule> SpecialModules { get; set; } = new(4);
-    // public int engineLevel { get; set; }
-    // public int armorLevel { get; set; }
+    public int EngineLevel { get; set; }
+    public int ArmorLevel { get; set; }
     
     public VanillaTank(TankType tankType)
     {
         Random rnd = new Random();
-        ISettings settings = ServiceCollectionExtensions.GetService<ISettings>()!;
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         Type = tankType;
         Name = GetNameByType();
         TankVersion[] validTankVersion = EnumHelper.GetEnumVersionArrayForMod<TankVersion>(settings.CurrentMod.Short);
@@ -81,7 +81,10 @@ public class VanillaTank : BaseTank
         Console.WriteLine("EngineType: " + Engine.GetImplementation<VanillaEngine>().Type);
         Armor = new Armor.Armor();
         Console.WriteLine("ArmorType: " + Armor.GetImplementation<VanillaArmor>().Type);
-        
+        EngineLevel = rnd.Next(0, 20);
+        Console.WriteLine("EngineLevel: " + EngineLevel);
+        ArmorLevel = rnd.Next(0, 20);
+        Console.WriteLine("ArmorLevel: " + ArmorLevel);
     }
 
     private string GetNameByType()
