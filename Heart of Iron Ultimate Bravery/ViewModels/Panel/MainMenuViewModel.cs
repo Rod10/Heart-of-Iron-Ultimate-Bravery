@@ -7,13 +7,17 @@ public class MainMenuViewModel : PanelViewModelBase
 {
     private string _modName;
     private string _modVersion;
-    
+    private string _activatedModName;
+    private string _activatedModVersion;
     
     public MainMenuViewModel()
     {
         Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         ModName = settings.CurrentMod.Name;
         ModVersion = settings.CurrentMod.Version;
+        string label = Assets.Localization.Resources.ResourceManager.GetString($"ModActivatedText");
+        ActivatedModName = label + ModName;
+        ActivatedModVersion = "Version: " + ModVersion;
     }
 
     public string ModName
@@ -26,5 +30,17 @@ public class MainMenuViewModel : PanelViewModelBase
     {
         get { return _modVersion; }
         private set { this.RaiseAndSetIfChanged(ref _modVersion, value); }
+    }
+
+    public string ActivatedModName
+    {
+        get { return _activatedModName; }
+        private set { this.RaiseAndSetIfChanged(ref _activatedModName, value); }
+    }
+
+    public string ActivatedModVersion
+    {
+        get { return _activatedModVersion; }
+        private set { this.RaiseAndSetIfChanged(ref _activatedModVersion, value); }
     }
 }

@@ -15,7 +15,7 @@
                     VerticalAlignment="Center"
                     Spacing="25">
             <Button Command="{Binding OpenMainMenuWindow}"
-                    Width="158" 
+                    Classes="ButtonMenu" 
                     Height="51" 
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"

@@ -1,26 +1,35 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
-             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.MainMenuView">
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.MainMenuView"
+             x:DataType="vm:MainMenuViewModel">
     <Canvas Width="938"
             Height="684">
         <Panel Width="938"
                Height="684">
             <Grid Background="Gainsboro"
                 ColumnDefinitions="*, *"
-                RowDefinitions="*, *">
+                RowDefinitions="Auto, *">
                 <!-- Mod Info -->
                 <Panel Background="DarkGray"
                        Grid.Column="0"
                        Grid.Row="0">
                         <StackPanel HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
-                                    Margin="50,50,0,0">
+                                    Margin="50,50,0,50">
                             <Panel>
-                                <TextBlock Text="{x:Static assets:Resources.ModActivatedText}" />
+                                <TextBlock Text="{Binding ActivatedModName}" />
+                            </Panel>
+                            <Panel>
+                                <TextBlock FontSize="10"
+                                    Text="{Binding ActivatedModVersion}" />
+                            </Panel>
+                            <Panel>
+                                <Image Source="../../Assets/Mods/Vanilla/Images/game-icon.png" />
                             </Panel>
                         </StackPanel>
                 </Panel>
@@ -31,7 +40,7 @@
                        Grid.Row="1">
                     <StackPanel HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="50,50,0,0">
+                                Margin="50,0,0,0">
                         <Panel Background="AliceBlue">
                             <TextBlock Text="Road Map" />
                         </Panel>

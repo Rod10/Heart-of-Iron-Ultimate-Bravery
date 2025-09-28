@@ -12,6 +12,7 @@
   
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="./Views/Styles.axaml"/>
         <dialogHostAvalonia:DialogHostStyles/>
     </Application.Styles>
 </Application>

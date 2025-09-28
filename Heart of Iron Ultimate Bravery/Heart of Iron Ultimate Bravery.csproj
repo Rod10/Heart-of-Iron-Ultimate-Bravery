@@ -544,7 +544,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Mods\Vanilla\Images\" />
       <Folder Include="Assets\Mods\Vanilla\Localization\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Converter\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Generated\" />

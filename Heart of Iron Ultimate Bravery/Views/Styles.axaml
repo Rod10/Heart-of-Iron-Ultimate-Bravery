@@ -1,0 +1,15 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Button.ButtonMenu">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#404641"/>
+        <Setter Property="Height" Value="51"/>
+        <Setter Property="Width" Value="158"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="Button.ButtonMenu:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#2a2e2b" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+</Styles>
