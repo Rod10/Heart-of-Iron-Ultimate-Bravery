@@ -3,9 +3,13 @@
              x:Class="Heart_of_Iron_Ultimate_Bravery.App"
              xmlns:local="using:Heart_of_Iron_Ultimate_Bravery"
              RequestedThemeVariant="Default"
-             xmlns:dialogHostAvalonia="using:DialogHostAvalonia">
+             xmlns:dialogHostAvalonia="using:DialogHostAvalonia"
+             xmlns:utils="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models.Utils">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
+    <Application.Resources>
+        <utils:CompletionToCheckboxConverter x:Key="CompletionToCheckboxConverter" />
+    </Application.Resources>
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>

@@ -37,7 +37,7 @@
         <value>Mod activated: </value>
     </data>
     <data name="RoadMapText" xml:space="preserve">
-        <value>Road Map</value>
+        <value>Road Map: </value>
     </data>
     <data name="MadeByText" xml:space="preserve">
         <value>Made By Ayaya Dev Team</value>

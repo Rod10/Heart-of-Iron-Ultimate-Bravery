@@ -108,7 +108,7 @@
         <value>Remise à zéro</value>
     </data>
     <data name="RoadMapText" xml:space="preserve">
-        <value>Feuille de route</value>
+        <value>Road Map: </value>
     </data>
     <data name="ServerNameText" xml:space="preserve">
         <value>Nom du serveur</value>

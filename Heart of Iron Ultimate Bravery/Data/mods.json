@@ -1,18 +1,305 @@
 ﻿{
   "vanilla": {
-    "name": "Vanilla",
-    "steamId": 0
+    "Name": "Vanilla",
+    "steamId": 0,
+    "version": "1.16.10",
+    "roadMap": [
+      {
+        "Name": "general",
+        "Completion": "partial",
+        "Tasks": [
+          {
+            "Name": "ui",
+            "Completion": "partial"
+          },
+          {
+            "Name": "multiplayer",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "tank",
+        "Completion": "partial",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "completed"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "plane",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "ship",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      }
+    ]
   },
   "kaiserreich": {
-    "name": "Kaiserreich",
-    "steamId": 1521695605
+    "Name": "Kaiserreich",
+    "steamId": 1521695605,
+    "version": "1.5.1",
+    "roadMap": [
+      {
+        "Name": "general",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "multiplayer",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "tank",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "plane",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "ship",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      }
+    ]
   },
   "road56": {
-    "name": "The Road to 56",
-    "steamId": 820260968
+    "Name": "The Road to 56",
+    "steamId": 820260968,
+    "version": "0.0.0",
+
+    "roadMap": [
+      {
+        "Name": "general",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "multiplayer",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "tank",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "plane",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "ship",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      }
+    ]
   },
   "millenniumDawn": {
-    "name": "Millennium Dawn",
-    "steamId": 2777392649
+    "Name": "Millennium Dawn",
+    "steamId": 2777392649,
+    "version": "0.0.0",
+
+    "roadMap": [
+      {
+        "Name": "general",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "multiplayer",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "tank",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "plane",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      },
+      {
+        "Name": "ship",
+        "Completion": "incomplete",
+        "Tasks": [
+          {
+            "Name": "generation",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "ui",
+            "Completion": "incomplete"
+          },
+          {
+            "Name": "export",
+            "Completion": "incomplete"
+          }
+        ]
+      }
+    ]
   }
 }
+    

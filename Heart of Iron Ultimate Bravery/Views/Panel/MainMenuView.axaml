@@ -5,44 +5,68 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             xmlns:models="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models"
+             xmlns:utils="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models.Utils"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.MainMenuView"
              x:DataType="vm:MainMenuViewModel">
-    <Canvas Width="938"
+    
+    <Canvas Background="#6D7A67"
+            Width="938"
             Height="684">
         <Panel Width="938"
                Height="684">
-            <Grid Background="Gainsboro"
-                ColumnDefinitions="*, *"
-                RowDefinitions="Auto, *">
+            <Grid ColumnDefinitions="*, *"
+                  RowDefinitions="Auto, *">
                 <!-- Mod Info -->
-                <Panel Background="DarkGray"
-                       Grid.Column="0"
+                <Panel Grid.Column="0"
                        Grid.Row="0">
-                        <StackPanel HorizontalAlignment="Left"
-                                    VerticalAlignment="Top"
-                                    Margin="50,50,0,50">
-                            <Panel>
-                                <TextBlock Text="{Binding ActivatedModName}" />
-                            </Panel>
-                            <Panel>
-                                <TextBlock FontSize="10"
-                                    Text="{Binding ActivatedModVersion}" />
-                            </Panel>
-                            <Panel>
-                                <Image Source="../../Assets/Mods/Vanilla/Images/game-icon.png" />
-                            </Panel>
-                        </StackPanel>
+                    <Panel Width="50"
+                           Height="50"
+                           HorizontalAlignment="Left"
+                           Margin="50,0,0,0">
+                        <Image Source="{Binding ActivatedModIconBitmap}" />
+                        <!--<Image Source="../../Assets/Mods/Kaiserreich/Images/game-icon.jpeg" />-->
+                    </Panel>
+                    <StackPanel HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="125,50,0,50">
+                        <Panel>
+                            <TextBlock FontSize="15"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="{Binding ActivatedModName}" />
+                        </Panel>
+                        <Panel>
+                            <TextBlock FontSize="11"
+                                       Foreground="White"
+                                Text="{Binding ActivatedModVersion}" />
+                        </Panel>
+                    </StackPanel>
                 </Panel>
                 <!-- /Mod Info -->
                 <!-- Road Map -->
-                <Panel Background="Beige"
-                       Grid.Column="0"
+                <Panel Grid.Column="0"
                        Grid.Row="1">
                     <StackPanel HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="50,0,0,0">
-                        <Panel Background="AliceBlue">
-                            <TextBlock Text="Road Map" />
+                                Margin="50,50,0,0">
+                        <Panel>
+                            <TextBlock FontSize="15"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="{x:Static assets:Resources.RoadMapText}" />
+                            <ItemsControl ItemsSource="{Binding RoadMap}">
+                                <ItemsControl.DataTemplates>
+                                    <DataTemplate DataType="models:RoadMapItem">
+                                        <CheckBox
+                                            Margin="{Binding Margin, StringFormat={} Value: {0}}"
+                                            IsThreeState="True"
+                                            IsChecked="{Binding Completion, StringFormat={} Value: {0}, Converter={StaticResource CompletionToCheckboxConverter}}"
+                                            IsEnabled="False"
+                                            Content="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ItemsControl.DataTemplates>
+                            </ItemsControl>
                         </Panel>
                     </StackPanel>
                 </Panel>
