@@ -33,7 +33,7 @@ public class VanillaTank : BaseTank
     public VanillaTank(TankType tankType)
     {
         Random rnd = new Random();
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         Type = tankType;
         Name = GetNameByType();
         TankVersion[] validTankVersion = EnumHelper.GetEnumVersionArrayForMod<TankVersion>(settings.CurrentMod.Short);

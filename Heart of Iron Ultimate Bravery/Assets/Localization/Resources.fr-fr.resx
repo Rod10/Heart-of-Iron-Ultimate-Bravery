@@ -137,4 +137,16 @@
     <data name="SaveText" xml:space="preserve">
         <value>Sauvegarder</value>
     </data>
+    <data name="GeneralText" xml:space="preserve">
+        <value>Général</value>
+    </data>
+    <data name="inGameText" xml:space="preserve">
+        <value>En Jeu</value>
+    </data>
+    <data name="ideaText" xml:space="preserve">
+        <value>Idée</value>
+    </data>
+    <data name="eventText" xml:space="preserve">
+        <value>Évènement</value>
+    </data>
 </root>

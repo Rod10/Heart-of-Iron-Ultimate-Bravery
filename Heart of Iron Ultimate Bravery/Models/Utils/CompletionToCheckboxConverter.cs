@@ -10,10 +10,10 @@ public class CompletionToCheckboxConverter : IValueConverter
     {
         return value?.ToString()?.ToLower() switch
         {
-            "completed" => "True",
-            "incomplete" => "False",
-            "partial" => "{x:Null}",
-            _ => "False"
+            "completed" => true,        // C# boolean, not string "True"
+            "incomplete" => false,      // C# boolean, not string "False"  
+            "partial" => null,          // C# null, not string "{x:Null}"
+            _ => false
         };
     }
 
@@ -21,9 +21,9 @@ public class CompletionToCheckboxConverter : IValueConverter
     {
         return value switch
         {
-            "True" => "completed",
-            "False" => "incomplete",
-            "{x:Null}" => "partial",
+            true => "completed",
+            false => "incomplete",
+            null => "partial",
             _ => "incomplete"
         };
     }

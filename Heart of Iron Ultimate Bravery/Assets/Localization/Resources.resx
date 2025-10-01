@@ -144,4 +144,16 @@
     <data name="SaveText" xml:space="preserve">
         <value>Save</value>
     </data>
+    <data name="GeneralText" xml:space="preserve">
+        <value>General</value>
+    </data>
+    <data name="inGameText" xml:space="preserve">
+        <value>In Game</value>
+    </data>
+    <data name="ideaText" xml:space="preserve">
+        <value>Idea</value>
+    </data>
+    <data name="eventText" xml:space="preserve">
+        <value>Event</value>
+    </data>
 </root>

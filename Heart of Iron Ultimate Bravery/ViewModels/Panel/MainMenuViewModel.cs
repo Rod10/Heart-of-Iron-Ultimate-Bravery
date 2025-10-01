@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using Avalonia;
 using Avalonia.Media.Imaging;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Utils;
@@ -42,13 +43,14 @@ public class MainMenuViewModel : PanelViewModelBase
 
         foreach (var value in JsonSerializer.Deserialize<List<RoadMapItem>>(modData["roadMap"]))
         {
-            string name = value.Name;
+            label = Assets.Localization.Resources.ResourceManager.GetString($"{value.Name.FirstCharToUpper()}Text");
+            string name = $"{label}: ";
             string completion = value.Completion;
-            RoadMap.Add(new RoadMapItem(name, completion, "0,0,0,0"));
+            RoadMap.Add(new RoadMapItem(name, completion, new Thickness(0, 0, 0, 0)));
             if (value.Tasks == null) continue;
             foreach (RoadMapItem roadMapItem in value.Tasks)
             {
-                RoadMap.Add(new RoadMapItem(roadMapItem.Name, roadMapItem.Completion, "50,0,0,0"));
+                RoadMap.Add(new RoadMapItem(roadMapItem.Name, roadMapItem.Completion, new Thickness(25, 0, 0, 0)));
             }
         }
     }

@@ -18,7 +18,7 @@ public partial class SettingsViewModel : PanelViewModelBase
 {
     public SettingsViewModel()
     {
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         Lang = settings.Language;
         GamePath = settings.GamePath;
         Mod = settings.CurrentMod;
@@ -123,7 +123,7 @@ public partial class SettingsViewModel : PanelViewModelBase
         set
         {
             
-            Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+            Settings settings = ServiceCollectionExtensions.GetService<Settings>();
             ModPath = settings.ModPath.ElementAt(value).Value;
             this.RaiseAndSetIfChanged(ref _modsIndex, value);
         }
@@ -139,7 +139,7 @@ public partial class SettingsViewModel : PanelViewModelBase
     [RelayCommand]
     public void SaveSettings()
     {
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         settings.SetLanguage(_langsList[CbLangsIndex].Local);
         settings.SetGamePath(GamePath);
         settings.SetMod(_modsList[CbModsIndex]);

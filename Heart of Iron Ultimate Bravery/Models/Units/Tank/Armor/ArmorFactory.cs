@@ -7,7 +7,7 @@ public class ArmorFactory
 { 
     public static BaseArmor CreateArmor() 
     { 
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings(); 
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>(); 
         string mod = settings.CurrentMod.Short;
         
         return mod switch 

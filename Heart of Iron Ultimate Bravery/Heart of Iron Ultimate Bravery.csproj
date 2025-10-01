@@ -18,7 +18,6 @@
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AvaloniaResource>
         <AvaloniaResource Include="bin\Debug\net9.0\Data\mods.json" />
-        <AvaloniaResource Include="bin\Debug\net9.0\Data\mods.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Armor.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Cannon.json" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\Mods\Vanilla\Data\Tank\Engine.json" />

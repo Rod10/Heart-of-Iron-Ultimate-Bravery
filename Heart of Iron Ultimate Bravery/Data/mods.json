@@ -1,6 +1,6 @@
 ﻿{
   "vanilla": {
-    "Name": "Vanilla",
+    "name": "Vanilla",
     "steamId": 0,
     "version": "1.16.10",
     "roadMap": [
@@ -75,7 +75,7 @@
     ]
   },
   "kaiserreich": {
-    "Name": "Kaiserreich",
+    "name": "Kaiserreich",
     "steamId": 1521695605,
     "version": "1.5.1",
     "roadMap": [
@@ -150,7 +150,7 @@
     ]
   },
   "road56": {
-    "Name": "The Road to 56",
+    "name": "The Road to 56",
     "steamId": 820260968,
     "version": "0.0.0",
 
@@ -226,7 +226,7 @@
     ]
   },
   "millenniumDawn": {
-    "Name": "Millennium Dawn",
+    "name": "Millennium Dawn",
     "steamId": 2777392649,
     "version": "0.0.0",
 

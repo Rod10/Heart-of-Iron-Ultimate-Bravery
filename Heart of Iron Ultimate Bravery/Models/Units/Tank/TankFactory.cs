@@ -7,7 +7,7 @@ public static class TankFactory
 {
     public static BaseTank CreateTank(TankType tankType)
     { 
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         string mod = settings.CurrentMod.Short;
             
         BaseTank tank = mod switch

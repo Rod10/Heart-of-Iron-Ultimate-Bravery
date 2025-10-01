@@ -6,7 +6,7 @@ public class SuspensionFactory
 {
     public static BaseSuspension CreateSuspension()
     {
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         string mod = settings.CurrentMod.Short;
 
         return mod switch

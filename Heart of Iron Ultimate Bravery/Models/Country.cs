@@ -27,7 +27,7 @@ public class Country
     
     public Country(JToken jCountry)
     {
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         Name = jCountry["name"]?.ToString();
         Tag = jCountry["tag"]?.ToString();
         IsMajor = jCountry["isMajor"]?.ToObject<bool>() ?? false;
@@ -89,7 +89,7 @@ public class Country
 
     public void AddTank(Tank tank)
     {
-        Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
+        Settings settings = ServiceCollectionExtensions.GetService<Settings>();
         TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
 
         if (validTankTypes.Contains(tank.Type))

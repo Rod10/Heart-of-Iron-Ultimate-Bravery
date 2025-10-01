@@ -7,6 +7,7 @@
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
              xmlns:models="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models"
              xmlns:utils="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models.Utils"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.MainMenuView"
              x:DataType="vm:MainMenuViewModel">
     
@@ -23,7 +24,7 @@
                     <Panel Width="50"
                            Height="50"
                            HorizontalAlignment="Left"
-                           Margin="50,0,0,0">
+                           Margin="25,0,0,0">
                         <Image Source="{Binding ActivatedModIconBitmap}" />
                         <!--<Image Source="../../Assets/Mods/Kaiserreich/Images/game-icon.jpeg" />-->
                     </Panel>
@@ -49,24 +50,33 @@
                        Grid.Row="1">
                     <StackPanel HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="50,50,0,0">
+                                Margin="25,0,0,0">
                         <Panel>
                             <TextBlock FontSize="15"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Text="{x:Static assets:Resources.RoadMapText}" />
-                            <ItemsControl ItemsSource="{Binding RoadMap}">
-                                <ItemsControl.DataTemplates>
-                                    <DataTemplate DataType="models:RoadMapItem">
-                                        <CheckBox
-                                            Margin="{Binding Margin, StringFormat={} Value: {0}}"
-                                            IsThreeState="True"
-                                            IsChecked="{Binding Completion, StringFormat={} Value: {0}, Converter={StaticResource CompletionToCheckboxConverter}}"
-                                            IsEnabled="False"
-                                            Content="{Binding Name}"/>
-                                    </DataTemplate>
-                                </ItemsControl.DataTemplates>
-                            </ItemsControl>
+                            <Panel Margin="0,20,0,0">
+                                <Border Width="369"
+                                        Height="531">
+                                    <ScrollViewer>
+                                        <StackPanel Height="{x:Static sys:Double.NaN}">
+                                            <ItemsControl ItemsSource="{Binding RoadMap}">
+                                                <ItemsControl.DataTemplates>
+                                                    <DataTemplate DataType="models:RoadMapItem">
+                                                        <CheckBox
+                                                            Margin="{Binding Margin}"
+                                                            IsThreeState="True"
+                                                            IsChecked="{Binding Completion, Converter={StaticResource CompletionToCheckboxConverter}}"
+                                                            IsEnabled="False"
+                                                            Content="{Binding Name}"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.DataTemplates>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </Panel>
                         </Panel>
                     </StackPanel>
                 </Panel>

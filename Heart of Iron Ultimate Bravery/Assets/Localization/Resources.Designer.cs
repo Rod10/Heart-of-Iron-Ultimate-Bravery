@@ -168,6 +168,15 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generale.
+        /// </summary>
+        public static string GeneraleText {
+            get {
+                return ResourceManager.GetString("GeneraleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate.
         /// </summary>
         public static string GenerateText {
