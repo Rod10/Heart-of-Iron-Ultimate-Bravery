@@ -90,7 +90,8 @@
                                 VerticalAlignment="Top"
                                 Margin="0,50,0,0">
                         <Panel Background="AliceBlue">
-                            <TextBlock Text="About us" />
+                            <TextBlock TextWrapping="Wrap"
+                                    Text="About us" />
                         </Panel>
                     </StackPanel>
                 </Panel>

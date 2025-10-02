@@ -495,6 +495,11 @@
           <Generator>PublicResXFileCodeGenerator</Generator>
           <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </AvaloniaResource>
+        <EmbeddedResource Remove="Assets\Mods\Vanilla\Localization\Resources.resx" />
+        <AvaloniaResource Include="Assets\Mods\Vanilla\Localization\Resources.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </AvaloniaResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -542,10 +547,14 @@
           <DependentUpon>MultiplayerView.axaml</DependentUpon>
           <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Assets\Mods\Vanilla\Localization\Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Mods\Vanilla\Localization\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Converter\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Generated\" />
       <Folder Include="Data\Mods\Vanilla\Converter\" />

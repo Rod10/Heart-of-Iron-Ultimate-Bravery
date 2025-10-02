@@ -2,7 +2,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.GenerateView">
-    GeneratePanel
+             xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
+             xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.GenerateView"
+             x:DataType="vm:GenerateViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:GenerateViewModel/>
+    </Design.DataContext>
+    
+    <Canvas>
+        <Panel Background="#6D7A67"
+               Width="938"
+               Height="684">
+            <Grid RowDefinitions="138,273,273"
+                  ColumnDefinitions="*">
+                <Panel Grid.Row="0" >
+                    <StackPanel>
+                        <Panel Height="69"
+                               HorizontalAlignment="Center">
+                            <TextBlock Margin="0,25,0,0"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="Generate"/>
+                        </Panel>
+                        <Panel Background="#D0E4FF"
+                               Height="69">
+                            <Grid ColumnDefinitions="Auto,Auto,Auto, Auto">
+                            <TextBlock Margin="50,0,0,0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text="{x:Static assets:Resources.CountryText}"/>
+                            <TextBlock Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Text=": " />
+                            <ComboBox Grid.Column="2"
+                                      Name="ComboBoxLangs" 
+                                      VerticalAlignment="Center"
+                                      ItemsSource="{Binding CbCountriesName}" 
+                                      SelectedIndex="{Binding SelectedCountryIndex}"/>
+                            <CheckBox Margin="10,0,0,0"
+                                      Grid.Column="3"
+                                      IsChecked="{Binding AllCountries}"
+                                      FontWeight="Bold"
+                                      Content="{x:Static assets:Resources.AllCountriesText}"/>
+                            </Grid>
+                        </Panel>
+                    </StackPanel>
+                </Panel>
+                <Panel Background="#FFBBBB"
+                       Grid.Row="1"></Panel>
+                <Panel Background="#E6BBFF"
+                       Grid.Row="2"></Panel>
+            </Grid>
+        </Panel>
+    </Canvas>
+
 </UserControl>

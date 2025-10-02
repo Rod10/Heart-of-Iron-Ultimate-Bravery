@@ -146,7 +146,7 @@
     <data name="ideaText" xml:space="preserve">
         <value>Idée</value>
     </data>
-    <data name="eventText" xml:space="preserve">
+    <data name="EventText" xml:space="preserve">
         <value>Évènement</value>
     </data>
 </root>

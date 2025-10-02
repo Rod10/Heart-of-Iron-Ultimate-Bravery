@@ -6,6 +6,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
+using Heart_of_Iron_Ultimate_Bravery.Assets.Mods.Vanilla.Localization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Heart_of_Iron_Ultimate_Bravery.Models;
@@ -29,6 +30,7 @@ public partial class App : Application
         Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         settings.CurrentMod.AddCountries();
         Assets.Localization.Resources.Culture = new CultureInfo(settings.Language);
+        Assets.Mods.Vanilla.Localization.Resources.Culture = new CultureInfo(settings.Language);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
