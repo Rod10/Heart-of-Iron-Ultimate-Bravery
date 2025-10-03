@@ -496,10 +496,10 @@
           <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </AvaloniaResource>
         <EmbeddedResource Remove="Assets\Mods\Vanilla\Localization\Resources.resx" />
-        <AvaloniaResource Include="Assets\Mods\Vanilla\Localization\Resources.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-        </AvaloniaResource>
+        <EmbeddedResource Include="Assets\Mods\Vanilla\Localization\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>

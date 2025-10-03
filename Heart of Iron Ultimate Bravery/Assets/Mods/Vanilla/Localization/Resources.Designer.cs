@@ -62,18 +62,18 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Mods.Vanilla.Localization {
         /// <summary>
         ///   Looks up a localized string similar to France.
         /// </summary>
-        public static string FranceTxt {
+        public static string FranceText {
             get {
-                return ResourceManager.GetString("FranceTxt", resourceCulture);
+                return ResourceManager.GetString("FranceText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Germany.
         /// </summary>
-        public static string GermanyTxt {
+        public static string GermanyText {
             get {
-                return ResourceManager.GetString("GermanyTxt", resourceCulture);
+                return ResourceManager.GetString("GermanyText", resourceCulture);
             }
         }
     }

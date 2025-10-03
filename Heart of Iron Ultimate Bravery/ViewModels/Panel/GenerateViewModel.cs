@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Heart_of_Iron_Ultimate_Bravery.Models;
+using Heart_of_Iron_Ultimate_Bravery.Models.Utils;
 using ReactiveUI;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel;
@@ -13,10 +14,12 @@ public class GenerateViewModel : PanelViewModelBase
     
     public GenerateViewModel()
     {
+        CbCountriesName = new();
         Settings settings = ServiceCollectionExtensions.GetService<Settings>();
+        LocalizationFactory locFactory = ServiceCollectionExtensions.GetService<LocalizationFactory>();
         foreach (Country country in settings.CurrentMod.Countries)
         {
-            CbCountriesName.Add(Assets.Localization.Resources.ResourceManager.GetString($"{country.Name}Text"));
+            CbCountriesName.Add(locFactory.GetString(settings.CurrentMod.Short, $"{country.Name}Text"));
         }
     }   
     

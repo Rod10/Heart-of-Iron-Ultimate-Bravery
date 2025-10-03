@@ -1,5 +1,6 @@
 ﻿using System;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.Models.Utils;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels;
 using Heart_of_Iron_Ultimate_Bravery.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ public static class ServiceCollectionExtensions
         _collection.AddSingleton<Settings, Settings>();
         _collection.AddSingleton<IWindowsManagement, WindowsManagement>();
         _collection.AddSingleton<MainWindowViewModel, MainWindowViewModel>();
+        _collection.AddSingleton<LocalizationFactory, LocalizationFactory>();
         _serviceProvider = _collection.BuildServiceProvider();
     }
     

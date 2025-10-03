@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Interfaces;
+using Heart_of_Iron_Ultimate_Bravery.Models.Utils;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels;
 using Heart_of_Iron_Ultimate_Bravery.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,7 +31,8 @@ public partial class App : Application
         Settings settings = ServiceCollectionExtensions.GetService<Settings>() ?? new Settings();
         settings.CurrentMod.AddCountries();
         Assets.Localization.Resources.Culture = new CultureInfo(settings.Language);
-        Assets.Mods.Vanilla.Localization.Resources.Culture = new CultureInfo(settings.Language);
+        LocalizationFactory locFactory = ServiceCollectionExtensions.GetService<LocalizationFactory>();
+        locFactory.SetCulture(settings.CurrentMod, new CultureInfo(settings.Language));
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
