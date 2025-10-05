@@ -555,6 +555,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Assets\Mods\Vanilla\Images\Units\Tank\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Converter\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Generated\" />
       <Folder Include="Data\Mods\Vanilla\Converter\" />

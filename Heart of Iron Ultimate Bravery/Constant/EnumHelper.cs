@@ -1,10 +1,24 @@
 ﻿using System;
 using System.Linq;
+using System.Reactive;
 
 namespace Heart_of_Iron_Ultimate_Bravery.Constant
 {
     public static class EnumHelper
     {
+        public static T[]? GetTypeArrayFromUnitType<T>(UnitType unitType, string modName) where T : Enum
+        {
+            var enumType = typeof(T);
+            return unitType switch
+            {
+                UnitType.Ship => GetEnumTypeArrayForMod<ShipType>(modName) as T[],
+                UnitType.Tank => GetEnumTypeArrayForMod<TankType>(modName) as T[],
+                UnitType.Plane => GetEnumTypeArrayForMod<PlaneType>(modName) as T[],
+                UnitType.Division => GetEnumTypeArrayForMod<DivisionType>(modName) as T[],
+                _ => Enum.GetValues(enumType).Cast<T>().ToArray()
+            };
+        }
+        
         public static T[]? GetEnumTypeArrayForMod<T>(string modName) where T : Enum
         {
             var enumType = typeof(T);

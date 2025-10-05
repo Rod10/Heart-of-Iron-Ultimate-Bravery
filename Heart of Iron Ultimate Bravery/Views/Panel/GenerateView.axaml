@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
              xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             xmlns:models="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models"
              mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
              x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.GenerateView"
              x:DataType="vm:GenerateViewModel">
@@ -57,9 +58,69 @@
                     </StackPanel>
                 </Panel>
                 <Panel Background="#FFBBBB"
-                       Grid.Row="1"></Panel>
+                       Grid.Row="1">
+                    <Button Background="Transparent"
+                            Height="200"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            ClickMode="Press"
+                            Name="Test1"
+                            Click="Button_OnClick"
+                            Margin="56,0,0,0 ">
+                    <Image Source="../../Assets/avalonia-logo.ico"/>
+                    </Button>
+                    <Button Background="Transparent"
+                            Height="200"
+                            Width="200"
+                            Name="Test2"
+                            Click="Button_OnClick"
+                            HorizontalAlignment="Center">
+                        <Image Source="../../Assets/avalonia-logo.ico"/>
+                    </Button>
+                    <Button Background="Transparent"
+                            Height="200"
+                            Width="200"
+                            Name="Test3"
+                            Click="Button_OnClick"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,56,0 ">
+                        <Image Source="../../Assets/avalonia-logo.ico"/>
+                    </Button>
+                    
+                    <ItemsControl ItemsSource="{Binding ButtonsRow1}">
+                        <ItemsControl.DataTemplates>
+                            <DataTemplate DataType="models:ButtonItem">
+                                <Button Background="Transparent"
+                                        Height="200"
+                                        Width="200"
+                                        Name="{Binding Name}"
+                                        Click="Button_OnClick"
+                                        HorizontalAlignment="Right"
+                                        Margin="{Binding Margin}">
+                                    <Image Source="{Binding Image}"/>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.DataTemplates>
+                    </ItemsControl>
+                    
+                </Panel>
                 <Panel Background="#E6BBFF"
-                       Grid.Row="2"></Panel>
+                       Grid.Row="2">
+                    <Button Background="Transparent"
+                            Height="200"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            Margin="213,0,56,0 ">
+                        <Image Source="../../Assets/avalonia-logo.ico"/>
+                    </Button>
+                    <Button Background="Transparent"
+                            Height="200"
+                            Width="200"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,213,0 ">
+                        <Image Source="../../Assets/avalonia-logo.ico"/>
+                    </Button>
+                </Panel>
             </Grid>
         </Panel>
     </Canvas>
