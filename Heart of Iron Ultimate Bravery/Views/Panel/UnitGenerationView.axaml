@@ -35,6 +35,57 @@
                     <Image Width="120"
                         Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
                 </Canvas>
+                <Canvas Left="13"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="76"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="139"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="202"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="264"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="327"
+                        Top="231">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="15"
+                        Top="136">
+                    <Image Width="430"
+                           Height="485"
+                        Source="../../Assets/Mods/Vanilla/Images/tank_blueprint_bg.png" />
+                </Canvas>
+                <Canvas Left="13"
+                        Top="485">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="76"
+                        Top="485">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
+                <Canvas Left="139"
+                        Top="485">
+                    <Image Width="65" 
+                           Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+                </Canvas>
             </Canvas>
         </Panel>
 </UserControl>
