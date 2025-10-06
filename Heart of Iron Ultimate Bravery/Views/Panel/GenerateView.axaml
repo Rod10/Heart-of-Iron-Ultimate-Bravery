@@ -59,34 +59,6 @@
                 </Panel>
                 <Panel Background="#FFBBBB"
                        Grid.Row="1">
-                    <!--<Button Background="Transparent"
-                            Height="200"
-                            Width="200"
-                            HorizontalAlignment="Left"
-                            ClickMode="Press"
-                            Name="Test1"
-                            Click="Button_OnClick"
-                            Margin="56,0,0,0 ">
-                    <Image Source="../../Assets/avalonia-logo.ico"/>
-                    </Button>
-                    <Button Background="Transparent"
-                            Height="200"
-                            Width="200"
-                            Name="Test2"
-                            Click="Button_OnClick"
-                            HorizontalAlignment="Center">
-                        <Image Source="../../Assets/avalonia-logo.ico"/>
-                    </Button>
-                    <Button Background="Transparent"
-                            Height="200"
-                            Width="200"
-                            Name="Test3"
-                            Click="Button_OnClick"
-                            HorizontalAlignment="Right"
-                            Margin="0,0,56,0 ">
-                        <Image Source="../../Assets/avalonia-logo.ico"/>
-                    </Button>-->
-                    
                     <ItemsControl ItemsSource="{Binding ButtonsRow1}">
                         <!-- Add this to make items display horizontally -->
                         <ItemsControl.ItemsPanel>
@@ -109,24 +81,31 @@
                             </DataTemplate>
                         </ItemsControl.DataTemplates>
                     </ItemsControl>
-                    
                 </Panel>
                 <Panel Background="#E6BBFF"
                        Grid.Row="2">
-                    <Button Background="Transparent"
-                            Height="200"
-                            Width="200"
-                            HorizontalAlignment="Left"
-                            Margin="213,0,56,0 ">
-                        <Image Source="../../Assets/avalonia-logo.ico"/>
-                    </Button>
-                    <Button Background="Transparent"
-                            Height="200"
-                            Width="200"
-                            HorizontalAlignment="Right"
-                            Margin="0,0,213,0 ">
-                        <Image Source="../../Assets/avalonia-logo.ico"/>
-                    </Button>
+                    <ItemsControl ItemsSource="{Binding ButtonsRow2}">
+                        <!-- Add this to make items display horizontally -->
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" 
+                                            HorizontalAlignment="Stretch"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.DataTemplates>
+                            <DataTemplate DataType="models:ButtonItem">
+                                <Button Background="Transparent"
+                                        Height="200"
+                                        Width="200"
+                                        Name="{Binding Name}"
+                                        Click="Button_OnClick"
+                                        HorizontalAlignment="{Binding HorizontalAlignment}"
+                                        Margin="{Binding Margin}">
+                                    <Image Source="{Binding Image}"/>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.DataTemplates>
+                    </ItemsControl>
                 </Panel>
             </Grid>
         </Panel>

@@ -1,0 +1,25 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Button.UnitGenerationView"
+             xmlns:vm="using:Heart_of_Iron_Ultimate_Bravery.ViewModels.Button"
+             x:DataType="vm:UnitGenerationViewModel">
+    <Design.DataContext>
+        <vm:UnitGenerationViewModel />
+    </Design.DataContext>
+    <Panel>
+        <StackPanel HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Spacing="25">
+            <Button Command="{Binding OpenGenerationWindow}"
+                    Width="158" 
+                    Height="51" 
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="{x:Static assets:Resources.BackText}" />
+            </StackPanel>
+        </Panel>
+</UserControl>

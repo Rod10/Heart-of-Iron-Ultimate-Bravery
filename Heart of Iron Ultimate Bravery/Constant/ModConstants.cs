@@ -48,6 +48,7 @@ public static class ModConstants
             TankType.Light,
             TankType.Medium,
             TankType.Heavy,
+            TankType.SuperHeavy,
             TankType.Modern
         };
 

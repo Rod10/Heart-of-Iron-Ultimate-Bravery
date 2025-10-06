@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
 using MultiplayerViewModel = Heart_of_Iron_Ultimate_Bravery.ViewModels.Button.MultiplayerViewModel;
 using SettingsViewModel = Heart_of_Iron_Ultimate_Bravery.ViewModels.Button.SettingsViewModel;
+using UnitGenerationViewModel = Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel.UnitGenerationViewModel;
 
 namespace Heart_of_Iron_Ultimate_Bravery.ViewModels;
 
@@ -70,12 +71,15 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             CurrentButtonBlock = new SettingsViewModel();
         }
+        else if (windowsManagement.Buttons[WindowType.UnitGeneration])
+        {
+            CurrentButtonBlock = new Button.UnitGenerationViewModel();
+        }
     }
 
     private void SetNewPanel()
     {
         WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
-        GenerateViewModel? generateViewModel = ServiceCollectionExtensions.GetService<GenerateViewModel>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
         if (windowsManagement.Panels[WindowType.MainMenu])
         {
@@ -83,19 +87,23 @@ public partial class MainWindowViewModel : ViewModelBase
         } 
         else if (windowsManagement.Panels[WindowType.Generate])
         {
-            CurrentPanel = generateViewModel;
+            CurrentPanel = ServiceCollectionExtensions.GetService<GenerateViewModel>();
         }
         else if (windowsManagement.Panels[WindowType.Export])
         {
-            CurrentPanel = new Panel.ExportViewModel();
+            CurrentPanel = ServiceCollectionExtensions.GetService<ExportViewModel>();
         }
         else if (windowsManagement.Panels[WindowType.Multiplayer])
         {
-            CurrentPanel = new Panel.MultiplayerViewModel();
+            CurrentPanel = ServiceCollectionExtensions.GetService<Panel.MultiplayerViewModel>();
         }
         else if (windowsManagement.Panels[WindowType.Settings])
         {
-            CurrentPanel = new Panel.SettingsViewModel();
+            CurrentPanel = ServiceCollectionExtensions.GetService<Panel.SettingsViewModel>();
+        }
+        else if (windowsManagement.Panels[WindowType.UnitGeneration])
+        {
+            CurrentPanel = ServiceCollectionExtensions.GetService<UnitGenerationViewModel>();
         }
     }
 

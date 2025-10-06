@@ -12,14 +12,17 @@ public class WindowsManagement : IWindowsManagement
         Buttons.Add(WindowType.GenerateExport, true);
         Buttons.Add(WindowType.Multiplayer, false);
         Buttons.Add(WindowType.Settings, false);
+        Buttons.Add(WindowType.UnitGeneration, false);
         
         Panels.Add(WindowType.MainMenu, false);
         Panels.Add(WindowType.Generate, true);
         Panels.Add(WindowType.Export, false);
         Panels.Add(WindowType.Multiplayer, false);
         Panels.Add(WindowType.Settings, false);
+        Panels.Add(WindowType.UnitGeneration, false);
 
-        UnitType = UnitType.Ship;
+        // UnitType = UnitType.Ship;
+        UnitType = UnitType.Tank;
     }
 
     public Dictionary<WindowType, bool> Buttons { get; set; } =  new();

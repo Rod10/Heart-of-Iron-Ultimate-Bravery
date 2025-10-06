@@ -14,6 +14,16 @@
         <AvaloniaResource Remove="Data\**" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Kaiserreich\Images\game-icon.jpeg" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\game-icon.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Battleship.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Carrier.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Cruiser.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Destroyer.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Submarine.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Heavy_tank.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Light_tank.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Medium_tank.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Modern_tank.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\SuperHeavy_tank.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Data\langs.json">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AvaloniaResource>
@@ -551,6 +561,10 @@
           <DesignTime>True</DesignTime>
           <AutoGen>True</AutoGen>
           <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Button\UnitGenerationView.axaml.cs">
+          <DependentUpon>UnitGenerationView.axaml</DependentUpon>
+          <SubType>Code</SubType>
         </Compile>
     </ItemGroup>
 

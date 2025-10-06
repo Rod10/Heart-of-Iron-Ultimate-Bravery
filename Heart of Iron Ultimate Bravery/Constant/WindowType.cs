@@ -8,4 +8,5 @@ public enum WindowType
     Export,
     Multiplayer,
     Settings,
+    UnitGeneration
 }

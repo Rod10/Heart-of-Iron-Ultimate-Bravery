@@ -97,6 +97,11 @@ public class Country
             Tanks[tank.Type] = tank;
         }
     }
+
+    public Tank GetTankByType(TankType tankType)
+    {
+        return Tanks[tankType];
+    }
     
     /*private void InitializePlaneDictionary(string mod)
     {

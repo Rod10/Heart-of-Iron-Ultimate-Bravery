@@ -18,9 +18,11 @@ public class GenerateViewModel : PanelViewModelBase
 {
     private bool _allCountries;
     private int _selectedCountryIndex;
+    private Country _selectedCountry;
     private List<string> _cbCountriesName;
     
     public ObservableCollection<ButtonItem> ButtonsRow1 { get; set; } = new();
+    public ObservableCollection<ButtonItem> ButtonsRow2 { get; set; } = new();
     
     public GenerateViewModel()
     {
@@ -31,7 +33,7 @@ public class GenerateViewModel : PanelViewModelBase
         {
             CbCountriesName.Add(locFactory.GetString(settings.CurrentMod.Short, $"{country.Name}Text"));
         }
-
+        SelectedCountryIndex = 0;
         UpdateView();
     }   
     
@@ -44,7 +46,18 @@ public class GenerateViewModel : PanelViewModelBase
     public int SelectedCountryIndex
     {
         get { return _selectedCountryIndex; }
-        set { this.RaiseAndSetIfChanged(ref _selectedCountryIndex, value); }
+        set
+        {
+            Settings settings = ServiceCollectionExtensions.GetService<Settings>();
+            this.RaiseAndSetIfChanged(ref _selectedCountryIndex, value);
+            SelectedCountry = settings.CurrentMod.Countries[_selectedCountryIndex];
+        }
+    }
+
+    public Country SelectedCountry
+    {
+        get { return _selectedCountry; }
+        set { this.RaiseAndSetIfChanged(ref _selectedCountry, value); }
     }
 
     public List<string> CbCountriesName
@@ -56,6 +69,7 @@ public class GenerateViewModel : PanelViewModelBase
     public void UpdateView()
     {    // Clear previous content
         ButtonsRow1.Clear();
+        ButtonsRow2.Clear();
         
         WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
@@ -86,23 +100,19 @@ public class GenerateViewModel : PanelViewModelBase
 
     private void RenderShipGeneratePanel()
     {
-        Console.WriteLine("RenderShipGeneratePanel");
-    }
-
-    private void RenderTankGeneratePanel()
-    {
         Settings settings =  ServiceCollectionExtensions.GetService<Settings>();
-        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
+        ShipType[] validShipTypes = EnumHelper.GetEnumTypeArrayForMod<ShipType>(settings.CurrentMod.Short);
 
         int i = 0;
 
-        foreach (TankType tankType in validTankTypes)
+        foreach (ShipType shipType in validShipTypes)
         {
+            var modFiles = Directory.GetFiles(@$"./Assets/Mods/{settings.CurrentMod.Name}/Images/Units/Ship/Type", $"*{shipType.ToString()}*");
+            var modFile = modFiles[0];
+            var buttonImage = ImageHelper.LoadFromResource(modFile);
+            string name = $"Ship_{shipType.ToString()}";
             if (i >= 0 && i <= 2)
             {
-                var modFiles = Directory.GetFiles(@$"./Assets/Mods/{settings.CurrentMod.Name}/Images", "*game-icon*");
-                var modFile = modFiles[0];
-                var buttonImage = ImageHelper.LoadFromResource(modFile);
                 Thickness thickness = new Thickness();
                 HorizontalAlignment horizontalAlignment = HorizontalAlignment.Left;
                 switch (i)
@@ -125,13 +135,105 @@ public class GenerateViewModel : PanelViewModelBase
                         break;
                     }
                 }
-                Console.WriteLine(thickness);
-                Console.WriteLine(horizontalAlignment);
-                ButtonsRow1.Add(new ButtonItem(tankType.ToString(), thickness, buttonImage, horizontalAlignment));
+                ButtonsRow1.Add(new ButtonItem(name, thickness, buttonImage, horizontalAlignment));
+            }
+            else
+            {
+                Thickness thickness = new Thickness();
+                HorizontalAlignment horizontalAlignment = HorizontalAlignment.Left;
+                switch (i)
+                {
+                    case 3:
+                    {
+                        thickness = new Thickness(56, 0, 0, 0);
+                        break;
+                    }
+                    case 4:
+                    {
+                        thickness = new Thickness(0, 0, 0, 0);
+                        horizontalAlignment = HorizontalAlignment.Center;
+                        break;
+                    }
+                    case 5:
+                    {
+                        thickness = new Thickness(0, 0, 56, 0);
+                        horizontalAlignment = HorizontalAlignment.Right;
+                        break;
+                    }
+                }
+                ButtonsRow2.Add(new ButtonItem(name, thickness, buttonImage, horizontalAlignment));
             }
             i++;
         }
-        
+    }
+
+    private void RenderTankGeneratePanel()
+    {
+        Settings settings =  ServiceCollectionExtensions.GetService<Settings>();
+        TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(settings.CurrentMod.Short);
+
+        int i = 0;
+
+        foreach (TankType tankType in validTankTypes)
+        {
+            string name = $"Tank_{tankType.ToString()}";
+            var modFiles = Directory.GetFiles(@$"./Assets/Mods/{settings.CurrentMod.Name}/Images/Units/Tank/Type", $"*{tankType.ToString()}*");
+            var modFile = modFiles[0];
+            var buttonImage = ImageHelper.LoadFromResource(modFile);
+            if (i >= 0 && i <= 2)
+            {
+                Thickness thickness = new Thickness();
+                HorizontalAlignment horizontalAlignment = HorizontalAlignment.Left;
+                switch (i)
+                {
+                    case 0:
+                    {
+                        thickness = new Thickness(56, 0, 0, 0);
+                        break;
+                    }
+                    case 1:
+                    {
+                        thickness = new Thickness(0, 0, 0, 0);
+                        horizontalAlignment = HorizontalAlignment.Center;
+                        break;
+                    }
+                    case 2:
+                    {
+                        thickness = new Thickness(0, 0, 56, 0);
+                        horizontalAlignment = HorizontalAlignment.Right;
+                        break;
+                    }
+                }
+                ButtonsRow1.Add(new ButtonItem(name, thickness, buttonImage, horizontalAlignment));
+            }
+            else
+            {
+                Thickness thickness = new Thickness();
+                HorizontalAlignment horizontalAlignment = HorizontalAlignment.Left;
+                switch (i)
+                {
+                    case 3:
+                    {
+                        thickness = new Thickness(56, 0, 0, 0);
+                        break;
+                    }
+                    case 4:
+                    {
+                        thickness = new Thickness(0, 0, 0, 0);
+                        horizontalAlignment = HorizontalAlignment.Center;
+                        break;
+                    }
+                    case 5:
+                    {
+                        thickness = new Thickness(0, 0, 56, 0);
+                        horizontalAlignment = HorizontalAlignment.Right;
+                        break;
+                    }
+                }
+                ButtonsRow2.Add(new ButtonItem(name, thickness, buttonImage, horizontalAlignment));
+            }
+            i++;
+        }
     }
 
     private void RenderPlaneGeneratePanel()
