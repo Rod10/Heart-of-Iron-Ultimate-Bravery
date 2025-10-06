@@ -7,4 +7,5 @@ public interface IWindowsManagement
 {
     public Dictionary<WindowType, bool> Buttons { get; set; }
     public Dictionary<WindowType, bool> Panels { get; set; }
+    public UnitType UnitType { get; set; }
 }

@@ -13,7 +13,7 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenGenerateWindow()
     {
-        IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.GenerateExport] = true;
         windowsManagement.Panels[WindowType.MainMenu] = false;
@@ -25,7 +25,7 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenExportWindow()
     {
-        IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.GenerateExport] = true;
         windowsManagement.Panels[WindowType.MainMenu] = false;
@@ -37,7 +37,7 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenMultiplayerWindow()
     {
-        IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.Multiplayer] = true;
         windowsManagement.Panels[WindowType.MainMenu] = false;
@@ -49,7 +49,7 @@ public partial class MainMenuViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenSettingsWindow()
     {
-        IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         windowsManagement.Buttons[WindowType.MainMenu] = false;
         windowsManagement.Buttons[WindowType.Settings] = true;
         windowsManagement.Panels[WindowType.MainMenu] = false;

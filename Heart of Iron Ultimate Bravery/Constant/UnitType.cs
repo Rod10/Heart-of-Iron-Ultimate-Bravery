@@ -5,5 +5,6 @@ public enum UnitType
     Ship,
     Tank,
     Plane,
-    Division
+    Division,
+    Doctrine
 }

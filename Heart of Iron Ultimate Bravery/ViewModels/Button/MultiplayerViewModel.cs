@@ -18,7 +18,7 @@ public partial class MultiplayerViewModel : ButtonBlockViewModelBase
     [RelayCommand]
     public void OpenMainMenuWindow()
     {
-        IWindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>()!;
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         windowsManagement.Buttons[WindowType.Multiplayer] = false;
         windowsManagement.Buttons[WindowType.MainMenu] = true;
         windowsManagement.Panels[WindowType.Multiplayer] = false;

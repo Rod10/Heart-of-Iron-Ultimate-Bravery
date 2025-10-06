@@ -19,10 +19,10 @@ public class WindowsManagement : IWindowsManagement
         Panels.Add(WindowType.Multiplayer, false);
         Panels.Add(WindowType.Settings, false);
 
-        unitType = UnitType.Tank;
+        UnitType = UnitType.Ship;
     }
 
     public Dictionary<WindowType, bool> Buttons { get; set; } =  new();
     public Dictionary<WindowType, bool> Panels { get; set; } =  new();
-    public UnitType unitType { get; set; }
+    public UnitType UnitType { get; set; }
 }

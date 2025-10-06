@@ -52,7 +52,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     private void SetNewButtonBlock()
     {
-        IWindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>();
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
         if (windowsManagement.Buttons[WindowType.MainMenu])
         {
@@ -74,7 +74,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
     private void SetNewPanel()
     {
-        IWindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<IWindowsManagement>();
+        WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
+        GenerateViewModel? generateViewModel = ServiceCollectionExtensions.GetService<GenerateViewModel>();
         if (windowsManagement == null) throw new SystemException("windowsManagement is null");
         if (windowsManagement.Panels[WindowType.MainMenu])
         {
@@ -82,7 +83,7 @@ public partial class MainWindowViewModel : ViewModelBase
         } 
         else if (windowsManagement.Panels[WindowType.Generate])
         {
-            CurrentPanel = new Panel.GenerateViewModel();
+            CurrentPanel = generateViewModel;
         }
         else if (windowsManagement.Panels[WindowType.Export])
         {
