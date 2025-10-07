@@ -13,12 +13,17 @@
         <AvaloniaResource Include="Assets\**" />
         <AvaloniaResource Remove="Data\**" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Kaiserreich\Images\game-icon.jpeg" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\designer_background.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\equipment_icon_bg.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\game-icon.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\name_bg.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\role_bg.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Battleship.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Carrier.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Cruiser.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Destroyer.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Type\Submarine.png" />
+        <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\tank_blueprint_bg.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Heavy_tank.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Light_tank.png" />
         <AvaloniaResource Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Tank\Type\Medium_tank.png" />
@@ -527,6 +532,10 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4-beta1" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Xaml.Behaviors.Avalonia" Version="11.3.2" />
         <PackageReference Include="Xaml.Behaviors.Interactions.Custom" Version="11.3.2" />
     </ItemGroup>
@@ -569,7 +578,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Mods\Vanilla\Images\Units\Tank\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Converter\" />
       <Folder Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Generated\" />
       <Folder Include="Data\Mods\Vanilla\Converter\" />
@@ -1040,4 +1048,19 @@
       <Content Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Game\ideas\_manpower.txt" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="stylecop.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    <PropertyGroup>
+        <!-- Treat warnings as errors (optional, but good for CI/CD) -->
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
 </Project>

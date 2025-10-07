@@ -15,10 +15,7 @@
                     VerticalAlignment="Center"
                     Spacing="25">
             <Button Command="{Binding OpenGenerationWindow}"
-                    Width="158" 
-                    Height="51" 
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    Classes="ButtonMenu"
                     Content="{x:Static assets:Resources.BackText}" />
             </StackPanel>
         </Panel>
