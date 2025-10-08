@@ -1,40 +1,158 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
-             xmlns:models="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models"
-             mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
-             x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.UnitGenerationView"
-             x:DataType="vm:UnitGenerationViewModel">
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:vm="clr-namespace:Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel"
+       xmlns:models="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Models"
+       xmlns:assets="clr-namespace:Heart_of_Iron_Ultimate_Bravery.Assets.Localization"
+       mc:Ignorable="d" d:DesignWidth="938" d:DesignHeight="684"
+       x:Class="Heart_of_Iron_Ultimate_Bravery.Views.Panel.UnitGenerationView"
+       x:DataType="vm:UnitGenerationViewModel">
 
   <Design.DataContext>
-      <!-- This only sets the DataContext for the previewer in an IDE,
-           to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-      <vm:UnitGenerationViewModel/>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+       to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:UnitGenerationViewModel/>
   </Design.DataContext>
+  
+  
+  <Panel Background="#6D7A67" Width="938" Height="684">
+  <!-- Background -->
+  <Image Source="../../Assets/Mods/Vanilla/Images/designer_background.png" />
+  <Canvas>
+    <Canvas Left="15"
+            Top="147">
+     <Image Source="../../Assets/Mods/Vanilla/Images/name_bg.png" />
+    </Canvas>
+    <!-- Top Buttons Row -->
+    <Canvas Left="15"
+            Top="187">
+    <Image Source="../../Assets/Mods/Vanilla/Images/name_bg.png" />
+    </Canvas>
+    <Canvas Left="310"
+            Top="150">
+     <Image Width="120"
+            Source="../../Assets/Mods/Vanilla/Images/equipment_icon_bg.png" />
+    </Canvas>
+  </Canvas>
+  <!-- First Row Background -->
+  <ItemsControl ItemsSource="{Binding FirstRowBackground}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
     
-    <Panel Background="#6D7A67" Width="938" Height="684"> <!-- Red background to see the Canvas -->
-            <ItemsControl ItemsSource="{Binding FirstRowBackground}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas Background="Blue" /> <!-- Blue to see ItemsPanel -->
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            
-                <ItemsControl.DataTemplates>
-                    <DataTemplate DataType="models:DesignerItem">
-                        <Canvas Canvas.Left="{Binding Left}"
-                                Canvas.Top="{Binding Top}"
-                                Background="Yellow"
-                                Width="100"
-                                Height="100">
-                            <TextBlock Text="{Binding Left}" Foreground="Black"/>
-                            <Image Width="{Binding Width}"
-                                   Source="{Binding Image}"/>
-                        </Canvas>
-                    </DataTemplate>
-                </ItemsControl.DataTemplates>
-            </ItemsControl>
-    </Panel>
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="231" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+    
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <Image Width="{Binding Width}"
+               Source="{Binding Image}"/>
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+  <!-- /First Row Background -->
+  <Canvas>
+    <Canvas Left="15"
+            Top="136">
+      <Image Width="434"
+             Height="485"
+             Source="../../Assets/Mods/Vanilla/Images/Units/Tank/tank_blueprint_bg.png" />
+    </Canvas>
+  </Canvas>
+  <!-- Second Row Background -->
+  <ItemsControl ItemsSource="{Binding SecondRowBackground}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+      
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="485" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+      
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <Image Width="{Binding Width}"
+                 Source="{Binding Image}"/>
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+  <Canvas>
+    <Canvas Top="485"
+            Left="300">
+      <TextBlock Foreground="White"
+                 Text="{x:Static assets:Resources.EngineText}" />
+    </Canvas>
+    <Canvas Top="485"
+        Left="380">
+      <TextBlock Foreground="White"
+                 Text="{x:Static assets:Resources.ArmorText}" />
+    </Canvas>
+  </Canvas>
+  <!-- /Second Row Background -->
+  <!-- /Background -->
+  
+  <!-- Unit Value -->
+  <Canvas>
+    <Canvas Left="18"
+            Top="152">
+      <TextBox Width="273"
+               Text="{Binding UnitName}"/>
+    </Canvas>
+    <Canvas Left="18"
+            Top="191">
+      <TextBox Width="273"
+               IsReadOnly="True"
+               Text="{Binding UnitRole}"/>
+    </Canvas>
+    <Canvas Left="305"
+            Top="156">
+      <Image Width="120"
+             Source="../../Assets/Mods/Vanilla/Images/Units/Tank/Icons/Modern/GER_modern_BAA_camo.png" />
+    </Canvas>
+  </Canvas>
+  
+  
+  <ItemsControl ItemsSource="{Binding FirstRowSlot}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="{Binding Top}" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+    
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <Image Height="42"
+                 Source="{Binding Image}"/>
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+  
+  <!-- /Unit Value -->
+  </Panel>
+  
 </UserControl>

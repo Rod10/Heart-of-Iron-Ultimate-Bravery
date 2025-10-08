@@ -156,4 +156,10 @@
     <data name="EventText" xml:space="preserve">
         <value>Event</value>
     </data>
+    <data name="EngineText" xml:space="preserve">
+        <value>Engine</value>
+    </data>
+    <data name="ArmorText" xml:space="preserve">
+        <value>Armor</value>
+    </data>
 </root>

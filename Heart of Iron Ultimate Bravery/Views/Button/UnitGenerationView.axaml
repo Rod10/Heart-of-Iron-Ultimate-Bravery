@@ -14,6 +14,9 @@
         <StackPanel HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
                     Spacing="25">
+            <Button Command="{Binding Regenerate}"
+                    Classes="ButtonMenu"
+                    Content="{x:Static assets:Resources.RegenerateText}" />
             <Button Command="{Binding OpenGenerationWindow}"
                     Classes="ButtonMenu"
                     Content="{x:Static assets:Resources.BackText}" />

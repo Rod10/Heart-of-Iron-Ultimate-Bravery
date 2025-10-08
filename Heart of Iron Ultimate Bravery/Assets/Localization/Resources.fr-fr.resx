@@ -149,4 +149,10 @@
     <data name="EventText" xml:space="preserve">
         <value>Évènement</value>
     </data>
+    <data name="EngineText" xml:space="preserve">
+        <value>Moteur</value>
+    </data>
+    <data name="ArmorText" xml:space="preserve">
+        <value>Amure</value>
+    </data>
 </root>

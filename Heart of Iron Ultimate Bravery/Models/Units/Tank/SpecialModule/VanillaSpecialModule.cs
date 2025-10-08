@@ -21,7 +21,7 @@ public class VanillaSpecialModule : BaseSpecialModule
         SmokeLauncher,
         Adaptor,
         Stabilizer,
-        WetAmmo
+        WetAmmo,
     }
 
     public static readonly List<SpecialModuleType> Types = new()

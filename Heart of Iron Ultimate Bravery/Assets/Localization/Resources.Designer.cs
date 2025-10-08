@@ -69,6 +69,15 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All countries.
+        /// </summary>
+        public static string ArmorText {
+            get {
+                return ResourceManager.GetString("ArmorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         public static string BackText {
@@ -132,7 +141,16 @@ namespace Heart_of_Iron_Ultimate_Bravery.Assets.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Doctrine.
+        ///   Looks up a localized string similar to Engine.
+        /// </summary>
+        public static string EngineText {
+            get {
+                return ResourceManager.GetString("EngineText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnglishText.
         /// </summary>
         public static string EnglishText {
             get {
