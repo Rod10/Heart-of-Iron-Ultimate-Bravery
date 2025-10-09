@@ -92,17 +92,41 @@
       </DataTemplate>
     </ItemsControl.DataTemplates>
   </ItemsControl>
+  
+  <ItemsControl ItemsSource="{Binding SpecificDataBackground}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="485" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+    
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <TextBlock Foreground="White"
+                     Text="{Binding Text}" />
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+  
   <Canvas>
-    <Canvas Top="485"
+    <!--<Canvas Top="485"
             Left="300">
       <TextBlock Foreground="White"
                  Text="{x:Static assets:Resources.EngineText}" />
     </Canvas>
     <Canvas Top="485"
-        Left="380">
+            Left="380">
       <TextBlock Foreground="White"
                  Text="{x:Static assets:Resources.ArmorText}" />
-    </Canvas>
+    </Canvas>-->
   </Canvas>
   <!-- /Second Row Background -->
   <!-- /Background -->
@@ -153,6 +177,53 @@
     </ItemsControl.DataTemplates>
   </ItemsControl>
   
+  <ItemsControl ItemsSource="{Binding SecondRowSlot}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="{Binding Top}" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+    
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <Image Height="42"
+                 Source="{Binding Image}"/>
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+  
+  <ItemsControl ItemsSource="{Binding SpecificData}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas/> <!-- Blue to see ItemsPanel -->
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemContainerTheme>
+      <ControlTheme TargetType="ContentPresenter" x:DataType="models:DesignerItem">
+        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+        <Setter Property="Canvas.Top" Value="{Binding Top}" />
+      </ControlTheme>
+    </ItemsControl.ItemContainerTheme>
+    
+    <ItemsControl.DataTemplates>
+      <DataTemplate DataType="models:DesignerItem">
+        <Canvas>
+          <TextBlock Foreground="White"
+                     Text="{Binding Text}" />
+        </Canvas>
+      </DataTemplate>
+    </ItemsControl.DataTemplates>
+  </ItemsControl>
+
   <!-- /Unit Value -->
   </Panel>
   

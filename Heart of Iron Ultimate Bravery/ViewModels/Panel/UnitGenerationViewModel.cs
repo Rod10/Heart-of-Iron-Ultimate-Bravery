@@ -18,12 +18,12 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 {
   public class UnitGenerationViewModel : PanelViewModelBase
   {
-    private string _unitRole;
+    private string? _unitRole;
     private UnitType _unitType;
     private Settings? _settings;
-    private string _unitName;
-    private string _modName;
-    private string _unitSubType;
+    private string? _unitName;
+    private string? _modName;
+    private string? _unitSubType;
 
     public UnitGenerationViewModel()
     {
@@ -34,7 +34,13 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 
     public ObservableCollection<DesignerItem> SecondRowBackground { get; set; } = [];
 
+    public ObservableCollection<DesignerItem> SpecificDataBackground { get; set; } = [];
+
     public ObservableCollection<DesignerItem> FirstRowSlot { get; set; } = [];
+
+    public ObservableCollection<DesignerItem> SecondRowSlot { get; set; } = [];
+
+    public ObservableCollection<DesignerItem> SpecificData { get; set; } = [];
 
     public UnitType UnitType
     {
@@ -42,19 +48,19 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       set => this.RaiseAndSetIfChanged(ref _unitType, value);
     }
 
-    public string UnitSubType
+    public string? UnitSubType
     {
       get => _unitSubType;
       private set => this.RaiseAndSetIfChanged(ref _unitSubType, value);
     }
 
-    public string UnitName
+    public string? UnitName
     {
       get => _unitName;
       set => this.RaiseAndSetIfChanged(ref _unitName, value);
     }
 
-    public string UnitRole
+    public string? UnitRole
     {
       get => _unitRole;
       private set => this.RaiseAndSetIfChanged(ref _unitRole, value);
@@ -62,7 +68,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 
     public void UpdateView()
     {
-      WindowsManagement windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
+      WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
       UnitType = windowsManagement.UnitType;
     }
 
@@ -71,6 +77,8 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       FirstRowBackground.Clear();
       SecondRowBackground.Clear();
       FirstRowSlot.Clear();
+      SecondRowSlot.Clear();
+      SpecificData.Clear();
 
       _settings = ServiceCollectionExtensions.GetService<Settings>();
       _modName = _settings.CurrentMod.Name;
@@ -142,22 +150,25 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       VanillaSuspension suspension = tank.Suspension.GetImplementation<VanillaSuspension>();
       moduleName = $"{suspension.Type.ToString().FirstCharToLower()}";
       image = GetModuleImage("Suspension", moduleName);
-      FirstRowSlot.Add(new DesignerItem(image, 11, 485, 56));
+      SecondRowSlot.Add(new DesignerItem(image, 11, 485, 56));
       /* Suspension Slot */
 
       /* Armor Slot */
       VanillaArmor armor = tank.Armor.GetImplementation<VanillaArmor>();
       moduleName = $"{armor.Type.ToString().FirstCharToLower()}";
       image = GetModuleImage("Armor", moduleName);
-      FirstRowSlot.Add(new DesignerItem(image, 74, 485, 56));
+      SecondRowSlot.Add(new DesignerItem(image, 74, 485, 56));
       /* /Armor Slot */
 
       /* Engine Slot */
       VanillaEngine engine = tank.Engine.GetImplementation<VanillaEngine>();
       moduleName = $"{engine.Type.ToString().FirstCharToLower()}";
       image = GetModuleImage("Engine", moduleName);
-      FirstRowSlot.Add(new DesignerItem(image, 137, 485, 56));
+      SecondRowSlot.Add(new DesignerItem(image, 137, 485, 56));
       /* /Engine Slot */
+
+      SpecificData.Add(new DesignerItem(null, 315, 500, null, tank.EngineLevel.ToString()));
+      SpecificData.Add(new DesignerItem(null, 395, 500, null, tank.ArmorLevel.ToString()));
     }
 
     private void RenderVanillaBackground()
@@ -166,8 +177,8 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       string modFile = modFiles[0];
       Bitmap imageSlot = ImageHelper.LoadFromResource(modFile);
 
-      FirstRowBackground.Add(new DesignerItem(imageSlot, 13, 231, 65)); // Turret Slot
-      FirstRowBackground.Add(new DesignerItem(imageSlot, 76, 231, 65)); // Canon Slot
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 13, 231, 65));  // Turret Slot
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 76, 231, 65));  // Canon Slot
       FirstRowBackground.Add(new DesignerItem(imageSlot, 139, 231, 65)); // Special Module Slot
       FirstRowBackground.Add(new DesignerItem(imageSlot, 202, 231, 65)); // Special Module Slot
       FirstRowBackground.Add(new DesignerItem(imageSlot, 264, 231, 65)); // Special Module Slot
@@ -176,6 +187,9 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       SecondRowBackground.Add(new DesignerItem(imageSlot, 13, 485, 65));  // Suspension Slot
       SecondRowBackground.Add(new DesignerItem(imageSlot, 76, 485, 65));  // Armor Slot
       SecondRowBackground.Add(new DesignerItem(imageSlot, 139, 485, 65)); // Engine Module Slot
+
+      SpecificDataBackground.Add(new DesignerItem(null, 300, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"EngineText")));
+      SpecificDataBackground.Add(new DesignerItem(null, 380, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"ArmorText")));
     }
 
     /* /Vanilla Part */
