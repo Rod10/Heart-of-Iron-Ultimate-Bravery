@@ -112,12 +112,14 @@
     <Canvas Left="18"
             Top="152">
       <TextBox Width="273"
+               Classes="TextInputDesigner"
                Text="{Binding UnitName}"/>
     </Canvas>
     <Canvas Left="18"
             Top="191">
       <TextBox Width="273"
                IsReadOnly="True"
+               Classes="TextInputDesigner"
                Text="{Binding UnitRole}"/>
     </Canvas>
     <Canvas Left="305"
@@ -126,7 +128,6 @@
              Source="../../Assets/Mods/Vanilla/Images/Units/Tank/Icons/Modern/GER_modern_BAA_camo.png" />
     </Canvas>
   </Canvas>
-  
   
   <ItemsControl ItemsSource="{Binding FirstRowSlot}">
     <ItemsControl.ItemsPanel>

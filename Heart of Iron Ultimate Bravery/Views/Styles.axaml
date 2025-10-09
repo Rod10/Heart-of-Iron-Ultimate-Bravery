@@ -12,6 +12,17 @@
         <Setter Property="Background" Value="#2a2e2b" />
         <Setter Property="Foreground" Value="White" />
     </Style>
+    <Style Selector="TextBox.TextInputDesigner">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    <Style Selector="TextBox.TextInputDesigner:pointerover /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="TextBox.TextInputDesigner:focus /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
     <Style Selector="CheckBox:disabled /template/ ContentPresenter">
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontWeight" Value="Bold" />

@@ -1,10 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using Avalonia.Media.Imaging;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Armor;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Cannon;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Engine;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.SpecialModule;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Suspension;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Turret;
@@ -28,7 +31,9 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
     }
 
     public ObservableCollection<DesignerItem> FirstRowBackground { get; set; } = [];
+
     public ObservableCollection<DesignerItem> SecondRowBackground { get; set; } = [];
+
     public ObservableCollection<DesignerItem> FirstRowSlot { get; set; } = [];
 
     public UnitType UnitType
@@ -93,8 +98,8 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 
     private Bitmap GetModuleImage(string module, string moduleName)
     {
-      string[]? modFiles = Directory.GetFiles(@$"./Assets/Mods/{_modName}/Images/Units/Tank/Modules/{module}", $"*{moduleName}*");
-      string? modFile = modFiles[0];
+      string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_modName}/Images/Units/Tank/Modules/{module}", $"*{moduleName}*");
+      string modFile = modFiles[0];
       return ImageHelper.LoadFromResource(modFile);
     }
 
@@ -105,12 +110,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       RenderVanillaBackground();
       UnitName = tank.Name;
       UnitRole = tank.Role.ToString();
-      Bitmap? image;
 
       /* Turret Slot */
       VanillaTurret turret = tank.Turret.GetImplementation<VanillaTurret>();
       string moduleName = $"{turret.Type.ToString().ToLower()}_turret_{turret.Crew}";
-      image = GetModuleImage("Turret", moduleName);
+      Bitmap image = GetModuleImage("Turret", moduleName);
       FirstRowSlot.Add(new DesignerItem(image, 12, 231, 56));
       /* /Turret Slot */
 
@@ -121,13 +125,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       FirstRowSlot.Add(new DesignerItem(image, 80, 230, 56));
       /* /Canon Slot */
 
-      double[] left = [140, 203, 264, 327];
-
       /* Special Module Slot */
+      double[] left = [140, 203, 264, 327];
       int i = 0;
-      foreach (SpecialModule specialModule in tank.SpecialModules)
+      foreach (VanillaSpecialModule module in tank.SpecialModules.Select(specialModule => specialModule.GetImplementation<VanillaSpecialModule>()))
       {
-        VanillaSpecialModule module = specialModule.GetImplementation<VanillaSpecialModule>();
         moduleName = $"{module.Type.ToString().FirstCharToLower()}";
         image = GetModuleImage("Special", moduleName);
         FirstRowSlot.Add(new DesignerItem(image, left[i], 230, 56));
@@ -142,13 +144,27 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       image = GetModuleImage("Suspension", moduleName);
       FirstRowSlot.Add(new DesignerItem(image, 11, 485, 56));
       /* Suspension Slot */
+
+      /* Armor Slot */
+      VanillaArmor armor = tank.Armor.GetImplementation<VanillaArmor>();
+      moduleName = $"{armor.Type.ToString().FirstCharToLower()}";
+      image = GetModuleImage("Armor", moduleName);
+      FirstRowSlot.Add(new DesignerItem(image, 74, 485, 56));
+      /* /Armor Slot */
+
+      /* Engine Slot */
+      VanillaEngine engine = tank.Engine.GetImplementation<VanillaEngine>();
+      moduleName = $"{engine.Type.ToString().FirstCharToLower()}";
+      image = GetModuleImage("Engine", moduleName);
+      FirstRowSlot.Add(new DesignerItem(image, 137, 485, 56));
+      /* /Engine Slot */
     }
 
     private void RenderVanillaBackground()
     {
-      var modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/", "*equipment_icon_bg*");
-      var modFile = modFiles[0];
-      var imageSlot = ImageHelper.LoadFromResource(modFile);
+      string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/", "*equipment_icon_bg*");
+      string modFile = modFiles[0];
+      Bitmap imageSlot = ImageHelper.LoadFromResource(modFile);
 
       FirstRowBackground.Add(new DesignerItem(imageSlot, 13, 231, 65)); // Turret Slot
       FirstRowBackground.Add(new DesignerItem(imageSlot, 76, 231, 65)); // Canon Slot
