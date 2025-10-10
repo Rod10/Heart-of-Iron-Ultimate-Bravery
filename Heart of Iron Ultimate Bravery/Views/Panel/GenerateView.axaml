@@ -70,8 +70,8 @@
                         <ItemsControl.DataTemplates>
                             <DataTemplate DataType="models:ButtonItem">
                                 <Button Background="Transparent"
-                                        Height="100"
-                                        Width="100"
+                                        Height="150"
+                                        Width="150"
                                         Name="{Binding Name}"
                                         Click="Button_OnClick"
                                         HorizontalAlignment="{Binding HorizontalAlignment}"

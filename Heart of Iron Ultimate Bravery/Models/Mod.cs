@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
 using Newtonsoft.Json;
@@ -8,12 +9,17 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models
 {
   public class Mod
   {
+    public Mod()
+    {
+    }
+
     public Mod(string? name)
     {
       using (StreamReader file = File.OpenText("./Data/mods.json"))
       using (JsonTextReader reader = new JsonTextReader(file))
       {
         JObject rawData = (JObject)JToken.ReadFrom(reader);
+        Console.WriteLine(rawData.GetValue(name));
         JObject? modData = rawData.GetValue(name)!.Value<JObject>();
         Name = modData?["name"]?.ToString() ?? "Vanilla";
         Version = modData?["version"]?.ToString() ?? "0.0.0";
