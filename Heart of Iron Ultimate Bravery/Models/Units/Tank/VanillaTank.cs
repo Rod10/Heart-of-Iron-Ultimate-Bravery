@@ -96,11 +96,10 @@ public class VanillaTank : BaseTank
             TankType.Heavy => "Heavy Tank",
             TankType.Modern => "Modern Tank",
             TankType.SuperHeavy => "Super Heavy Tank",
-            _ => "Weird Tank"
+            _ => "Weird Tank",
         };
     }
-    
-    
+
     public override void InitializeModSpecificProperties()
     {
         // Initialize vanilla-specific defaults

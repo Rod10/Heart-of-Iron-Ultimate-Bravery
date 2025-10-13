@@ -66,4 +66,27 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
         Modern
         /* Base Game */
     }
+
+    public enum ShipVersion
+    {
+      /* Base Game */
+      Early,
+      Basic,
+      Improved,
+      Advanced,
+      TorpedoCruiser,
+      Panzerschiff,
+      CoastalDefenseShip,
+      PreDreadnought,
+      SuperHeavy,
+      Modern,
+      ConvertedCruiser,
+      ConverterBattleship,
+      Ice,
+      Midget,
+      Cruiser,
+      Fleet,
+      Nuclear
+      /* Base Game */
+    }
 }

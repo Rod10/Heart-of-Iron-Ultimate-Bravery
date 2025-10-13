@@ -1,9 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using Avalonia.Media.Imaging;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Armor;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Cannon;
@@ -72,6 +74,39 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       UnitType = windowsManagement.UnitType;
     }
 
+    public void UpdateView(Ship ship)
+    {
+      Console.WriteLine(ship.Type);
+      Console.WriteLine(ship.Version);
+      FirstRowBackground.Clear();
+      SecondRowBackground.Clear();
+      FirstRowSlot.Clear();
+      SecondRowSlot.Clear();
+      SpecificData.Clear();
+
+      _settings = ServiceCollectionExtensions.GetService<Settings>();
+      _modName = _settings.CurrentMod.Name;
+
+      // Route to appropriate mod-specific renderer
+      switch (_settings.CurrentMod.Short.ToLower())
+      {
+        case "vanilla":
+          // RenderVanillaTank(tank.GetImplementation<VanillaTank>());
+          break;
+        /*case "kaiserreich":
+            RenderKaiserreichTank(tank);
+            break;
+        case "road56":
+            RenderRoad56Tank(tank);
+            break;
+        case "millenniumdawn":
+            RenderMillenniumDawnTank(tank);
+            break;*/
+        default:
+          // RenderVanillaTank(tank.GetImplementation<VanillaTank>()); // Fallback
+          break;
+      }
+    }
     public void UpdateView(Tank tank)
     {
       FirstRowBackground.Clear();

@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel;
@@ -36,6 +37,36 @@ namespace Heart_of_Iron_Ultimate_Bravery.Views.Panel
       var unitType = (UnitType)Enum.Parse(typeof(UnitType), parts[0]);
       if (unitType == UnitType.Ship)
       {
+        var shipType = (ShipType)Enum.Parse(typeof(ShipType), parts[1]);
+        if (generateViewModel.AllCountries)
+        {
+          foreach (Country country in settings.CurrentMod.Countries)
+          {
+            Ship existingShip = country.GetShipByType(shipType);
+            if (existingShip == null)
+            {
+              Ship newShip = new Ship(shipType);
+              country.AddShip(newShip);
+            }
+          }
+
+          Ship shipToShow = generateViewModel.SelectedCountry.GetShipByType(shipType);
+          unitGenerationViewModel.UpdateView(shipToShow);
+        }
+        else
+        {
+          Ship existingShip = generateViewModel.SelectedCountry.GetShipByType(shipType);
+          if (existingShip == null)
+          {
+            Ship newShip = new Ship(shipType);
+            generateViewModel.SelectedCountry.AddShip(newShip);
+            unitGenerationViewModel.UpdateView(newShip);
+          }
+          else
+          {
+            unitGenerationViewModel.UpdateView(existingShip);
+          }
+        }
       }
       else if (unitType == UnitType.Tank)
       {

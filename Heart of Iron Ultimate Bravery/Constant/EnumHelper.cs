@@ -27,7 +27,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
 
       return enumType.Name switch
       {
-        // nameof(ShipType) => GetShipTypesForMod(modName) as T[],
+        // nameof(ShipType) => GetShipVersionForMod(modName) as T[],
         nameof(TankVersion) => GetTankVersionsForMod(modName) as T[],
 
         // nameof(PlaneType) => GetPlaneTypesForMod(modName) as T[],
@@ -36,6 +36,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
       };
     }
 
+    // Type
     private static ShipType[] GetShipTypesForMod(string modName)
     {
       return modName.ToLower() switch
@@ -58,32 +59,6 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
         // "road56" =>
         // "millenniumdawn" =>,
         _ => ModConstants.TankTypes.Vanilla,
-      };
-    }
-
-    private static TankVersion[] GetTankVersionsForMod(string modName)
-    {
-      return modName.ToLower() switch
-      {
-        "vanilla" => ModConstants.TankVersions.Vanilla,
-
-        // "kaiserreich" =>,
-        // "road56" =>
-        // "millenniumdawn" =>,
-        _ => ModConstants.TankVersions.Vanilla,
-      };
-    }
-
-    private static TurretType[] GetTurretTypesForMod(string modName)
-    {
-      return modName.ToLower() switch
-      {
-        "vanilla" => ModConstants.TurretTypes.Vanilla,
-
-        // "kaiserreich" =>
-        // "rod56" =>
-        // "millenniumdawn" =>
-        _ => ModConstants.TurretTypes.Vanilla,
       };
     }
 
@@ -110,6 +85,37 @@ namespace Heart_of_Iron_Ultimate_Bravery.Constant
         _ => ModConstants.DivisionTypes.Vanilla,
       };
     }
+
+    // Type
+
+    // Version
+    private static TankVersion[] GetTankVersionsForMod(string modName)
+    {
+      return modName.ToLower() switch
+      {
+        "vanilla" => ModConstants.TankVersions.Vanilla,
+
+        // "kaiserreich" =>,
+        // "road56" =>
+        // "millenniumdawn" =>,
+        _ => ModConstants.TankVersions.Vanilla,
+      };
+    }
+
+    private static ShipVersion[] GetShipVersionForMod(string modName)
+    {
+      return modName.ToLower() switch
+      {
+        "vanilla" => ModConstants.ShipVersions.Vanilla,
+
+        // "kaiserreich" =>,
+        // "road56" =>
+        // "millenniumdawn" =>,
+        _ => ModConstants.ShipVersions.Vanilla,
+      };
+    }
+
+    // Version
 
     // Helper method to check if a specific enum value is valid for a mod
     /* public static bool IsValidForMod<T>(string modName, T enumValue) where T : Enum

@@ -21,8 +21,7 @@ public class WindowsManagement : IWindowsManagement
         Panels.Add(WindowType.Settings, false);
         Panels.Add(WindowType.UnitGeneration, false);
 
-        // UnitType = UnitType.Ship;
-        UnitType = UnitType.Tank;
+        UnitType = UnitType.Ship;
     }
 
     public Dictionary<WindowType, bool> Buttons { get; set; } =  new();

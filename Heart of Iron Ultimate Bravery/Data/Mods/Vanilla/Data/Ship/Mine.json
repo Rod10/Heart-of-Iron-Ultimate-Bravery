@@ -1,0 +1,22 @@
+{
+  "destroyer/lightCruiser/heavyCruiser/submarine": {
+    "mineLaying": {
+      "early": {
+        "stats": {
+          "mineLaying": 1.0,
+          "mineSweeping": 0.0,
+          "maxSpeedP": -2.0
+        }
+      }
+    },
+    "mineSweeping": {
+      "early": {
+        "stats": {
+          "mineLaying": 0.0,
+          "mineSweeping": 1.0,
+          "maxSpeedP": -2.0
+        }
+      }
+    }
+  }
+}

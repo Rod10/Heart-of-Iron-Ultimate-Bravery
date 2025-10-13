@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 using Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel;
 
@@ -23,7 +24,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Button
 
       if (unitType == UnitType.Ship)
       {
-
+        ShipType shipType = Enum.Parse<ShipType>(unitGenerationViewModel.UnitSubType);
+        Ship ship = new Ship(shipType);
+        generateViewModel.SelectedCountry.AddShip(ship);
+        unitGenerationViewModel.UpdateView(ship);
       }
       else if (unitType == UnitType.Tank)
       {
