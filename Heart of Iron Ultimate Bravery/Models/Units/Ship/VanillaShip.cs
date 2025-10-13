@@ -8,6 +8,8 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
 {
   public class VanillaShip : BaseShip
   {
+    public ShipSubType? SubType;
+
     public enum ShipSubType
     {
       LightCruiser,
@@ -16,11 +18,9 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
       Battleship,
       SuperHeavyBattleship,
     }
-    
-    public ShipSubType? SubType;
-    
-    public Dictionary<VanillaModule.ModuleType, VanillaModule?> FixedModule;
-    public Dictionary<VanillaModule.ModuleType, VanillaModule?> CustomModule;
+
+    public List<KeyValuePair<VanillaModule.ModuleType, VanillaModule?>> FixedModule;
+    public List<KeyValuePair<VanillaModule.ModuleType, VanillaModule?>> CustomModule;
 
     private static readonly ShipVersion[] _destroyerVersions =
     [
@@ -67,7 +67,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
       else
       {
         ShipSubType[] shipAllowedSubTypes = GetAllowedSubType(Type);
-        SubType = shipAllowedSubTypes[rnd.Next(0, shipAllowedSubTypes.Length)];
+        if (shipAllowedSubTypes != null)
+        {
+          SubType = shipAllowedSubTypes[rnd.Next(0, shipAllowedSubTypes.Length)];
+        }
       }
 
       Console.WriteLine($@"ShipSubType: {SubType}");
@@ -76,11 +79,21 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
       Console.WriteLine(@"/** FixedModule **/");
       foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule> module in FixedModule)
       {
-        Console.WriteLine($@"{module.Key}: {module.Value.Version}");
+        string value = module.Value?.Version.ToString() ?? "NONE";
+        Console.WriteLine($@"{module.Key}: {value}");
       }
 
       Console.WriteLine(@"/** FixedModule **/");
+
       CustomModule = VanillaModule.GetCustomsModule(Type, SubType, Version);
+      Console.WriteLine(@"/** CustomModule **/");
+      foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule> module in CustomModule)
+      {
+        string value = module.Value?.Version.ToString() ?? "NONE";
+        Console.WriteLine($@"{module.Key}: {value}");
+      }
+
+      Console.WriteLine(@"/** CustomModule **/");
     }
 
     private ShipVersion[] GetAllowedVersionsForType(ShipType type)

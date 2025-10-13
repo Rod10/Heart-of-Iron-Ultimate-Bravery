@@ -50,93 +50,93 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       SuperHeavyBattleship,
     }
 
-    public static Dictionary<ModuleType, VanillaModule?> GetFixedModule(ShipType type, ShipVersion version, VanillaShip.ShipSubType? subType)
+    public static List<KeyValuePair<ModuleType, VanillaModule?>> GetFixedModule(ShipType type, ShipVersion version, VanillaShip.ShipSubType? subType)
     {
       return type switch
       {
-        ShipType.Destroyer => new Dictionary<ModuleType, VanillaModule?>
+        ShipType.Destroyer => new List<KeyValuePair<ModuleType, VanillaModule?>>
         {
-          { ModuleType.LightBattery, new VanillaModule().CreateModule(ModuleType.LightBattery) },
-          { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-          { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-          { ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar) },
-          { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-          { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-          { ModuleType.None, null },
+          new(ModuleType.LightBattery, new VanillaModule().CreateModule(ModuleType.LightBattery)),
+          new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+          new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+          new(ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar)),
+          new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+          new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+          new(ModuleType.None, null ),
         },
         ShipType.Cruiser => subType switch
         {
-          VanillaShip.ShipSubType.LightCruiser => new Dictionary<ModuleType, VanillaModule?>
+          VanillaShip.ShipSubType.LightCruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            { ModuleType.LightBattery, new VanillaModule().CreateModule(ModuleType.LightBattery) },
-            { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-            { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-            { ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar) },
-            { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-            { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-            { ModuleType.None, null },
+            new(ModuleType.LightBattery, new VanillaModule().CreateModule(ModuleType.LightBattery)),
+            new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+            new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+            new(ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar)),
+            new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+            new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+            new(ModuleType.None, null),
           },
-          VanillaShip.ShipSubType.HeavyCruiser => new Dictionary<ModuleType, VanillaModule?>
+          VanillaShip.ShipSubType.HeavyCruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            { ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.HeavyCruiser) },
-            { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-            { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-            { ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar) },
-            { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-            { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-            { ModuleType.None, null },
+            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.HeavyCruiser)),
+            new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+            new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+            new(ModuleType.Sonar, new VanillaModule().CreateModule(ModuleType.Sonar)),
+            new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+            new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+            new(ModuleType.None, null),
           },
           _ => throw new ArgumentException("Invalid ShipSubType"),
         },
         ShipType.Battleship => subType switch
         {
-          VanillaShip.ShipSubType.Battlecruiser => new Dictionary<ModuleType, VanillaModule?>
+          VanillaShip.ShipSubType.Battlecruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            { ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battlecruiser) },
-            { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-            { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-            { ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar) },
-            { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-            { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-            { ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor, VanillaShip.ShipSubType.Battlecruiser) },
+            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battlecruiser)),
+            new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+            new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+            new(ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar)),
+            new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+            new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+            new(ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor, VanillaShip.ShipSubType.Battlecruiser)),
           },
-          VanillaShip.ShipSubType.Battleship => new Dictionary<ModuleType, VanillaModule?>
+          VanillaShip.ShipSubType.Battleship => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            { ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battleship) },
-            { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-            { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-            { ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar) },
-            { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-            { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-            { ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor, VanillaShip.ShipSubType.Battleship) },
+            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battleship)),
+            new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+            new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+            new(ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar)),
+            new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+            new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+            new(ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor, VanillaShip.ShipSubType.Battleship)),
           },
-          VanillaShip.ShipSubType.SuperHeavyBattleship => new Dictionary<ModuleType, VanillaModule?>
+          VanillaShip.ShipSubType.SuperHeavyBattleship => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            { ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.SuperHeavyBattleship) },
-            { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-            { ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl) },
-            { ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar) },
-            { ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo) },
-            { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-            { ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor) },
+            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(ModuleType.HeavyBattery, VanillaShip.ShipSubType.SuperHeavyBattleship)),
+            new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+            new(ModuleType.FireControl, new VanillaModule().CreateModule(ModuleType.FireControl)),
+            new(ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar)),
+            new(ModuleType.Torpedo, new VanillaModule().CreateModule(ModuleType.Torpedo)),
+            new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+            new(ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor)),
           },
           _ => throw new ArgumentException("Invalid ShipSubType"),
         },
-        ShipType.Carrier => new Dictionary<ModuleType, VanillaModule?>
+        ShipType.Carrier => new List<KeyValuePair<ModuleType, VanillaModule?>>
         {
-          { ModuleType.Aircraft, new VanillaModule().CreateModule(ModuleType.Aircraft) },
-          { ModuleType.Aircraft, new VanillaModule().CreateModule(ModuleType.Aircraft) },
-          { ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir) },
-          { ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar) },
-          { ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine) },
-          { ModuleType.Secondary, new VanillaModule().CreateModule(ModuleType.Secondary) },
-          { ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor) },
+          new(ModuleType.Aircraft, new VanillaModule().CreateModule(ModuleType.Aircraft)),
+          new(ModuleType.Aircraft, new VanillaModule().CreateModule(ModuleType.Aircraft)),
+          new(ModuleType.AntiAir, new VanillaModule().CreateModule(ModuleType.AntiAir)),
+          new(ModuleType.Radar, new VanillaModule().CreateModule(ModuleType.Radar)),
+          new(ModuleType.Engine, new VanillaModule().CreateModule(ModuleType.Engine)),
+          new(ModuleType.Secondary, new VanillaModule().CreateModule(ModuleType.Secondary)),
+          new(ModuleType.Armor, new VanillaModule().CreateModule(ModuleType.Armor)),
         },
         _ => throw new ArgumentException("Invalid ShipType"),
       };
     }
 
-    public static Dictionary<ModuleType, VanillaModule?> GetCustomsModule(ShipType type,
+    public static new List<KeyValuePair<ModuleType, VanillaModule?>> GetCustomsModule(ShipType type,
       VanillaShip.ShipSubType? subType, ShipVersion version)
     {
       return type switch
@@ -172,11 +172,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       return "vanilla";
     }
 
-    private static Dictionary<ModuleType, VanillaModule?> GetDestroyerCustomsModules(ShipVersion version)
+    private static List<KeyValuePair<ModuleType, VanillaModule?>> GetDestroyerCustomsModules(ShipVersion version)
     {
       var rnd = new Random();
-      Dictionary<ModuleType, VanillaModule?> customModules = new();
-      var customModulesSlot = new ModuleType[][] { };
+      List<KeyValuePair<ModuleType, VanillaModule?>> customModules = new List<KeyValuePair<ModuleType, VanillaModule?>>();
+      var customModulesSlot = new ModuleType[7][];
       switch (version)
       {
         case ShipVersion.Early:
@@ -257,18 +257,18 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
         }
 
         ModuleType type = slot[rnd.Next(0, slot.Length)];
-        customModules.Add(type, new VanillaModule().CreateModule(type));
+        customModules.Add(new KeyValuePair<ModuleType, VanillaModule?>(type, new VanillaModule().CreateModule(type)));
       }
 
       return customModules;
     }
 
-    private static Dictionary<ModuleType, VanillaModule?> GetCruiserCustomsModules(
+    private static List<KeyValuePair<ModuleType, VanillaModule?>> GetCruiserCustomsModules(
       VanillaShip.ShipSubType? subType,
       ShipVersion version)
     {
       var rnd = new Random();
-      Dictionary<ModuleType, VanillaModule?> customModules = new();
+      List<KeyValuePair<ModuleType, VanillaModule?>> customModules = new();
       var customModulesSlot = new ModuleType[7][];
 
       if (version == ShipVersion.Panzerschiff)
@@ -374,7 +374,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
         }
 
         ModuleType type = slot[rnd.Next(0, slot.Length)];
-        customModules.Add(type, new VanillaModule().CreateModule(type));
+        customModules.Add(new KeyValuePair<ModuleType, VanillaModule?>(type, new VanillaModule().CreateModule(type)));
       }
 
       return customModules;

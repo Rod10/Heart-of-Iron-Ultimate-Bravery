@@ -91,7 +91,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       switch (_settings.CurrentMod.Short.ToLower())
       {
         case "vanilla":
-          // RenderVanillaTank(tank.GetImplementation<VanillaTank>());
+          RenderVanillaShip(ship.GetImplementation<VanillaShip>());
           break;
         /*case "kaiserreich":
             RenderKaiserreichTank(tank);
@@ -107,6 +107,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
           break;
       }
     }
+
     public void UpdateView(Tank tank)
     {
       FirstRowBackground.Clear();
@@ -147,10 +148,19 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
     }
 
     /* Vanilla Part */
+
+    private void RenderVanillaShip(VanillaShip ship)
+    {
+      UnitSubType = ship.Type.ToString();
+      RenderVanillaShipBackground();
+      UnitName = ship.Name;
+      UnitRole = ship.Type.ToString();
+    }
+
     private void RenderVanillaTank(VanillaTank tank)
     {
       UnitSubType = tank.Type.ToString();
-      RenderVanillaBackground();
+      RenderVanillaTankBackground();
       UnitName = tank.Name;
       UnitRole = tank.Role.ToString();
 
@@ -206,7 +216,33 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       SpecificData.Add(new DesignerItem(null, 395, 500, null, tank.ArmorLevel.ToString()));
     }
 
-    private void RenderVanillaBackground()
+    private void RenderVanillaShipBackground()
+    {
+      string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/", "*equipment_icon_bg*");
+      string modFile = modFiles[0];
+      Bitmap imageSlot = ImageHelper.LoadFromResource(modFile);
+
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 13, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 76, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 139, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 202, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 264, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 327, 231, 65));
+      FirstRowBackground.Add(new DesignerItem(imageSlot, 390, 231, 65));
+
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 13, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 76, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 139, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 202, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 264, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 327, 485, 65));
+      SecondRowBackground.Add(new DesignerItem(imageSlot, 390, 485, 65));
+
+      SpecificDataBackground.Add(new DesignerItem(null, 300, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"EngineText")));
+      SpecificDataBackground.Add(new DesignerItem(null, 380, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"ArmorText")));
+    }
+
+    private void RenderVanillaTankBackground()
     {
       string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/", "*equipment_icon_bg*");
       string modFile = modFiles[0];

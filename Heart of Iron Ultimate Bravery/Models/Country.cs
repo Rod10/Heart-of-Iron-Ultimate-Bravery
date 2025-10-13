@@ -63,7 +63,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models
 
     private void InitializeShipDictionary(string mod)
     {
-      Ships = new Dictionary<ShipType, Ship?>();
+      Ships = [];
       ShipType[] validShipTypes = EnumHelper.GetEnumTypeArrayForMod<ShipType>(mod);
 
       foreach (ShipType shipType in validShipTypes)
@@ -74,7 +74,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models
 
     private void InitializeTankDictionary(string mod)
     {
-      Tanks = new Dictionary<TankType, Tank?>();
+      Tanks = [];
       TankType[] validTankTypes = EnumHelper.GetEnumTypeArrayForMod<TankType>(mod);
 
       foreach (TankType tankType in validTankTypes)
@@ -105,14 +105,14 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models
       }
     }
 
-    public Tank GetTankByType(TankType tankType)
-    {
-      return Tanks[tankType];
-    }
-
     public Ship GetShipByType(ShipType shipType)
     {
       return Ships[shipType];
+    }
+
+    public Tank GetTankByType(TankType tankType)
+    {
+      return Tanks[tankType];
     }
 
     /*private void InitializePlaneDictionary(string mod)
