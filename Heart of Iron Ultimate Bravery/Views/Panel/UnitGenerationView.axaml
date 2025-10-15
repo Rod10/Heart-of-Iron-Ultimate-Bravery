@@ -65,7 +65,7 @@
             Top="136">
       <Image Width="434"
              Height="485"
-             Source="../../Assets/Mods/Vanilla/Images/Units/Tank/tank_blueprint_bg.png" />
+             Source="{Binding BlueprintBackground}" />
     </Canvas>
   </Canvas>
   <!-- Second Row Background -->
@@ -115,19 +115,6 @@
       </DataTemplate>
     </ItemsControl.DataTemplates>
   </ItemsControl>
-  
-  <Canvas>
-    <!--<Canvas Top="485"
-            Left="300">
-      <TextBlock Foreground="White"
-                 Text="{x:Static assets:Resources.EngineText}" />
-    </Canvas>
-    <Canvas Top="485"
-            Left="380">
-      <TextBlock Foreground="White"
-                 Text="{x:Static assets:Resources.ArmorText}" />
-    </Canvas>-->
-  </Canvas>
   <!-- /Second Row Background -->
   <!-- /Background -->
   

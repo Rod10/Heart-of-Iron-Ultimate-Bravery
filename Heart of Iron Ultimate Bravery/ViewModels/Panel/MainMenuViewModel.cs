@@ -34,8 +34,8 @@ public class MainMenuViewModel : PanelViewModelBase
         var modFiles = Directory.GetFiles(@$"./Assets/Mods/{ModName}/Images", "*game-icon*");
         var modFile = modFiles[0];
         ActivatedModIconBitmap = ImageHelper.LoadFromResource(modFile);
-        
-        
+
+
         string fileName = $"Data/mods.json";
         string jsonString = File.ReadAllText(fileName);
         JsonObject jsonData = JsonSerializer.Deserialize<JsonObject>(jsonString)!;

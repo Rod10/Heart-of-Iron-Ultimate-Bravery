@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using Avalonia.Media.Imaging;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
 using Heart_of_Iron_Ultimate_Bravery.Models;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship;
+using Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Armor;
 using Heart_of_Iron_Ultimate_Bravery.Models.Units.Tank.Cannon;
@@ -26,6 +28,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
     private string? _unitName;
     private string? _modName;
     private string? _unitSubType;
+    private Bitmap? _unitBackground;
 
     public UnitGenerationViewModel()
     {
@@ -68,6 +71,12 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       private set => this.RaiseAndSetIfChanged(ref _unitRole, value);
     }
 
+    public Bitmap BlueprintBackground
+    {
+      get => _unitBackground;
+      private set => this.RaiseAndSetIfChanged(ref _unitBackground, value);
+    }
+
     public void UpdateView()
     {
       WindowsManagement? windowsManagement = ServiceCollectionExtensions.GetService<WindowsManagement>();
@@ -76,8 +85,6 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 
     public void UpdateView(Ship ship)
     {
-      Console.WriteLine(ship.Type);
-      Console.WriteLine(ship.Version);
       FirstRowBackground.Clear();
       SecondRowBackground.Clear();
       FirstRowSlot.Clear();
@@ -155,6 +162,11 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       RenderVanillaShipBackground();
       UnitName = ship.Name;
       UnitRole = ship.Type.ToString();
+
+      foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule?> module in ship.CustomModule)
+      {
+        string moduleName = module.Key.ToString();
+      }
     }
 
     private void RenderVanillaTank(VanillaTank tank)
@@ -238,13 +250,14 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       SecondRowBackground.Add(new DesignerItem(imageSlot, 327, 485, 65));
       SecondRowBackground.Add(new DesignerItem(imageSlot, 390, 485, 65));
 
-      SpecificDataBackground.Add(new DesignerItem(null, 300, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"EngineText")));
-      SpecificDataBackground.Add(new DesignerItem(null, 380, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"ArmorText")));
+      modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/Units/Ship/", "*ship_view_bg*");
+      modFile = modFiles[0];
+      BlueprintBackground = ImageHelper.LoadFromResource(modFile);
     }
 
     private void RenderVanillaTankBackground()
     {
-      string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/", "*equipment_icon_bg*");
+      string[] modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images", "*equipment_icon_bg*");
       string modFile = modFiles[0];
       Bitmap imageSlot = ImageHelper.LoadFromResource(modFile);
 
@@ -261,6 +274,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
 
       SpecificDataBackground.Add(new DesignerItem(null, 300, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"EngineText")));
       SpecificDataBackground.Add(new DesignerItem(null, 380, 485, null, Assets.Localization.Resources.ResourceManager.GetString($"ArmorText")));
+
+      modFiles = Directory.GetFiles(@$"./Assets/Mods/{_settings.CurrentMod.Name}/Images/Units/Tank", "*tank_blueprint_bg*");
+      modFile = modFiles[0];
+      BlueprintBackground = ImageHelper.LoadFromResource(modFile);
     }
 
     /* /Vanilla Part */

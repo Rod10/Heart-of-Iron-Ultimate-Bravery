@@ -55,11 +55,8 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
     {
       Random rnd = new Random();
       Type = type;
-      Console.WriteLine($@"Type: {Type}");
       ShipVersion[] shipVersionsAllowedForType = GetAllowedVersionsForType(type);
       Version = shipVersionsAllowedForType[rnd.Next(0, shipVersionsAllowedForType.Length)];
-      Console.WriteLine($@"Version: {Version}");
-
       if (Version == ShipVersion.Panzerschiff)
       {
         SubType = ShipSubType.HeavyCruiser;
@@ -73,27 +70,17 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship
         }
       }
 
-      Console.WriteLine($@"ShipSubType: {SubType}");
-
       FixedModule = VanillaModule.GetFixedModule(Type, Version, SubType);
-      Console.WriteLine(@"/** FixedModule **/");
       foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule> module in FixedModule)
       {
         string value = module.Value?.Version.ToString() ?? "NONE";
-        Console.WriteLine($@"{module.Key}: {value}");
       }
 
-      Console.WriteLine(@"/** FixedModule **/");
-
       CustomModule = VanillaModule.GetCustomsModule(Type, SubType, Version);
-      Console.WriteLine(@"/** CustomModule **/");
       foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule> module in CustomModule)
       {
         string value = module.Value?.Version.ToString() ?? "NONE";
-        Console.WriteLine($@"{module.Key}: {value}");
       }
-
-      Console.WriteLine(@"/** CustomModule **/");
     }
 
     private ShipVersion[] GetAllowedVersionsForType(ShipType type)

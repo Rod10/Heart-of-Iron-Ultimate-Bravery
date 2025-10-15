@@ -858,6 +858,7 @@
       <Content Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Modules\Torpedo\Sub_torpedo_launcher_2.png" />
       <Content Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Modules\Torpedo\Sub_torpedo_launcher_3.png" />
       <Content Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\Modules\Torpedo\Sub_torpedo_launcher_4.png" />
+      <Content Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\ship_view_bg.png" />
       <Content Include="bin\Debug\net9.0\Assets\Mods\Vanilla\Images\Units\Ship\TopView\topview_destroyer.png" />
       <Content Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Game\countries\ABK - Abkhazia.txt" />
       <Content Include="bin\Debug\net9.0\Data\Mods\Vanilla\Files\Game\countries\ADU - Andalusia.txt" />
