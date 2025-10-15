@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Heart_of_Iron_Ultimate_Bravery.Constant;
@@ -53,6 +54,13 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       Advanced,
       SuperHeavyBattleship,
     }
+
+    public static readonly ModuleType[] HasSubType =
+    [
+      ModuleType.LightBattery,
+      ModuleType.Mine,
+      ModuleType.Secondary
+    ];
 
     public static List<KeyValuePair<ModuleType, VanillaModule?>> GetFixedModule(ShipType type, ShipVersion version, VanillaShip.ShipSubType? subType)
     {
@@ -156,24 +164,38 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       Random rnd = new Random();
       Type = moduleType;
       JsonObject jsonData = GetJsonData(moduleType);
-      List<string> allowedKeys = new();
+      List<string> allowedModule = new();
       foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
       {
         if (subObj.Key.Contains(shipType.ToString().FirstCharToLower()))
         {
-          allowedKeys.Add(subObj.Key);
+          allowedModule.Add(subObj.Key);
         }
       }
-      
-      string choosenKey = allowedKeys[rnd.Next(0, allowedKeys.Count)];
-      jsonData = JsonSerializer.Deserialize<JsonObject>(jsonData[choosenKey])!;
-      List<string> allowedSubType = new();
-      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+
+      string choosenModule = allowedModule[rnd.Next(0, allowedModule.Count)];
+      jsonData = JsonSerializer.Deserialize<JsonObject>(jsonData[choosenModule])!;
+
+      if (HasSubType.Contains(moduleType))
       {
-        allowedSubType.Add(subObj.Key);
+        List<string> allowedSubType = new();
+        foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+        {
+          allowedSubType.Add(subObj.Key);
+        }
+
+        SubType = Enum.Parse<ModuleSubType>(allowedSubType[rnd.Next(0, allowedSubType.Count)].FirstCharToUpper());
+        jsonData = JsonSerializer.Deserialize<JsonObject>(jsonData[SubType.ToString().FirstCharToLower()])!;
       }
 
-      SubType = Enum.Parse<ModuleSubType>(allowedSubType[rnd.Next(0, allowedSubType.Count)].FirstCharToUpper());
+      List<string> allowedVersion = new();
+      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+      {
+        allowedVersion.Add(subObj.Key);
+      }
+
+      Version = Enum.Parse<ModuleVersion>(allowedVersion[rnd.Next(0, allowedVersion.Count)].FirstCharToUpper());
+
       return this;
     }
 
