@@ -163,9 +163,17 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       UnitName = ship.Name;
       UnitRole = ship.Type.ToString();
 
+      double[] left = [12, 80, 140, 203, 264, 327];
+      int i = 0;
       foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule?> module in ship.CustomModule)
       {
-        string moduleName = module.Key.ToString();
+        string slotName = module.Key.ToString();
+        string moduleName = $"{}";
+
+        // Bitmap image = GetModuleImage(slotName, moduleName);
+
+        // FirstRowBackground.Add(new DesignerItem(image, left[i], 231, 56));
+        i++;
       }
     }
 

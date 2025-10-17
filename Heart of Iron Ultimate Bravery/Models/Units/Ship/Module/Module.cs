@@ -8,7 +8,7 @@
     {
       _implementation = ModuleFactory.CreateModule();
     }
-    
+
     // Method to get the actual implementation (for mod-specific operations)
     public T GetImplementation<T>() where T : BaseModule
     {

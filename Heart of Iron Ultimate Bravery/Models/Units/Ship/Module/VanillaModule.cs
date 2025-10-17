@@ -15,6 +15,13 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
     public ModuleSubType? SubType;
     public ModuleVersion Version;
 
+    private static readonly ModuleType[] _hasSubType =
+    [
+      ModuleType.LightBattery,
+      ModuleType.Mine,
+      ModuleType.Secondary
+    ];
+
     public enum ModuleType
     {
       Aircraft,
@@ -55,48 +62,43 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       SuperHeavyBattleship,
     }
 
-    public static readonly ModuleType[] HasSubType =
-    [
-      ModuleType.LightBattery,
-      ModuleType.Mine,
-      ModuleType.Secondary
-    ];
-
     public static List<KeyValuePair<ModuleType, VanillaModule?>> GetFixedModule(ShipType type, ShipVersion version, VanillaShip.ShipSubType? subType)
     {
       return type switch
       {
         ShipType.Destroyer => new List<KeyValuePair<ModuleType, VanillaModule?>>
         {
-          new(ModuleType.LightBattery, new VanillaModule().CreateModule(type, ModuleType.LightBattery)),
-          new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-          new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-          new(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
-          new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-          new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-          new(ModuleType.None, null),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.LightBattery, new VanillaModule().CreateModule(type, ModuleType.LightBattery)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.None, null),
         },
         ShipType.Cruiser => subType switch
         {
           VanillaShip.ShipSubType.LightCruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            new(ModuleType.LightBattery, new VanillaModule().CreateModule(type, ModuleType.LightBattery)),
-            new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-            new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-            new(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
-            new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-            new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-            new(ModuleType.None, null),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.LightBattery, new VanillaModule().CreateModule(type, ModuleType.LightBattery)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.None, null),
           },
           VanillaShip.ShipSubType.HeavyCruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.HeavyCruiser)),
-            new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-            new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-            new(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
-            new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-            new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-            new(ModuleType.None, null),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.HeavyBattery,
+              new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.HeavyCruiser)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Sonar, new VanillaModule().CreateModule(type, ModuleType.Sonar)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.None, null),
           },
           _ => throw new ArgumentException("Invalid ShipSubType"),
         },
@@ -104,52 +106,64 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
         {
           VanillaShip.ShipSubType.Battlecruiser => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battlecruiser)),
-            new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-            new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-            new(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
-            new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-            new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-            new(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor, VanillaShip.ShipSubType.Battlecruiser)),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.HeavyBattery,
+              new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battlecruiser)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.Armor,
+              new VanillaModule().CreateModule(type, ModuleType.Armor, VanillaShip.ShipSubType.Battlecruiser)),
           },
           VanillaShip.ShipSubType.Battleship => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battleship)),
-            new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-            new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-            new(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
-            new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-            new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-            new(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor, VanillaShip.ShipSubType.Battleship)),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.HeavyBattery,
+              new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.Battleship)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.Armor,
+              new VanillaModule().CreateModule(type, ModuleType.Armor, VanillaShip.ShipSubType.Battleship)),
           },
           VanillaShip.ShipSubType.SuperHeavyBattleship => new List<KeyValuePair<ModuleType, VanillaModule?>>
           {
-            new(ModuleType.HeavyBattery, new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.SuperHeavyBattleship)),
-            new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-            new(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
-            new(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
-            new(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
-            new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-            new(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor)),
+            new KeyValuePair<ModuleType, VanillaModule?>(
+              ModuleType.HeavyBattery,
+              new VanillaModule().CreateModule(type, ModuleType.HeavyBattery, VanillaShip.ShipSubType.SuperHeavyBattleship)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.FireControl, new VanillaModule().CreateModule(type, ModuleType.FireControl)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Torpedo, new VanillaModule().CreateModule(type, ModuleType.Torpedo)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+            new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor)),
           },
           _ => throw new ArgumentException("Invalid ShipSubType"),
         },
         ShipType.Carrier => new List<KeyValuePair<ModuleType, VanillaModule?>>
         {
-          new(ModuleType.Aircraft, new VanillaModule().CreateModule(type, ModuleType.Aircraft)),
-          new(ModuleType.Aircraft, new VanillaModule().CreateModule(type, ModuleType.Aircraft)),
-          new(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
-          new(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
-          new(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
-          new(ModuleType.Secondary, new VanillaModule().CreateModule(type, ModuleType.Secondary)),
-          new(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Aircraft, new VanillaModule().CreateModule(type, ModuleType.Aircraft)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Aircraft, new VanillaModule().CreateModule(type, ModuleType.Aircraft)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.AntiAir, new VanillaModule().CreateModule(type, ModuleType.AntiAir)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Radar, new VanillaModule().CreateModule(type, ModuleType.Radar)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Engine, new VanillaModule().CreateModule(type, ModuleType.Engine)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Secondary, new VanillaModule().CreateModule(type, ModuleType.Secondary)),
+          new KeyValuePair<ModuleType, VanillaModule?>(ModuleType.Armor, new VanillaModule().CreateModule(type, ModuleType.Armor)),
         },
         _ => throw new ArgumentException("Invalid ShipType"),
       };
     }
 
-    public static List<KeyValuePair<ModuleType, VanillaModule?>> GetCustomsModule(ShipType type,
-      VanillaShip.ShipSubType? subType, ShipVersion version)
+    public static List<KeyValuePair<ModuleType, VanillaModule?>> GetCustomsModule(
+      ShipType type,
+      VanillaShip.ShipSubType? subType,
+      ShipVersion version)
     {
       return type switch
       {
@@ -159,60 +173,16 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       };
     }
 
-    public VanillaModule CreateModule(ShipType shipType, ModuleType moduleType)
+    public static string GetModuleString(ShipType shipType, VanillaModule module)
     {
-      Random rnd = new Random();
-      Type = moduleType;
-      JsonObject jsonData = GetJsonData(moduleType);
-      List<string> allowedModule = new();
-      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+      switch (module.Type)
       {
-        if (subObj.Key.Contains(shipType.ToString().FirstCharToLower()))
-        {
-          allowedModule.Add(subObj.Key);
-        }
+        case ModuleType.Aircraft:
+          {
+            break;
+          }
       }
-
-      string choosenModule = allowedModule[rnd.Next(0, allowedModule.Count)];
-      jsonData = JsonSerializer.Deserialize<JsonObject>(jsonData[choosenModule])!;
-
-      if (HasSubType.Contains(moduleType))
-      {
-        List<string> allowedSubType = new();
-        foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
-        {
-          allowedSubType.Add(subObj.Key);
-        }
-
-        SubType = Enum.Parse<ModuleSubType>(allowedSubType[rnd.Next(0, allowedSubType.Count)].FirstCharToUpper());
-        jsonData = JsonSerializer.Deserialize<JsonObject>(jsonData[SubType.ToString().FirstCharToLower()])!;
-      }
-
-      List<string> allowedVersion = new();
-      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
-      {
-        allowedVersion.Add(subObj.Key);
-      }
-
-      Version = Enum.Parse<ModuleVersion>(allowedVersion[rnd.Next(0, allowedVersion.Count)].FirstCharToUpper());
-
-      return this;
-    }
-
-    public VanillaModule CreateModule(ShipType shipType, ModuleType moduleType, VanillaShip.ShipSubType? subType)
-    {
-      Type = moduleType;
-      JsonObject jsonData = GetJsonData(moduleType);
-      List<string> keysAllowed = new();
-      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
-      {
-        if (subObj.Key.Contains(subType.ToString().FirstCharToLower()))
-        {
-          keysAllowed.Add(shipType.ToString().FirstCharToLower());
-        }
-      }
-
-      return this;
+      return "";
     }
 
     public override void InitializeModSpecificProperties()
@@ -228,17 +198,10 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       return "vanilla";
     }
 
-    private JsonObject GetJsonData(ModuleType type)
-    {
-      string fileName = $"Data/Mods/Vanilla/Data/Ship/{type.ToString()}.json";
-      string jsonString = File.ReadAllText(fileName);
-      return JsonSerializer.Deserialize<JsonObject>(jsonString)!;
-    }
-
     private static List<KeyValuePair<ModuleType, VanillaModule?>> GetDestroyerCustomsModules(ShipVersion version)
     {
       var rnd = new Random();
-      List<KeyValuePair<ModuleType, VanillaModule?>> customModules = new List<KeyValuePair<ModuleType, VanillaModule?>>();
+      var customModules = new List<KeyValuePair<ModuleType, VanillaModule?>>();
       var customModulesSlot = new ModuleType[7][];
       switch (version)
       {
@@ -331,7 +294,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       ShipVersion version)
     {
       var rnd = new Random();
-      List<KeyValuePair<ModuleType, VanillaModule?>> customModules = new();
+      List<KeyValuePair<ModuleType, VanillaModule?>> customModules = new List<KeyValuePair<ModuleType, VanillaModule?>>();
       var customModulesSlot = new ModuleType[7][];
 
       if (version == ShipVersion.Panzerschiff)
@@ -441,6 +404,69 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
       }
 
       return customModules;
+    }
+
+    private VanillaModule CreateModule(ShipType shipType, ModuleType moduleType)
+    {
+      var rnd = new Random();
+      Type = moduleType;
+      JsonObject jsonData = GetJsonData(moduleType);
+      List<string> allowedModule = new List<string>();
+      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+      {
+        if (subObj.Key.Contains(shipType.ToString().FirstCharToLower()))
+        {
+          allowedModule.Add(subObj.Key);
+        }
+      }
+
+      string choosenModule = allowedModule[rnd.Next(0, allowedModule.Count)];
+      jsonData = jsonData[choosenModule].Deserialize<JsonObject>()!;
+
+      if (_hasSubType.Contains(moduleType))
+      {
+        List<string> allowedSubType = new List<string>();
+        foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+        {
+          allowedSubType.Add(subObj.Key);
+        }
+
+        SubType = Enum.Parse<ModuleSubType>(allowedSubType[rnd.Next(0, allowedSubType.Count)].FirstCharToUpper());
+        jsonData = jsonData[SubType.ToString().FirstCharToLower()].Deserialize<JsonObject>()!;
+      }
+
+      List<string> allowedVersion = new List<string>();
+      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+      {
+        allowedVersion.Add(subObj.Key);
+      }
+
+      Version = Enum.Parse<ModuleVersion>(allowedVersion[rnd.Next(0, allowedVersion.Count)].FirstCharToUpper());
+
+      return this;
+    }
+
+    private VanillaModule CreateModule(ShipType shipType, ModuleType moduleType, VanillaShip.ShipSubType? subType)
+    {
+      Type = moduleType;
+      JsonObject jsonData = GetJsonData(moduleType);
+      List<string> keysAllowed = new List<string>();
+      foreach (KeyValuePair<string, JsonNode?> subObj in jsonData)
+      {
+        if (subObj.Key.Contains(subType.ToString().FirstCharToLower()))
+        {
+          keysAllowed.Add(shipType.ToString().FirstCharToLower());
+        }
+      }
+
+      return this;
+    }
+
+    private JsonObject GetJsonData(ModuleType type)
+    {
+      string fileName = $"Data/Mods/Vanilla/Data/Ship/{type.ToString()}.json";
+      string jsonString = File.ReadAllText(fileName);
+      return JsonSerializer.Deserialize<JsonObject>(jsonString)!;
     }
   }
 }
