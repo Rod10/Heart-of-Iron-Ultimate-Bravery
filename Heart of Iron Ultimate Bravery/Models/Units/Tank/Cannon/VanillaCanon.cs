@@ -103,7 +103,7 @@ public class VanillaCannon : BaseCannon
     private void GetAllowedCannonType()
     {
         Random rnd = new Random();
-        List<CannonType>  allowedCannonType = new List<CannonType>();
+        List<CannonType> allowedCannonType = new List<CannonType>();
         JsonObject jsonData = GetJsonData();
 
         foreach (CannonType cannonType in CannonTypes)

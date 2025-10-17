@@ -576,6 +576,7 @@
             ]
         },
         "antiAirMedium": {
+          "size": "medium",
             "type": {
                 "advanced": {
                     "technologies": ["antiAir"],
