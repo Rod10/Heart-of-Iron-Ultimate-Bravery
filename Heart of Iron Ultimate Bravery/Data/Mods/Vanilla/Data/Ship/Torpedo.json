@@ -1,5 +1,6 @@
 {
   "submarine": {
+    "fileName": "SubTorpedoLauncher",
     "early": {
       "stats": {
         "torpedoAttack": 14.0,
@@ -30,6 +31,7 @@
     }
   },
   "destroyer/lightCruiser/heavyCruiser/battleCruiser": {
+    "fileName": "ShipTorpedoLauncher",
     "early": {
       "stats": {
         "torpedoAttack": 18.0,

@@ -1,73 +1,76 @@
 {
   "lightCruiser": {
+    "fileName": "ArmorThin",
     "early": {
       "stats": {
         "armor": 6.0,
         "hpP": 0.0,
         "maxSpeedP": -5.0,
         "surfaceVisibility": 0.0
-      },
-      "basic": {
-        "stats": {
-          "armor": 8.0,
-          "hpP": 5.0,
-          "maxSpeedP": -7.5,
-          "surfaceVisibility": 0.0
-        }
-      },
-      "improved": {
-        "stats": {
-          "armor": 10.0,
-          "hpP": 10.0,
-          "maxSpeedP": -10.0,
-          "surfaceVisibility": 0.0
-        }
-      },
-      "advanced": {
-        "stats": {
-          "armor": 12.0,
-          "hpP": 15.0,
-          "maxSpeedP": -12.5,
-          "surfaceVisibility": 0.0
-        }
+      }
+    },
+    "basic": {
+      "stats": {
+        "armor": 8.0,
+        "hpP": 5.0,
+        "maxSpeedP": -7.5,
+        "surfaceVisibility": 0.0
+      }
+    },
+    "improved": {
+      "stats": {
+        "armor": 10.0,
+        "hpP": 10.0,
+        "maxSpeedP": -10.0,
+        "surfaceVisibility": 0.0
+      }
+    },
+    "advanced": {
+      "stats": {
+        "armor": 12.0,
+        "hpP": 15.0,
+        "maxSpeedP": -12.5,
+        "surfaceVisibility": 0.0
       }
     }
   },
   "heavyCruiser": {
+    "fileName": "ArmorThin",
     "early": {
       "stats": {
         "armor": 6.0,
         "hpP": 0.0,
         "maxSpeedP": -5.0,
         "surfaceVisibility": 0.0
-      },
-      "basic": {
-        "stats": {
-          "armor": 8.0,
-          "hpP": 5.0,
-          "maxSpeedP": -7.5,
-          "surfaceVisibility": 0.0
-        }
-      },
-      "improved": {
-        "stats": {
-          "armor": 10.0,
-          "hpP": 10.0,
-          "maxSpeedP": -10.0,
-          "surfaceVisibility": 0.0
-        }
-      },
-      "advanced": {
-        "stats": {
-          "armor": 12.0,
-          "hpP": 15.0,
-          "maxSpeedP": -12.5,
-          "surfaceVisibility": 0.0
-        }
+      }
+    },
+    "basic": {
+      "stats": {
+        "armor": 8.0,
+        "hpP": 5.0,
+        "maxSpeedP": -7.5,
+        "surfaceVisibility": 0.0
+      }
+    },
+    "improved": {
+      "stats": {
+        "armor": 10.0,
+        "hpP": 10.0,
+        "maxSpeedP": -10.0,
+        "surfaceVisibility": 0.0
+      }
+    },
+    "advanced": {
+      "stats": {
+        "armor": 12.0,
+        "hpP": 15.0,
+        "maxSpeedP": -12.5,
+        "surfaceVisibility": 0.0
       }
     }
   },
   "battleship": {
+    "fileName": "ArmorThick",
     "early": {
       "stats": {
         "armor": 30.0,
@@ -94,6 +97,7 @@
     }
   },
   "battlecruiser": {
+    "fileName": "Armor",
     "early": {
       "stats": {
         "armor": 22.0,
@@ -120,6 +124,7 @@
     }
   },
   "superHeavyBattleship": {
+    "fileName": "AmorThick",
     "basic": {
       "stats": {
         "armor": 55.0,
@@ -130,6 +135,7 @@
     }
   },
   "carrier": {
+    "fileName": "ArmorThin",
     "basic": {
       "stats": {
         "armor": 5.0,

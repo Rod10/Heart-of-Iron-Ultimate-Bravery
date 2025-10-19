@@ -1,5 +1,6 @@
 {
   "destroyer/lightCruiser/heavyCruiser": {
+    "fileName": "DepthCharge",
     "early": {
       "stats": {
         "submarineAttack": 8.0,

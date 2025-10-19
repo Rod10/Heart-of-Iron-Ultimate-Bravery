@@ -168,7 +168,7 @@ namespace Heart_of_Iron_Ultimate_Bravery.ViewModels.Panel
       foreach (KeyValuePair<VanillaModule.ModuleType, VanillaModule?> module in ship.CustomModule)
       {
         string slotName = module.Key.ToString();
-        string moduleName = $"{}";
+        // string moduleName = $"{}";
 
         // Bitmap image = GetModuleImage(slotName, moduleName);
 

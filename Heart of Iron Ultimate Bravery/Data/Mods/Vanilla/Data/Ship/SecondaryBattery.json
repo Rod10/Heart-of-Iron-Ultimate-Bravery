@@ -1,6 +1,7 @@
 {
   "lightCruiser/heavyCruiser/battlecruiser/battleship/superHeavyBattleship/carrier": {
     "secondary": {
+      "fileName": "SecondaryBattery",
       "early": {
         "stats": {
           "lightAttack": 3.0,
@@ -21,6 +22,7 @@
       }
     },
     "dualPurpose": {
+      "fileName": "DpSecondaryBattery",
       "early": {
         "stats": {
           "lightAttack": 2.0,

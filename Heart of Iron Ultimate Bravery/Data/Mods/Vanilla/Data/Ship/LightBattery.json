@@ -1,6 +1,7 @@
 {
   "destroyer": {
     "light": {
+    "fileName": "LightBattery",
       "early": {
         "stats": {
           "lightAttack": 1.0,
@@ -41,6 +42,7 @@
   },
   "lightCruiser": {
     "lightCruiser": {
+    "fileName": "MediumLightBattery",
       "early": {
         "stats": {
           "lightAttack": 4.0,
@@ -79,6 +81,7 @@
       }
     },
     "autoLoader": {
+    "fileName": "DpMediumLightBattery",
       "early": {
         "stats": {
           "lightAttack": 7.5,
@@ -92,6 +95,7 @@
   },
   "destroyer/lightCruiser": {
     "dualPurpose": {
+    "fileName": "DPLightBattery",
       "early": {
         "stats": {
           "lightAttack": 1.0,

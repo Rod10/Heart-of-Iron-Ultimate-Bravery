@@ -1,5 +1,6 @@
 {
   "destroyer/lightCruiser/heavyCruiser/battlecruiser/battleship/superHeavyBattleship/": {
+    "fileName": "FireControlSystem",
     "early": {
       "stats": {
         "antiAirP": 0.0

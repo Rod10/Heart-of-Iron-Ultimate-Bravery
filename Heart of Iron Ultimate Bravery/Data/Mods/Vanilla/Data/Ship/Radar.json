@@ -1,5 +1,6 @@
 {
   "destroyer/lightCruiser/heavyCruiser/battlecruiser/battleship/superHeavyBattleship/carrier/submarine": {
+    "fileName": "Radar",
     "early": {
       "stats": {
         "surfaceDetection": 5.0,

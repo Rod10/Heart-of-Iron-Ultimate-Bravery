@@ -1,5 +1,6 @@
 {
   "heavyCruiser": {
+    "fileName": "MediumBattery",
     "early": {
       "stats": {
         "heavyAttack": 6.0,
@@ -38,6 +39,7 @@
     }
   },
   "battleship/battlecruiser": {
+    "fileName": "HeavyBattery",
     "early": {
       "stats": {
         "heavyAttack": 14.0,
@@ -72,6 +74,7 @@
     }
   },
   "superHeavyBattleship": {
+    "fileName": "HeavyBattery",
     "early": {
       "stats": {
         "heavyAttack": 14.0,

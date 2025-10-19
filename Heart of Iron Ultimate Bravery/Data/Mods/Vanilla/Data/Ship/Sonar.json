@@ -1,5 +1,6 @@
 {
   "destroyer/lightCruiser/heavyCruiser/battlecruiser/battleship/superHeavyBattleship/carrier/submarine": {
+    "fileName": "Sonar",
     "basic": {
       "subDetection": 6.0
     },

@@ -175,13 +175,6 @@ namespace Heart_of_Iron_Ultimate_Bravery.Models.Units.Ship.Module
 
     public static string GetModuleString(ShipType shipType, VanillaModule module)
     {
-      switch (module.Type)
-      {
-        case ModuleType.Aircraft:
-          {
-            break;
-          }
-      }
       return "";
     }
 

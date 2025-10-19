@@ -1,5 +1,6 @@
 {
   "destroyer": {
+    "fileName": "Engine",
     "early": {
       "stats": {
         "subVisibilityP": 0.0,
@@ -26,6 +27,7 @@
     }
   },
   "lightCruiser/heavyCruiser": {
+    "fileName":"Engine",
     "early": {
       "stats": {
         "subVisibilityP": 0.0,
@@ -52,6 +54,7 @@
     }
   },
   "battleship/battlecruiser/superHeavyBattleship": {
+    "fileName":"Engine",
     "early": {
       "stats": {
         "subVisibilityP": 0.0,
@@ -78,6 +81,7 @@
     }
   },
   "carrier": {
+    "fileName":"Engine",
     "early": {
       "stats": {
         "subVisibilityP": 0.0,
@@ -104,6 +108,7 @@
     }
   },
   "submarine": {
+    "fileName":"Engine",
     "early": {
       "stats": {
         "subVisibilityP": 0.0,

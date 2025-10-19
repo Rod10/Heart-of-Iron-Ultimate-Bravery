@@ -1,5 +1,6 @@
 {
   "destroyer/lightCruiser/heavyCruiser/battlecruiser/battleship/superHeavyBattleship/carrier": {
+    "fileName": "AntiAir",
     "early": {
       "stats": {
         "antiAir": 2.5,

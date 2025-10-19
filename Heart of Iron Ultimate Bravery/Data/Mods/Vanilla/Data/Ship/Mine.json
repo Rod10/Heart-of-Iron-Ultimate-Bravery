@@ -1,6 +1,7 @@
 {
   "destroyer/lightCruiser/heavyCruiser/submarine": {
     "mineLaying": {
+    "fileName": "MinelayingRails",
       "early": {
         "stats": {
           "mineLaying": 1.0,
@@ -10,6 +11,7 @@
       }
     },
     "mineSweeping": {
+    "fileName": "MineSweepingGear",
       "early": {
         "stats": {
           "mineLaying": 0.0,
